@@ -1,0 +1,11 @@
+E:\PetStore\Model\bin\Debug\Model.dll.config
+E:\PetStore\Model\bin\Debug\Model.dll
+E:\PetStore\Model\bin\Debug\Model.pdb
+E:\PetStore\Model\bin\Debug\EntityFramework.dll
+E:\PetStore\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\PetStore\Model\bin\Debug\EntityFramework.xml
+E:\PetStore\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\PetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\PetStore\Model\obj\Debug\Model.csproj.CopyComplete
+E:\PetStore\Model\obj\Debug\Model.dll
+E:\PetStore\Model\obj\Debug\Model.pdb
