@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.Repository;
+using PetStore.Areas.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,23 @@ namespace PetStore.Areas.Admin.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userRepo = new UserRepository();
+                var result = userRepo.Login(model.Username, model.Password);
+                if (result)
+                {
+
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Đăng nhập không thành công");
+            }
+            return View("Index");
         }
     }
 }

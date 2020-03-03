@@ -122,6 +122,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -129,6 +132,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Admin\dist\assets\demo\chart-area-demo.js" />
+    <Content Include="Assets\Admin\dist\assets\demo\chart-bar-demo.js" />
+    <Content Include="Assets\Admin\dist\assets\demo\chart-pie-demo.js" />
+    <Content Include="Assets\Admin\dist\assets\demo\datatables-demo.js" />
+    <Content Include="Assets\Admin\dist\assets\img\error-404-monochrome.svg" />
+    <Content Include="Assets\Admin\dist\css\styles.css" />
+    <Content Include="Assets\Admin\dist\js\scripts.js" />
+    <Content Include="Assets\Admin\scripts\build-assets.js" />
+    <Content Include="Assets\Admin\scripts\build-pug.js" />
+    <Content Include="Assets\Admin\scripts\build-scripts.js" />
+    <Content Include="Assets\Admin\scripts\build-scss.js" />
+    <Content Include="Assets\Admin\scripts\clean.js" />
+    <Content Include="Assets\Admin\scripts\render-assets.js" />
+    <Content Include="Assets\Admin\scripts\render-pug.js" />
+    <Content Include="Assets\Admin\scripts\render-scripts.js" />
+    <Content Include="Assets\Admin\scripts\render-scss.js" />
+    <Content Include="Assets\Admin\scripts\sb-watch.js" />
+    <Content Include="Assets\Admin\scripts\start-debug.js" />
+    <Content Include="Assets\Admin\scripts\start.js" />
+    <Content Include="Assets\Admin\src\assets\demo\chart-area-demo.js" />
+    <Content Include="Assets\Admin\src\assets\demo\chart-bar-demo.js" />
+    <Content Include="Assets\Admin\src\assets\demo\chart-pie-demo.js" />
+    <Content Include="Assets\Admin\src\assets\demo\datatables-demo.js" />
+    <Content Include="Assets\Admin\src\assets\img\error-404-monochrome.svg" />
+    <Content Include="Assets\Admin\src\js\scripts.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -140,6 +168,46 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Assets\Admin\src\pug\layouts\authentication.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\dashboard.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\error.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\footer.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\head\css.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\head\title.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="Assets\Admin\src\pug\layouts\includes\scripts.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\401.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\404.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\500.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\charts.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\includes\datatable.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\includes\page-header.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\index.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\layout-static.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\login.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\password.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\register.pug" />
+    <Content Include="Assets\Admin\src\pug\pages\tables.pug" />
+    <Content Include="Assets\Admin\src\scss\layout\_authentication.scss" />
+    <Content Include="Assets\Admin\src\scss\layout\_dashboard-default.scss" />
+    <Content Include="Assets\Admin\src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="Assets\Admin\src\scss\layout\_error.scss" />
+    <Content Include="Assets\Admin\src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="Assets\Admin\src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="Assets\Admin\src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="Assets\Admin\src\scss\navigation\_nav.scss" />
+    <Content Include="Assets\Admin\src\scss\navigation\_topnav.scss" />
+    <Content Include="Assets\Admin\src\scss\styles.scss" />
+    <Content Include="Assets\Admin\src\scss\variables\_navigation.scss" />
+    <Content Include="Assets\Admin\src\scss\variables\_spacing.scss" />
+    <Content Include="Assets\Admin\src\scss\_global.scss" />
+    <Content Include="Assets\Admin\src\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -168,9 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Login\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
