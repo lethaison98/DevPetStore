@@ -34,7 +34,7 @@ namespace Model.Repository
                 return 0;
             }
             else{
-                if(result.Status != false)
+                if(result.Status != true)
                 {
                     return 2;
                 }

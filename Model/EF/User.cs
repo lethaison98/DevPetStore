@@ -30,12 +30,12 @@ namespace Model.EF
         [StringLength(30)]
         public string SoDienThoai { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? ModifyDate { get; set; }
 
-        public bool? isAdmin { get; set; }
+        public bool isAdmin { get; set; }
     }
 }
