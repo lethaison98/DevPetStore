@@ -78,3 +78,5 @@ E:\PetStore\PetStore\obj\Debug\PetStore.csprojAssemblyReference.cache
 E:\PetStore\PetStore\obj\Debug\PetStore.csproj.CopyComplete
 E:\PetStore\PetStore\obj\Debug\PetStore.dll
 E:\PetStore\PetStore\obj\Debug\PetStore.pdb
+E:\PetStore\PetStore\bin\EntityFramework.SqlServer.dll
+E:\PetStore\PetStore\bin\EntityFramework.SqlServer.xml

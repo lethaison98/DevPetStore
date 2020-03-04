@@ -5,8 +5,8 @@ using System.Web;
 
 namespace PetStore.Common
 {
-    public class CommonConstants
+    public static class CommonConstants
     {
-        public String USER_SESSION = "USER_SESSION";
+        public static String USER_SESSION = "USER_SESSION";
     }
 }

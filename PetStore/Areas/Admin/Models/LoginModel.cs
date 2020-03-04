@@ -8,9 +8,9 @@ namespace PetStore.Areas.Admin.Models
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "Xin mời nhập Username")]
+        [Required(ErrorMessage = "UserName không được để trống")]
         public String Username { get; set; }
-        [Required(ErrorMessage = "Xin mời nhập Password")]
+        [Required(ErrorMessage = "Password không được để trống")]
         public String Password { get; set; }
         public bool RememberPass { get; set; }
 

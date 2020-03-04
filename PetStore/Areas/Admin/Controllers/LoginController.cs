@@ -1,5 +1,6 @@
 ﻿using Model.Repository;
 using PetStore.Areas.Admin.Models;
+using PetStore.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +22,33 @@ namespace PetStore.Areas.Admin.Controllers
             {
                 var userRepo = new UserRepository();
                 var result = userRepo.Login(model.Username, model.Password);
-                if (result)
+                if (result ==1)
                 {
-
+                    var user = userRepo.GetByID(model.Username);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.Username;
+                    userSession.UserID = user.ID_User;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return RedirectToAction("index", "HomeAdmin");
+                }
+                else
+                {
+                    if(result == 0)
+                    {
+                        ModelState.AddModelError("", "Tài khoản không tồn tại");
+                    }
+                    if(result == 2)
+                    {
+                        ModelState.AddModelError("", "Tài khoản đã bị khóa");
+                    }
+                    if(result == 3)
+                    {
+                        ModelState.AddModelError("", "Mật khẩu sai");
+                    }
+                    
                 }
             }
-            else
-            {
-                ModelState.AddModelError("", "Đăng nhập không thành công");
-            }
+            
             return View("Index");
         }
     }

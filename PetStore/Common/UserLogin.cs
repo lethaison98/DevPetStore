@@ -9,6 +9,6 @@ namespace PetStore.Common
     public class UserLogin
     {        
         public int UserID { get; set; }
-        public int UserName { get; set; }
+        public String UserName { get; set; }
     }
 }

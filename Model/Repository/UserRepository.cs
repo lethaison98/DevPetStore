@@ -21,16 +21,36 @@ namespace Model.Repository
             return entity.ID_User;
 
         }
-
-        public bool Login(string username, string password)
+        public User GetByID(String userName)
         {
-            var result = db.Users.Count(x => x.Username == username && x.Password == password);
-            if (result >=0)
+            return (db.Users.SingleOrDefault(x => x.Username == userName));
+        }
+
+        public int Login(string username, string password)
+        {
+            var result = db.Users.SingleOrDefault(x => x.Username == username);
+            if (result == null)
             {
-                return true;
+                return 0;
             }
-            else {
-                return false;        
+            else{
+                if(result.Status != false)
+                {
+                    return 2;
+                }
+                else
+                {
+                    if(password == result.Password)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 3;
+                    }
+                }
+
+                
             }
         }
     }
