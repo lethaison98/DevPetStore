@@ -162,3 +162,7 @@ E:\KLTN\Dev\PetStore\PetStore\obj\Debug\PetStore.csprojAssemblyReference.cache
 E:\KLTN\Dev\PetStore\PetStore\obj\Debug\PetStore.csproj.CopyComplete
 E:\KLTN\Dev\PetStore\PetStore\obj\Debug\PetStore.dll
 E:\KLTN\Dev\PetStore\PetStore\obj\Debug\PetStore.pdb
+E:\PetStore\PetStore\bin\PagedList.dll
+E:\PetStore\PetStore\bin\PagedList.Mvc.dll
+E:\PetStore\PetStore\bin\PagedList.xml
+E:\PetStore\PetStore\bin\PagedList.Mvc.xml

@@ -24,7 +24,7 @@ namespace PetStore.Areas.Admin.Controllers
                 var result = userRepo.Login(model.Username, model.Password);
                 if (result ==1)
                 {
-                    var user = userRepo.GetByID(model.Username);
+                    var user = userRepo.GetByUsername(model.Username);
                     var userSession = new UserLogin();
                     userSession.UserName = user.Username;
                     userSession.UserID = user.ID_User;

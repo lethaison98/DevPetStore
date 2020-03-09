@@ -1,0 +1,66 @@
+﻿@model  PagedList.IPagedList<Model.EF.User> 
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Quản lý người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý tài khoản</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>PassWord</th>
+                        <th>Tên người dùng</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Active</th>
+                        <th>Is Admin</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+
+                        <th>UserName</th>
+                        <th>PassWord</th>
+                        <th>Tên người dùng</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Active</th>
+                        <th>Is Admin</th>
+                        <th>#</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                   @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Username</td>
+                            <td>@item.Password</td>
+                            <td>@item.Ten</td>
+                            <td>@item.DiaChi</td>
+                            <td>@item.Email</td>
+                            <td>@item.SoDienThoai</td>
+                            <td>@item.Status</td>
+                            <td>@item.IsAdmin</td>
+                            <td>
+                                <a href="/Admin/UserManagement/Edit/@item.ID_User">Sửa</a>
+                                |
+                                <a href="/Admin/UserManagement/Edit/@item.ID_User">Xóa</a>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new {Page}))
+        </div>
+    </div>
+</div>

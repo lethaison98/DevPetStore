@@ -36,6 +36,6 @@ namespace Model.EF
 
         public DateTime? ModifyDate { get; set; }
 
-        public bool isAdmin { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

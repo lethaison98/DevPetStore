@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model.EF;
+using PagedList;
+
 namespace Model.Repository
 {
     public class UserRepository
@@ -16,12 +18,37 @@ namespace Model.Repository
 
         public int InsertOrUpdate(User entity)
         {
-            db.Users.Add(entity);
-            db.SaveChanges();
+            var x = entity.ID_User;
+      
+            if (entity.ID_User <= 0)
+            {
+                db.Users.Add(entity);
+                db.SaveChanges();
+            }
+            else
+            {
+                var user = db.Users.Find(entity.ID_User);
+                user.Username = entity.Username;
+                user.Password = entity.Password;
+                user.Ten = entity.Ten;
+                user.SoDienThoai = entity.SoDienThoai;
+                user.Email = entity.Email;
+                user.ModifyDate = DateTime.Now; 
+                db.SaveChanges();
+            }
             return entity.ID_User;
 
         }
-        public User GetByID(String userName)
+
+        public IEnumerable<User> ListAllPaging(int page, int pageSize)
+        {
+            return db.Users.OrderByDescending(x => x.Username).ToPagedList(page, pageSize);
+        }
+        public User GetByID(int id)
+        {
+            return (db.Users.Find(id));
+        }
+        public User GetByUsername(String userName)
         {
             return (db.Users.SingleOrDefault(x => x.Username == userName));
         }

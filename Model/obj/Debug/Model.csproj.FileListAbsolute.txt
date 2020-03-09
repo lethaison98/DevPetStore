@@ -20,3 +20,7 @@ E:\KLTN\Dev\PetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\KLTN\Dev\PetStore\Model\obj\Debug\Model.dll
 E:\KLTN\Dev\PetStore\Model\obj\Debug\Model.pdb
 E:\KLTN\Dev\PetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\PetStore\Model\bin\Debug\PagedList.dll
+E:\PetStore\Model\bin\Debug\PagedList.Mvc.dll
+E:\PetStore\Model\bin\Debug\PagedList.xml
+E:\PetStore\Model\bin\Debug\PagedList.Mvc.xml

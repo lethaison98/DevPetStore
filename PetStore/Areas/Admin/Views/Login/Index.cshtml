@@ -38,9 +38,10 @@
                                             @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox">
-                                                @Html.CheckBoxFor(model => model.RememberPass)
-                                                <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
+                                            <div class="checkbox" >
+                                                <label>
+                                                    @Html.CheckBoxFor(model => model.RememberPass)  Remember Password
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
