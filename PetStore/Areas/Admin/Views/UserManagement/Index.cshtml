@@ -40,7 +40,7 @@
                 <tbody>
                    @foreach (var item in Model)
                     {
-                        <tr>
+                        <tr id="row_@item.ID_User">
                             <td>@item.Username</td>
                             <td>@item.Password</td>
                             <td>@item.Ten</td>
@@ -52,7 +52,12 @@
                             <td>
                                 <a href="/Admin/UserManagement/Edit/@item.ID_User">Sửa</a>
                                 |
-                                <a href="/Admin/UserManagement/Edit/@item.ID_User">Xóa</a>
+                                @Ajax.ActionLink("Xóa","Delete",new { id=item.ID_User}, new AjaxOptions
+                           {
+                               Confirm = "Xác nhận xóa",
+                               OnComplete = "$('#row_" +@item.ID_User+ "').remove()",
+                               HttpMethod="Delete"
+                           })
                             </td>
                         </tr>
 

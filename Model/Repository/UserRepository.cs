@@ -33,11 +33,21 @@ namespace Model.Repository
                 user.Ten = entity.Ten;
                 user.SoDienThoai = entity.SoDienThoai;
                 user.Email = entity.Email;
-                user.ModifyDate = DateTime.Now; 
+                user.ModifyDate = DateTime.Now;
+                user.Status = entity.Status;
+                user.IsAdmin = entity.IsAdmin;
+                user.DiaChi = entity.DiaChi;
                 db.SaveChanges();
             }
             return entity.ID_User;
 
+        }
+
+        public void Delete(int id)
+        {
+            User user = db.Users.SingleOrDefault(x => x.ID_User == id);
+            db.Users.Remove(user);
+            db.SaveChanges();
         }
 
         public IEnumerable<User> ListAllPaging(int page, int pageSize)
@@ -46,7 +56,7 @@ namespace Model.Repository
         }
         public User GetByID(int id)
         {
-            return (db.Users.Find(id));
+            return (db.Users.SingleOrDefault(x => x.ID_User == id));
         }
         public User GetByUsername(String userName)
         {

@@ -27,6 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
+            int x = user.ID_User;
             var userRepo = new UserRepository();
             int id = userRepo.InsertOrUpdate(user);
             if (ModelState.IsValid)
@@ -54,7 +55,9 @@ namespace PetStore.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(User user)
         {
+            int x = user.ID_User;
             var userRepo = new UserRepository();
+            
             int id = userRepo.InsertOrUpdate(user);
             if (ModelState.IsValid)
             {
@@ -68,6 +71,13 @@ namespace PetStore.Areas.Admin.Controllers
                 }
             }
             return View("index");
+        }
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            var userRepo = new UserRepository();
+            userRepo.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
