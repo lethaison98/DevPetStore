@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -18,18 +18,22 @@ namespace Model.EF
         [Key]
         public int ID_GiongPet { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
+        [Display(Name = "Tên giống Pet")]
         public string TenGiongPet { get; set; }
 
         public int? ID_DanhMuc { get; set; }
 
-        [StringLength(500)]
+  
+        [Display(Name ="Mô Tả")]
         public string MoTa { get; set; }
 
         [StringLength(250)]
+        [Display(Name ="Link Ảnh")]
         public string Image { get; set; }
 
         [StringLength(50)]
+        [Display(Name ="Meta Title")]
         public string MetaTitle { get; set; }
 
         public virtual DanhMuc DanhMuc { get; set; }

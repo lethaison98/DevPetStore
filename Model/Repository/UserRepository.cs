@@ -22,6 +22,7 @@ namespace Model.Repository
       
             if (entity.ID_User <= 0)
             {
+                entity.CreatedDate = DateTime.Now;
                 db.Users.Add(entity);
                 db.SaveChanges();
             }
@@ -50,9 +51,14 @@ namespace Model.Repository
             db.SaveChanges();
         }
 
-        public IEnumerable<User> ListAllPaging(int page, int pageSize)
+        public IEnumerable<User> ListAllPaging(String searchString, int page, int pageSize)
         {
-            return db.Users.OrderByDescending(x => x.Username).ToPagedList(page, pageSize);
+            IQueryable<User> model = db.Users;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Username.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.Username).ToPagedList(page, pageSize);
         }
         public User GetByID(int id)
         {

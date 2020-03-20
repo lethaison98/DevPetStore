@@ -66,6 +66,9 @@
     <Compile Include="EF\Pet.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DanhMucRepository.cs" />
+    <Compile Include="Repository\GiongPetRepository.cs" />
+    <Compile Include="Repository\PetRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

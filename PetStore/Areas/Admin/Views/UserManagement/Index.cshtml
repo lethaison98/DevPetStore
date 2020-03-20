@@ -8,8 +8,23 @@
 <div class="card mb-4">
     <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý tài khoản</div>
     <div class="card-body">
+
+        @using (Html.BeginForm("Index", "UserManagement", FormMethod.Get))
+        {
+            <div class="row" style="padding-bottom: 5px ">
+                <div class="col-sm-8">
+                    <a type="button" class="btn btn-primary" href="/Admin/UserManagement/Create">Tạo mới</a>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" name="searchString" />
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+           
+        }
+
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>UserName</th>
@@ -38,7 +53,7 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                   @foreach (var item in Model)
+                    @foreach (var item in Model)
                     {
                         <tr id="row_@item.ID_User">
                             <td>@item.Username</td>
@@ -52,11 +67,11 @@
                             <td>
                                 <a href="/Admin/UserManagement/Edit/@item.ID_User">Sửa</a>
                                 |
-                                @Ajax.ActionLink("Xóa","Delete",new { id=item.ID_User}, new AjaxOptions
+                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID_User }, new AjaxOptions
                            {
                                Confirm = "Xác nhận xóa",
-                               OnComplete = "$('#row_" +@item.ID_User+ "').remove()",
-                               HttpMethod="Delete"
+                               OnComplete = "$('#row_" + @item.ID_User + "').remove()",
+                               HttpMethod = "Delete"
                            })
                             </td>
                         </tr>
@@ -65,7 +80,7 @@
 
                 </tbody>
             </table>
-            @Html.PagedListPager(Model, Page => Url.Action("Index", new {Page}))
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
         </div>
     </div>
 </div>

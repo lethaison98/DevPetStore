@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PetStore"
+    "\\PetStore",
+    "\\PetStore\\Areas",
+    "\\PetStore\\Areas\\Admin\\Views",
+    "\\PetStore\\Areas\\Admin\\Views\\Shared",
+    "\\PetStore\\bin"
   ],
+  "SelectedNode": "\\PetStore\\Areas\\Admin",
   "PreviewInSolutionExplorer": false
 }

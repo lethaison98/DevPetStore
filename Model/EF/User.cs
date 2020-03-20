@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -19,23 +19,28 @@ namespace Model.EF
         public string Password { get; set; }
 
         [StringLength(50)]
+        [Display (Name ="Họ Tên")]
         public string Ten { get; set; }
 
         [StringLength(250)]
+        [Display (Name ="Địa Chỉ")]
         public string DiaChi { get; set; }
 
         [StringLength(50)]
         public string Email { get; set; }
 
         [StringLength(30)]
+        [Display(Name ="Số điện thoại")]
         public string SoDienThoai { get; set; }
 
+        [Display(Name ="Kích hoạt")]
         public bool Status { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? ModifyDate { get; set; }
 
+        [Display (Name ="Quyền Admin")]
         public bool IsAdmin { get; set; }
     }
 }

@@ -20,3 +20,46 @@
         $("body").toggleClass("sb-sidenav-toggled");
     });
 })(jQuery);
+
+//ckfinder
+$(document).ready(function () {
+     $('#selectImage').click(function () {
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $('#linkImage').val(url);
+        };
+        finder.popup()
+    })
+
+});
+$(document).ready(function () {
+    $('#selectImage1').click(function () {
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $('#linkImage1').val(url);
+        };
+        finder.popup()
+    })
+
+});
+$(document).ready(function () {
+    $('#selectImage2').click(function () {
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $('#linkImage2').val(url);
+        };
+        finder.popup()
+    })
+
+});
+
+//ckEditor
+$(document).ready(function () {
+    CKEDITOR.replace("noidung");
+});
+$(document).ready(function () {
+    CKEDITOR.replace("noidung1");
+});
+$(document).ready(function () {
+    CKEDITOR.replace("noidung2");
+});

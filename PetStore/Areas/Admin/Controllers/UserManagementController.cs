@@ -12,10 +12,10 @@ namespace PetStore.Areas.Admin.Controllers
     public class UserManagementController : BaseController
     {
         // GET: Admin/UserManagement
-        public ActionResult Index(int page =1, int pagesize = 10)
+        public ActionResult Index(String searchString, int page =1, int pagesize = 10)
         {
             var userRepo = new UserRepository();
-            var model = userRepo.ListAllPaging(page, pagesize);
+            var model = userRepo.ListAllPaging(searchString,page, pagesize);
             return View(model);
         }
 
@@ -24,7 +24,9 @@ namespace PetStore.Areas.Admin.Controllers
         {
             return View();
         }
+
         [HttpPost]
+        [ValidateInput (false)]
         public ActionResult Create(User user)
         {
             int x = user.ID_User;
