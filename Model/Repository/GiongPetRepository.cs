@@ -61,5 +61,9 @@ namespace Model.Repository
         {
             return db.GiongPets.ToList();
         }
+        public GiongPet GetGiongPet(String Metatitle)
+        {
+            return db.GiongPets.SingleOrDefault(x => x.MetaTitle == Metatitle);
+        }
     }
 }

@@ -130,6 +130,10 @@ E:\PetStore\PetStore\bin\roslyn\vbc.rsp
 E:\PetStore\PetStore\bin\roslyn\VBCSCompiler.exe
 E:\PetStore\PetStore\bin\roslyn\VBCSCompiler.exe.config
 E:\PetStore\PetStore\bin\Antlr3.Runtime.dll
+E:\PetStore\PetStore\bin\CKFinder.dll
+E:\PetStore\PetStore\bin\CKFinder_FileEditor.dll
+E:\PetStore\PetStore\bin\CKFinder_ImageResize.dll
+E:\PetStore\PetStore\bin\CKFinder_Watermark.dll
 E:\PetStore\PetStore\bin\EntityFramework.dll
 E:\PetStore\PetStore\bin\EntityFramework.SqlServer.dll
 E:\PetStore\PetStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -148,6 +152,10 @@ E:\PetStore\PetStore\bin\System.Web.WebPages.Razor.dll
 E:\PetStore\PetStore\bin\WebGrease.dll
 E:\PetStore\PetStore\bin\Model.pdb
 E:\PetStore\PetStore\bin\Model.dll.config
+E:\PetStore\PetStore\bin\CKFinder.pdb
+E:\PetStore\PetStore\bin\CKFinder_FileEditor.pdb
+E:\PetStore\PetStore\bin\CKFinder_ImageResize.pdb
+E:\PetStore\PetStore\bin\CKFinder_Watermark.pdb
 E:\PetStore\PetStore\bin\EntityFramework.xml
 E:\PetStore\PetStore\bin\EntityFramework.SqlServer.xml
 E:\PetStore\PetStore\bin\PagedList.xml
@@ -166,11 +174,3 @@ E:\PetStore\PetStore\obj\Debug\PetStore.csprojAssemblyReference.cache
 E:\PetStore\PetStore\obj\Debug\PetStore.csproj.CopyComplete
 E:\PetStore\PetStore\obj\Debug\PetStore.dll
 E:\PetStore\PetStore\obj\Debug\PetStore.pdb
-E:\PetStore\PetStore\bin\CKFinder.dll
-E:\PetStore\PetStore\bin\CKFinder_FileEditor.dll
-E:\PetStore\PetStore\bin\CKFinder_ImageResize.dll
-E:\PetStore\PetStore\bin\CKFinder_Watermark.dll
-E:\PetStore\PetStore\bin\CKFinder.pdb
-E:\PetStore\PetStore\bin\CKFinder_FileEditor.pdb
-E:\PetStore\PetStore\bin\CKFinder_ImageResize.pdb
-E:\PetStore\PetStore\bin\CKFinder_Watermark.pdb

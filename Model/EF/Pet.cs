@@ -10,7 +10,7 @@
     public partial class Pet
     {
         [Key]
-        public int ID_Pet { get; set; }
+        public int ID_Item { get; set; }
 
         [StringLength(50)]
         [Display (Name ="Tên Pet")]

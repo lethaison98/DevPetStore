@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace PetStore.Areas.Admin.Controllers
         // GET: Admin/DanhMuc
         public ActionResult Index()
         {
-            return View();
+            var DanhMucRepo = new DanhMucRepository();
+            var model = DanhMucRepo.ListAll();
+            return View(model);
         }
 
         public ActionResult Create()

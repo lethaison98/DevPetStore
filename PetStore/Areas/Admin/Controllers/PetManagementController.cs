@@ -27,7 +27,7 @@ namespace PetStore.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Create(Pet pet)
         {
-            int x = pet.ID_Pet;
+            int x = pet.ID_Item;
             var petRepo = new PetRepository();
             int id = petRepo.InsertOrUpdate(pet);
             if (ModelState.IsValid)

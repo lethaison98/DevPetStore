@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,17 @@ namespace PetStore.Controllers
             return View();
         }
 
+        [ChildActionOnly]
+        public PartialViewResult _SessionHeader()
+        {
+            var cart = Session[Common.CommonConstants.CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

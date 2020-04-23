@@ -1,0 +1,58 @@
+﻿@model List<PetStore.Models.CartItem>
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal tong = 0;
+}
+@section jsFooter{
+
+    <script src="/assets/client/js/controller/CartController.js"></script>
+}
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="~/Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li><a href="~/GioHang">Giỏ hàng</a></li>
+            <li class="active">Thanh toán</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+
+<div class="login">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Thanh toán</h3>
+        @if (@Model.Count > 0)
+        {
+            <div class="checkout-left">
+                <div class="checkout-left-basket animated wow slideInLeft" style="float: left" data-wow-delay=".5s">
+                    <h4>Danh sách sản phẩm</h4>
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li>@item.Pet.Ten_Pet<i></i><span>@((@item.Pet.GiaTien.GetValueOrDefault(0) * @item.SoLuong).ToString("N0"))</span></li>
+                            tong += (@item.Pet.GiaTien.GetValueOrDefault(0) * @item.SoLuong);
+                        }
+                        <li><hr /></li>
+                        <li><strong>Tổng cộng <i></i> <span>@tong.ToString("N0")</span></strong></li>
+                    </ul>
+                </div>
+
+                <div class="login-form-grids" style="float: right; margin-top: 0px" >
+                    <h5 class="animated wow slideInUp" data-wow-delay=".5s">Thông tin đặt hàng</h5>
+                    @using (Html.BeginForm("ThanhToan", "GioHang", FormMethod.Post))
+                    {
+                        <input type="text" name="shipName" placeholder="Tên người nhận" required=" ">
+                        <input type="text" name="shipMobile" placeholder="Số điện thoại" required=" ">
+                        <input type="text" name="shipAddress" placeholder="Địa chỉ" required=" ">
+                        <input type="submit" value="Đặt hàng">
+                    }
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+        }
+
+    </div>
+</div>

@@ -16,7 +16,9 @@ namespace Model.EF
         public virtual DbSet<GiongPet> GiongPets { get; set; }
         public virtual DbSet<Pet> Pets { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<DonHang> DonHangs{ get; set; }
 
+        public virtual DbSet<DonHangDetail> DonHangDetails { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DanhMuc>()

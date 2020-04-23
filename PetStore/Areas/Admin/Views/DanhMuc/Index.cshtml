@@ -1,0 +1,52 @@
+﻿
+@model  List<Model.EF.DanhMuc>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Quản lý Danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Danh mục</div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("Index", "DanhMuc", FormMethod.Get))
+        {
+            <div class="row" style="padding-bottom: 5px ">
+                <div class="col-sm-8">
+                    <a type="button" class="btn btn-primary" href="/Admin/DanhMuc/Create">Tạo mới</a>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" name="searchString" />
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+        }
+
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên Danh Mục</th>
+                        <th>Meta Title</th>
+
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.">
+                            <td>@item.TenDanhMuc</td>
+                            <td>@item.MetaTitle</td>
+                            
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

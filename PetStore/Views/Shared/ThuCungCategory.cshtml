@@ -1,0 +1,40 @@
+﻿ <!-- header -->
+@model List<Model.EF.GiongPet>
+<div class="row">
+    <div class="col-sm-4">
+        <ul class="multi-column-dropdown">
+            <h6>Chó cảnh</h6>
+
+            @foreach (var item in Model)
+            {
+                if (@item.ID_DanhMuc == 1)
+                {
+                    <li><a href="~/Cho_canh/@item.MetaTitle">@item.TenGiongPet</a></li>
+                }
+            }            
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <ul class="multi-column-dropdown">
+            <h6>Mèo cảnh</h6>
+            @foreach (var item in Model)
+            {
+                if (@item.ID_DanhMuc == 2)
+                {
+                    <li><a href="~/Meo_canh/@item.MetaTitle-@item.ID_GiongPet">@item.TenGiongPet</a></li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="col-sm-4">
+        <ul class="multi-column-dropdown">
+            <h6>Chim cảnh</h6>
+            <li><a href="products.html">Khướu</a></li>
+            <li><a href="products.html">Vẹt</a></li>
+            <li><a href="products.html">Sáo</a></li>
+            <li><a href="products.html">Chào mào</a></li>
+
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>

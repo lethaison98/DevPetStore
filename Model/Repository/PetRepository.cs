@@ -19,15 +19,15 @@ namespace Model.Repository
 
         public int InsertOrUpdate(Pet entity)
         {
-            var x = entity.ID_Pet;
-            if (entity.ID_Pet <= 0)
+            var x = entity.ID_Item;
+            if (entity.ID_Item <= 0)
             {
                 db.Pets.Add(entity);
                 db.SaveChanges();
             }
             else
             {
-                var pet = db.Pets.Find(entity.ID_Pet);
+                var pet = db.Pets.Find(entity.ID_Item);
                 pet.Ten_Pet = entity.Ten_Pet;
                 pet.ID_GiongPet = entity.ID_GiongPet;
                 pet.MoTa = entity.MoTa;
@@ -40,7 +40,7 @@ namespace Model.Repository
                 pet.GiaTien = entity.GiaTien;
                 db.SaveChanges();
             }
-            return entity.ID_Pet;
+            return entity.ID_Item;
         }
         public IEnumerable<Pet> ListAllPaging(String searchString, int page, int pageSize)
         {
@@ -53,14 +53,23 @@ namespace Model.Repository
         }
         public void Delete(int id)
         {
-            Pet pet = db.Pets.SingleOrDefault(x => x.ID_Pet == id);
+            Pet pet = db.Pets.SingleOrDefault(x => x.ID_Item == id);
             db.Pets.Remove(pet);
             db.SaveChanges();
         }
 
         public Pet GetByID(int id)
         {
-            return (db.Pets.SingleOrDefault(x => x.ID_Pet == id));
+            return (db.Pets.SingleOrDefault(x => x.ID_Item == id));
+        }
+
+        public List<Pet> ListPetByGiongPetMetatitle(String Metatitle)
+        {
+            var item = db.GiongPets.SingleOrDefault(x => x.MetaTitle == Metatitle);
+            int id = item.ID_GiongPet;
+            var list = db.Pets.Where(x => x.ID_GiongPet == id).ToList();
+            list.OrderByDescending(x => x.Ten_Pet);
+            return list;
         }
     }
 }
