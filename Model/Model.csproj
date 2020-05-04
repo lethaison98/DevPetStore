@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Dto\DonHangChiTietDto.cs" />
     <Compile Include="EF\DanhMuc.cs" />
     <Compile Include="EF\DonHang.cs" />
     <Compile Include="EF\DonHangDetail.cs" />

@@ -1,4 +1,5 @@
 ﻿using Model.EF;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,15 @@ namespace Model.Repository
             db.DonHangs.Add(donHang);
             db.SaveChanges();         
             return donHang.ID_DonHang;  
+        }
+        public IEnumerable<DonHang> ListAllPaging(String searchString, int page, int pageSize)
+        {
+            IQueryable<DonHang> model = db.DonHangs;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.ShipName.Contains(searchString) || x.ShipMobile.Contains(searchString) || x.ShipAddress.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
     }
 }

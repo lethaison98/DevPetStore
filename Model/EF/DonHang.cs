@@ -30,6 +30,7 @@ namespace Model.EF
         public string ShipAddress { get; set; }
 
         public int? CustomerID { get; set; }
+        public decimal? TongTien { get; set; }
         public int? TrangThaiDatHang { get; set; }
         public int? TrangThaiGiaoHang { get; set; }
         public int? TrangThaiDonHang { get; set; }

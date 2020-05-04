@@ -69,7 +69,7 @@
                             @*<td>@item.ChiTiet</td>*@
                             <td>@item.MauLong</td>
                             <td>@item.NguonGoc</td>
-                            <td>@item.GiaTien</td>
+                            <td>@item.GiaTien.GetValueOrDefault(0).ToString("N0")</td>
                             <td>@item.GioiTinh</td>
                             <td>@item.Status</td>
                             @*<td>@item.MetaTitle</td>*@

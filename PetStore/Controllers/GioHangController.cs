@@ -126,11 +126,16 @@ namespace PetStore.Controllers
             donHang.TrangThaiDonHang = 1;
             donHang.TrangThaiGiaoHang = 0;
             try
-            {
-                var id = new DonHangRepository().Insert(donHang);
+            {               
                 var cart = (List<CartItem>)Session[CartSession];
                 var donHangChiTietRepo = new DonHangChiTietRepository();
                 decimal total = 0;
+                foreach(var item in cart)
+                {
+                    total += (item.Pet.GiaTien.GetValueOrDefault(0) * item.SoLuong);
+                }
+                donHang.TongTien = total;
+                var id = new DonHangRepository().Insert(donHang);
                 foreach (var item in cart)
                 {
                     var donHangChiTiet = new DonHangDetail();
@@ -139,10 +144,7 @@ namespace PetStore.Controllers
                     donHangChiTiet.GiaTien = item.Pet.GiaTien;
                     donHangChiTiet.SoLuong = item.SoLuong;
                     var idItem = donHangChiTietRepo.Insert(donHangChiTiet);
-
-                    total += (item.Pet.GiaTien.GetValueOrDefault(0) * item.SoLuong);
-                }
-                
+                }               
             }
             catch (Exception ex)
             {
