@@ -71,5 +71,11 @@ namespace Model.Repository
             list.OrderByDescending(x => x.Ten_Pet);
             return list;
         }
+        public List<Pet> Search(string searchString)
+        {
+            var list = db.Pets.Where(x => x.Ten_Pet.Contains(searchString)).ToList();
+            list.OrderByDescending(x => x.Ten_Pet);
+            return list;
+        }
     }
 }

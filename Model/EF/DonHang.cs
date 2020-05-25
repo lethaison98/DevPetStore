@@ -13,6 +13,7 @@ namespace Model.EF
     {
         [Key]
         public int ID_DonHang { get; set; }
+        public int? ID_KhachHang { get; set; }
 
         public DateTime CreateDate { get; set; }
 
@@ -29,7 +30,7 @@ namespace Model.EF
         [StringLength(250)]
         public string ShipAddress { get; set; }
 
-        public int? CustomerID { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
         public decimal? TongTien { get; set; }
         public int? TrangThaiDatHang { get; set; }
         public int? TrangThaiGiaoHang { get; set; }

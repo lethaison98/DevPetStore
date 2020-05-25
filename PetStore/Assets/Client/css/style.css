@@ -59,6 +59,14 @@ body a:hover{
 .header-grid-right{
 	float:right;
 }
+
+.header-grid-right ul li {
+	display: inline-block;
+	font-size: 14px;
+	color: #999;
+	margin: 0 1em;
+}
+
 ul.social-icons li{
 	display:inline-block;
 	margin: 0px 4px;
@@ -2127,8 +2135,9 @@ label.radio {
 	text-transform:uppercase;
 	margin:0 0 2em;
 }
-.login-form-grids input[type="text"]{
-	background:url(../img-sp.png) no-repeat 5px -259px #fff;
+.login-form-grids input[type="text"] {
+	background: url(../img-sp.png) no-repeat 5px -259px #fff;
+	margin: 1em 0;
 }
 .login-form-grids input[type="text"]:nth-child(2){
 	background:url(../img-sp.png) no-repeat 0px -298px #fff;
@@ -3858,3 +3867,217 @@ td.invert-image a img {
         padding: 0;
     }
 }
+
+
+
+
+
+
+
+
+
+.top-section {
+	background: url(../images/top.jpg)no-repeat 0px 0px;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	background-position: center;
+	padding: 2em 2em;
+}
+
+
+/**** LOGIN_SIGNUP ******/
+
+
+/* signup Form styles */
+h2.sub-hdng-agileits-w3layouts {
+	text-align: left;
+	font-size: 26px;
+	text-transform: capitalize;
+	letter-spacing: 3px;
+	color: #fff;
+	font-weight: 400;
+}
+
+h3.inner-hdng-agileinfo {
+	font-size: 20px;
+	text-align: left;
+	margin-bottom: 10px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	color: #ffd877;
+}
+.top-section p {
+	color: #fffcfc;
+	letter-spacing: 1px;
+	text-align: left;
+	font-size: 14.5px;
+	line-height: 28px;
+	padding-top: 7px;
+}
+
+.w3-agile-login-form {
+	padding: 2em;
+}
+
+.main-w3layouts-content {
+	width: 50%;
+	margin: 0 auto;
+	background: rgba(0, 0, 0, 0.77);
+	-webkit-box-shadow: 5px 5px 24px 2px rgba(80, 80, 80, 0.42);
+	-moz-box-shadow: 5px 5px 24px 2px rgba(80, 80, 80, 0.42);
+	box-shadow: 5px 5px 24px 2px rgba(80, 80, 80, 0.42);
+}
+
+.w3-agile-login-form input[type="text"],
+.w3-agile-login-form textarea,
+.w3-agile-login-form input[type="email"],
+select#country {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	border: none;
+	border-bottom: 2px solid rgb(185, 185, 185);
+	outline: none;
+	color: #dcdcdc;
+	font-size: 15px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin-bottom: 11px;
+	background: none;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+select#country {
+	height: 41px;
+}
+
+select#country option {
+	background: #000;
+}
+
+.w3-agile-login-form textarea {
+	resize: none;
+	height: 80px;
+}
+
+.w3-agile-login-form input[type="submit"] {
+	background: #ffd877;
+	color: #000;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: capitalize;
+	border: 2px solid #ffd877;
+	width: 100%;
+	outline: none;
+	cursor: pointer;
+	-webkit-appearance: none;
+	padding: 13px 0;
+	letter-spacing: 1px;
+	margin-top: 15px;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	font-family: 'Montserrat', sans-serif;
+}
+
+	.w3-agile-login-form input[type="submit"]:hover {
+		background: #fff;
+		color: #000;
+		border-color: #fff;
+	}
+
+.mid-fields-agileits-w3layouts {
+	margin-bottom: 0.6em;
+}
+
+@media(min-width:481px) {
+	.mid-fields-agileits-w3layouts {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+	}
+}
+
+@media(min-width:668px) {
+	.top-fields-wthree {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		margin-bottom: 0.6em;
+	}
+}
+
+.input-fields-w3ls {
+	flex-basis: 32%;
+	-webkit-flex-basis: 32%;
+}
+
+.input-fields-w3ls2 {
+	flex-basis: 49%;
+	-webkit-flex-basis: 49%;
+}
+
+.copy-right-w3l p {
+	color: #000;
+	font-size: 15px;
+	margin: 4em 0;
+	letter-spacing: 2px;
+	font-weight: 500;
+	text-shadow: 1px 2px 9px #080808;
+}
+
+	.copy-right-w3l p a {
+		text-decoration: underline;
+		color: #000;
+		transition: 0.5s all;
+		-webkit-transition: 0.5s all;
+		-o-transition: 0.5s all;
+		-ms-transition: 0.5s all;
+		-moz-transition: 0.5s all;
+	}
+
+		.copy-right-w3l p a:hover {
+			color: #ffd877;
+			text-decoration: none;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-o-transition: 0.5s all;
+			-ms-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+		}
+
+
+/*-- //login --*/
+
+::-webkit-input-placeholder {
+	color: #dcdcdc;
+}
+
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #dcdcdc;
+}
+
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #dcdcdc;
+}
+
+:-ms-input-placeholder {
+	color: #dcdcdc;
+}
+
+
+/*--responsive--*/
+

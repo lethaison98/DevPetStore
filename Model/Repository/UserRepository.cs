@@ -37,7 +37,6 @@ namespace Model.Repository
                 user.ModifyDate = DateTime.Now;
                 user.Status = entity.Status;
                 user.IsAdmin = entity.IsAdmin;
-                user.DiaChi = entity.DiaChi;
                 db.SaveChanges();
             }
             return entity.ID_User;
@@ -91,10 +90,16 @@ namespace Model.Repository
                     {
                         return 3;
                     }
-                }
-
-                
+                }             
             }
+        }
+        public bool CheckUserName(string userName)
+        {
+            return db.Users.Count(x => x.Username == userName) > 0;
+        }
+        public bool CheckEmail(string email)
+        {
+            return db.Users.Count(x => x.Email == email) > 0;
         }
     }
 }

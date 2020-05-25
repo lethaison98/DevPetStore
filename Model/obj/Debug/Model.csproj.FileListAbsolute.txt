@@ -24,3 +24,23 @@ E:\PetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\PetStore\Model\obj\Debug\Model.dll
 E:\PetStore\Model\obj\Debug\Model.pdb
 E:\PetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\New folder\PetStore\Model\bin\Debug\Model.dll.config
+E:\New folder\PetStore\Model\bin\Debug\Model.dll
+E:\New folder\PetStore\Model\bin\Debug\Model.pdb
+E:\New folder\PetStore\Model\bin\Debug\EntityFramework.dll
+E:\New folder\PetStore\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\New folder\PetStore\Model\bin\Debug\PagedList.dll
+E:\New folder\PetStore\Model\bin\Debug\PagedList.Mvc.dll
+E:\New folder\PetStore\Model\bin\Debug\EntityFramework.xml
+E:\New folder\PetStore\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\New folder\PetStore\Model\bin\Debug\PagedList.xml
+E:\New folder\PetStore\Model\bin\Debug\PagedList.Mvc.xml
+E:\New folder\PetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\New folder\PetStore\Model\obj\Debug\Model.csproj.CopyComplete
+E:\New folder\PetStore\Model\obj\Debug\Model.dll
+E:\New folder\PetStore\Model\obj\Debug\Model.pdb
+E:\New folder\PetStore\Model\obj\Debug\Model.Migrations.db.resources
+E:\New folder\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
+E:\New folder\PetStore\Model\obj\Debug\Model.Migrations.init.resources
+E:\New folder\PetStore\Model\obj\Debug\Model.Migrations.init1.resources
+E:\New folder\PetStore\Model\obj\Debug\Model.Migrations.init2.resources

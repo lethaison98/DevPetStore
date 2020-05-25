@@ -16,19 +16,25 @@ namespace PetStore
             routes.MapRoute(
                 name: "Cho_canh",
                 url: "Cho_canh/{MetaTitle}",
-                defaults: new { controller = "ChoCanh", action = "GiongCho", id = UrlParameter.Optional },
+                defaults: new { controller = "Pet", action = "GiongCho", id = UrlParameter.Optional },
                 namespaces: new[] { "PetStore.Controllers" }
                 );
             routes.MapRoute(
                 name: "Meo_canh",
                 url: "Meo_canh/{MetaTitle}",
-                defaults: new { controller = "MeoCanh", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "Pet", action = "GiongMeo", id = UrlParameter.Optional },
                 namespaces: new[] { "PetStore.Controllers" }
                 );
             routes.MapRoute(
                 name: "Add Cart",
-                url: "them-gio-hang",
+                url: "Them_gio_hang",
                 defaults: new { controller = "GioHang", action = "AddItem", id = UrlParameter.Optional },
+                namespaces: new[] { "PetStore.Controllers" }
+                );
+            routes.MapRoute(
+                name: "Tim_kiem",
+                url: "Tim_kiem",
+                defaults: new { controller = "Pet", action = "Search", id = UrlParameter.Optional },
                 namespaces: new[] { "PetStore.Controllers" }
                 );
 

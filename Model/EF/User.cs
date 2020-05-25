@@ -22,10 +22,6 @@
         [Display (Name ="Họ Tên")]
         public string Ten { get; set; }
 
-        [StringLength(250)]
-        [Display (Name ="Địa Chỉ")]
-        public string DiaChi { get; set; }
-
         [StringLength(50)]
         public string Email { get; set; }
 

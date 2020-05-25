@@ -62,17 +62,26 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Dto\DonHangChiTietDto.cs" />
     <Compile Include="EF\DanhMuc.cs" />
+    <Compile Include="EF\DichVu.cs" />
     <Compile Include="EF\DonHang.cs" />
     <Compile Include="EF\DonHangDetail.cs" />
     <Compile Include="EF\GiongPet.cs" />
+    <Compile Include="EF\KhachHang.cs" />
+    <Compile Include="EF\KhuyenMai.cs" />
+    <Compile Include="EF\LichHen.cs" />
+    <Compile Include="EF\LichHenDetail.cs" />
+    <Compile Include="EF\LichKyGui.cs" />
     <Compile Include="EF\PetStoreDbContext.cs" />
     <Compile Include="EF\Pet.cs" />
+    <Compile Include="EF\Slide.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DanhMucRepository.cs" />
     <Compile Include="Repository\DonHangChiTietRepository.cs" />
     <Compile Include="Repository\DonHangRepository.cs" />
     <Compile Include="Repository\GiongPetRepository.cs" />
+    <Compile Include="Repository\KhachHangRepository.cs" />
+    <Compile Include="Repository\LichHenRepository.cs" />
     <Compile Include="Repository\PetRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>

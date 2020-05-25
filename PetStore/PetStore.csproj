@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props')" />
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -161,17 +162,19 @@
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\UserLogin.cs" />
-    <Compile Include="Controllers\ChoCanhController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GiongPetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LichHenController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1174,6 +1177,7 @@
     <Content Include="Assets\Client\js\classie.js" />
     <Content Include="Assets\Client\js\Controller\CartController.js" />
     <Content Include="Assets\Client\js\imagezoom.js" />
+    <Content Include="Assets\Client\js\jquery-ui.js" />
     <Content Include="Assets\Client\js\jquery-ui.min.js" />
     <Content Include="Assets\Client\js\jquery.countdown.js" />
     <Content Include="Assets\Client\js\jquery.flexslider.js" />
@@ -1302,13 +1306,18 @@
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\ThuCungCategory.cshtml" />
-    <Content Include="Views\ChoCanh\GiongCho.cshtml" />
-    <Content Include="Views\ChoCanh\Index.cshtml" />
+    <Content Include="Views\Pet\GiongCho.cshtml" />
+    <Content Include="Views\Pet\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\Shared\_SessionHeader.cshtml" />
     <Content Include="Views\GioHang\ThanhToan.cshtml" />
+    <Content Include="Views\Pet\GiongMeo.cshtml" />
+    <Content Include="Views\Pet\Search.cshtml" />
+    <Content Include="Views\LichHen\Index.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1336,6 +1345,11 @@
       <Project>{a90b4d89-b687-45d6-ba92-69cbd1eae54d}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\analyzers\dotnet\cs\Humanizer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1372,6 +1386,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

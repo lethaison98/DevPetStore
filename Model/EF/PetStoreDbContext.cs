@@ -16,8 +16,14 @@ namespace Model.EF
         public virtual DbSet<GiongPet> GiongPets { get; set; }
         public virtual DbSet<Pet> Pets { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<DonHang> DonHangs{ get; set; }
-
+        public virtual DbSet<Slide> Slides { get; set; }
+        public virtual DbSet<DichVu> DichVus { get; set; }
+        public virtual DbSet<LichHen> LichHens { get; set; }
+        public virtual DbSet<LichHenDetail> LichHenDetails { get; set; }
+        public virtual DbSet<LichKyGui> LichKyGuis { get; set; }
+        public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
         public virtual DbSet<DonHangDetail> DonHangDetails { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
