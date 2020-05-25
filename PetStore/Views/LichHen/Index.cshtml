@@ -45,7 +45,7 @@
             <h3 class="inner-hdng-agileinfo">Thông tin liên hệ</h3>
             <div class="top-fields-wthree">
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.TenNguoiHen,  new { htmlAttributes = new { placeholder = "Họ tên" } })
+                    @Html.EditorFor(model => model.TenNguoiHen, new { htmlAttributes = new { placeholder = "Họ tên" } })
                 </div>
                 <div class="input-fields-w3ls">
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email" } })
@@ -57,44 +57,81 @@
             <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
             <div class="mid-fields-agileits-w3layouts">
                 <div class="input-fields-w3ls2">
-                    @Html.EditorFor(model => model.ThoiGianHen, new { htmlAttributes = new { placeholder = "Ngày hẹn", id = "datepicker", name = "Text", type = "text" } })
-
-                    @*<input id="datepicker" name="Text" type="text" placeholder="Ngày đặt lịch" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}"
-            required="" />*@
-                </div>
-                <div class="input-fields-w3ls2">
-                    <select id="country" onchange="change_country(this.value)" class="frm-field required" required="">
-                        <option value="">Bất kỳ</option>
-                        <option value="">7:00 - 8:00</option>
-                        <option value="">8:00 - 9:00</option>
-                        <option value="">9:00 - 10:00</option>
-                        <option value="">10:00 - 11:00</option>
-                        <option value="">11:00 - 12:00</option>
-                        <option value="">13:00 - 14:00</option>
-                        <option value="">14:00 - 15:00</option>
-                        <option value="">15:00 - 16:00</option>
-                        <option value="">16:00 - 17:00</option>
-                        <option value="">17:00 - 18:00</option>
-                    </select>
+                    @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { placeholder = "Ngày hẹn", id = "datepicker", name = "Text", type = "text" } })
 
                 </div>
                 <div class="input-fields-w3ls2">
-                    <select id="country" onchange="change_country(this.value)" class="frm-field required" required="">
-                        <option value="">Loại Pet</option>
-                        <option value="">Chó</option>
-                        <option value="">Mèo</option>
-                        <option value="">Khác</option>
-                    </select>
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "7:00 - 8:00",
+                            Value = "7:00 - 8:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "8:00 - 9:00",
+                            Value = "8:00 - 9:00",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "9:00 - 10:00",
+                            Value = "9:00 - 10:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "10:00 - 11:00",
+                            Value = "10:00 - 11:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "11:00 - 12:00",
+                            Value = "11:00 - 12:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "13:00 - 14:00",
+                            Value = "13:00 - 14:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "14:00 - 15:00",
+                            Value = "14:00 - 15:00"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "15:00 - 16:00",
+                            Value = "15:00 - 16:00"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "16:00 - 17:00",
+                            Value = "16:00 - 17:00"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "17:00 - 18:00",
+                            Value = "17:00 - 18:00"
+                        });
+
+
+                    }
+
+                    @Html.DropDownListFor(model => model.GioHen, listItems, "Giờ hẹn", new { @onchange = "GioHen = this.value;", id = "country" })
+
+                </div>
+                <div class="input-fields-w3ls2">
+                    @Html.DropDownList("ID_GiongPet", null, htmlAttributes: new { @class = "form-control", id = "country", name = "Text", type = "text" })
+                    @Html.ValidationMessageFor(model => model.ID_GiongPet, "", new { @class = "text-danger" })
 
                 </div>
             </div>
-            <div>
-                @*<label>
-                    @Html.CheckBoxFor(model => model.RememberPass)  Remember Password
-                </label>*@
-            </div>
-            <textarea name="Comments" placeholder="Yêu cầu khác" required=""></textarea>
-            <textarea name="Comments" placeholder="Chú thích" required=""></textarea>
+            
+            @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { placeholder = "Ghi chú" } })
+
             <input type="submit" value="Xác nhận">
         </form>
     </div>

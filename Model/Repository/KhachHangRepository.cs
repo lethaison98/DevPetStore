@@ -33,5 +33,14 @@ namespace Model.Repository
             return entity.ID_User;
 
         }
+        public KhachHang GetByKhachHangId(int id)
+        {
+            return db.KhachHangs.FirstOrDefault(x => x.ID_KhachHang == id);
+        }
+        public KhachHang GetByUserId(int id)
+        {
+            return db.KhachHangs.FirstOrDefault(x => x.ID_User == id);
+        }
+
     }
 }

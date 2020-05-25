@@ -14,7 +14,15 @@ namespace PetStore.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var khachHangRepo = new KhachHangRepository();
+            var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            var khachHang = khachHangRepo.GetByUserId(session.UserID);
+            var lichHen = new LichHen();
+            lichHen.TenNguoiHen = khachHang.Ten;
+            lichHen.SoDienThoai = khachHang.SoDienThoai;
+            lichHen.Email = khachHang.Email;
+            SetViewBag();
+            return View(lichHen);
         }
 
         [HttpPost]
@@ -30,10 +38,16 @@ namespace PetStore.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm Giống Pet không thành công");
+                    ModelState.AddModelError("", "Thêm Lịch hẹn không thành công");
                 }
             }
             return View();
+        }
+        public void SetViewBag(int? selectedID = null)
+        {
+            var repo = new GiongPetRepository();
+           
+            ViewBag.ID_GiongPet = new SelectList(repo.ListAll(), "ID_GiongPet", "TenGiongPet", selectedID);
         }
     }
 }

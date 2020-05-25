@@ -27,7 +27,7 @@ namespace Model.EF
         [StringLength(30)]
         public string Email { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime NgayHen { get; set; }
+        public string NgayHen { get; set; }
         public string GioHen { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }
