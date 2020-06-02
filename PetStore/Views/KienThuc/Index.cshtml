@@ -1,0 +1,43 @@
+﻿@model  PagedList.IPagedList<Model.EF.BaiViet>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="~/Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Kiến thức</li>
+        </ol>
+    </div>
+</div>
+<div class="register">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Kiến thức</h3>
+    </div>
+</div>
+
+@for (var i = 0; i < @Model.Count(); i++)
+{
+    <section class="about py-5">
+        <div class="py-xl-5 py-lg-3">
+            <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+                <div class="col-xl-4 about-left p-0">
+                    <img src="@Model[i].ImageLink1" alt="" class="imgs-fluid" />
+                </div>
+                <div class="col-xl-8 about-right border-bottom sub-content">
+                    <h3 class="mb-3">@Model[i].Title</h3>
+                    <p class="mb-3 ">
+                        @Html.Raw(@Model[i].Para1)
+                    </p>
+                    <a href="~/KienThuc/@Model[i].Metatitle" class="btn button-style-3">Chi tiết</a>
+
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+}

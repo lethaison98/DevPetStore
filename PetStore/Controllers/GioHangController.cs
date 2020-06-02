@@ -112,7 +112,20 @@ namespace PetStore.Controllers
             {
                 list = (List<CartItem>)cart;
             }
-            return View(list);
+            var UserSession = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            if (UserSession == null)
+            {
+
+            }
+            else
+            {
+                var khachHangRepo = new KhachHangRepository();
+                var khachHang = khachHangRepo.GetByUserId(UserSession.UserID);
+                ViewBag.Name = khachHang.Ten;
+                ViewBag.Phone = khachHang.SoDienThoai;
+                ViewBag.Address = khachHang.DiaChi;
+            }
+                return View(list);
         }
         [HttpPost]
         public ActionResult ThanhToan(string shipName, string shipMobile, string shipAddress)
@@ -132,7 +145,7 @@ namespace PetStore.Controllers
                 decimal total = 0;
                 foreach(var item in cart)
                 {
-                    total += (item.Pet.GiaTien.GetValueOrDefault(0) * item.SoLuong);
+                    total += (item.Pet.GiaTien * item.SoLuong);
                 }
                 donHang.TongTien = total;
                 var id = new DonHangRepository().Insert(donHang);

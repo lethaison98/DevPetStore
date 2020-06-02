@@ -154,6 +154,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DanhMucController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaiVietManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\GiongPetController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -165,6 +166,8 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GiongPetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KienThucController.cs" />
+    <Compile Include="Controllers\KyGuiController.cs" />
     <Compile Include="Controllers\LichHenController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PetController.cs" />
@@ -173,6 +176,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\DichVuModel.cs" />
+    <Compile Include="Models\KyGuiModel.cs" />
+    <Compile Include="Models\LichHenModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1277,6 +1283,9 @@
     <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
     <Content Include="Areas\Admin\Views\DanhMuc\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiVietManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiVietManagement\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiVietManagement\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1318,6 +1327,10 @@
     <Content Include="Views\LichHen\Index.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\KyGui\Index.cshtml" />
+    <Content Include="Views\Home\PageNotFound.cshtml" />
+    <Content Include="Views\KienThuc\Index.cshtml" />
+    <Content Include="Views\KienThuc\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

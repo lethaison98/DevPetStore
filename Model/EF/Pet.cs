@@ -21,6 +21,12 @@
         [StringLength(250)]
         [Display (Name ="Hình Ảnh")]
         public string Image { get; set; }
+        [StringLength(250)]
+        [Display(Name = "Hình Ảnh 2")]
+        public string Image2 { get; set; }
+        [StringLength(250)]
+        [Display(Name = "Hình Ảnh 3")]
+        public string Image3 { get; set; }
 
         [StringLength(50)]
         public string MetaTitle { get; set; }
@@ -41,7 +47,7 @@
         public string NguonGoc { get; set; }
 
         [Display(Name ="Giá tiền")]
-        public decimal? GiaTien { get; set; }
+        public decimal GiaTien { get; set; }
 
         public bool? Status { get; set; }
 

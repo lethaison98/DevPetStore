@@ -35,7 +35,7 @@
                 <div class="header-grid-right" data-wow-delay=".5s">
                     <ul>
                         <li>
-                            <strong>Xin chào: @session.UserName</strong>
+                            <a href="~/Account/Edit"><strong>Xin chào: @session.UserName</strong></a>
                         </li>
                         <li>
                             <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> @Html.ActionLink("Thoát", "LogOut", "Login")
@@ -71,7 +71,13 @@
                                     @{Html.RenderAction("ThuCungCategory", "GiongPet");}
                                 </ul>
                             </li>
-                            <li><a href="~/LichHen">Đặt lịch chăm sóc</a></li>
+                            <li class="dropdown">
+                                <a href="#"class="dropdown-toggle" data-toggle="dropdown">Dịch vụ <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column">
+                                    <li><a href="~/LichHen">Đặt lịch chăm sóc</a></li>
+                                    <li><a href="~/KyGui">Đặt lịch Ký gửi</a></li>
+                                </ul>
+                            </li>
                             @*<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chăm sóc thú cưng <b class="caret"></b></a>
             <ul class="dropdown-menu multi-column columns-3">
@@ -107,7 +113,7 @@
                 </div>
             </ul>
         </li>*@
-                            <li><a href="short-codes.html">Kiến thức</a></li>
+                            <li><a href="~/KienThuc">Kiến thức</a></li>
                             <li><a href="mail.html">Liên hệ</a></li>
                         </ul>
                     </div>
@@ -116,7 +122,7 @@
             <div class="logo-nav-right">
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form action="Tim_kiem" method="get">
+                        <form action="~/Tim_kiem" method="get">
                             <input class="sb-search-input" placeholder="Nhập từ khóa..." name="searchString">
                             <input class="sb-search-submit" type="submit" value="">
                             <span class="sb-icon-search"> </span>

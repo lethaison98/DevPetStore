@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Dto\DonHangChiTietDto.cs" />
+    <Compile Include="EF\BaiViet.cs" />
     <Compile Include="EF\DanhMuc.cs" />
     <Compile Include="EF\DichVu.cs" />
     <Compile Include="EF\DonHang.cs" />
@@ -77,8 +78,10 @@
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DanhMucRepository.cs" />
+    <Compile Include="Repository\DichVuRepository.cs" />
     <Compile Include="Repository\DonHangChiTietRepository.cs" />
     <Compile Include="Repository\DonHangRepository.cs" />
+    <Compile Include="Repository\BaiVietRepository.cs" />
     <Compile Include="Repository\GiongPetRepository.cs" />
     <Compile Include="Repository\KhachHangRepository.cs" />
     <Compile Include="Repository\LichHenRepository.cs" />

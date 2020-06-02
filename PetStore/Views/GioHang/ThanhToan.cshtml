@@ -3,6 +3,9 @@
     ViewBag.Title = "ThanhToan";
     Layout = "~/Views/Shared/_Layout.cshtml";
     decimal tong = 0;
+    var name = ViewBag.Name;
+    var phone = ViewBag.Phone;
+    var address = ViewBag.Address;
 }
 @section jsFooter{
 
@@ -43,9 +46,9 @@
                     <h5 class="animated wow slideInUp" data-wow-delay=".5s">Thông tin đặt hàng</h5>
                     @using (Html.BeginForm("ThanhToan", "GioHang", FormMethod.Post))
                     {
-                        <input type="text" name="shipName" placeholder="Tên người nhận" required=" ">
-                        <input type="text" name="shipMobile" placeholder="Số điện thoại" required=" ">
-                        <input type="text" name="shipAddress" placeholder="Địa chỉ" required=" ">
+                        <input type="text" name="shipName" placeholder="Tên người nhận" value= "@name" required=" ">
+                        <input type="text" name="shipMobile" placeholder="Số điện thoại" value= "@phone" required=" ">
+                        <input type="text" name="shipAddress" placeholder="Địa chỉ" value="@address" required=" ">
                         <input type="submit" value="Đặt hàng">
                     }
                 </div>

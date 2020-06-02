@@ -1,8 +1,9 @@
 ﻿
-@model Model.EF.LichHen
+@model PetStore.Models.LichHenModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var dichVu = (List<Model.EF.DichVu>)ViewBag.DichVu;
 }
 @section jsFooter{
 
@@ -44,20 +45,21 @@
         <form action="#" method="post">
             <h3 class="inner-hdng-agileinfo">Thông tin liên hệ</h3>
             <div class="top-fields-wthree">
+                @Html.HiddenFor(model => model.ID_KhachHang)
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.TenNguoiHen, new { htmlAttributes = new { placeholder = "Họ tên" } })
+                    @Html.EditorFor(model => model.TenNguoiHen, new { htmlAttributes = new { placeholder = "Họ tên", required ="" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", type ="email", required =""} })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại" } })
+                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại",type ="text", required ="" } })
                 </div>
             </div>
             <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
             <div class="mid-fields-agileits-w3layouts">
                 <div class="input-fields-w3ls2">
-                    @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { placeholder = "Ngày hẹn", id = "datepicker", name = "Text", type = "text" } })
+                    @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { placeholder = "Ngày hẹn", id = "datepicker", name = "Text", type = "text",required ="" } })
 
                 </div>
                 <div class="input-fields-w3ls2">
@@ -120,16 +122,29 @@
 
                     }
 
-                    @Html.DropDownListFor(model => model.GioHen, listItems, "Giờ hẹn", new { @onchange = "GioHen = this.value;", id = "country" })
+                    @Html.DropDownListFor(model => model.GioHen, listItems, "Giờ hẹn", new { @onchange = "GioHen = this.value;", id = "country",required ="" })
 
                 </div>
                 <div class="input-fields-w3ls2">
-                    @Html.DropDownList("ID_GiongPet", null, htmlAttributes: new { @class = "form-control", id = "country", name = "Text", type = "text" })
+                    @Html.DropDownList("ID_GiongPet", null, htmlAttributes: new { @class = "form-control", placeholder = "Giống Pet", id = "country", name = "Text", type = "text" })
                     @Html.ValidationMessageFor(model => model.ID_GiongPet, "", new { @class = "text-danger" })
 
                 </div>
+
             </div>
-            
+            <h3 class="inner-hdng-agileinfo">Lựa chọn dịch vụ</h3>
+            <div class="input-fields-w3ls2">
+                @for(int i = 0; i< Model.DanhSachDichVu.Count(); i++)
+                {
+                <div class="col-sm-4">
+                     @Html.HiddenFor(m => m.DanhSachDichVu[i].dichVu.ID_DichVu)
+                     @Html.CheckBoxFor(m => m.DanhSachDichVu[i].available, false)<span style="color:bisque">  @Model.DanhSachDichVu[i].dichVu.TenDichVu </span>
+                </div>
+
+
+                }
+
+            </div>
             @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { placeholder = "Ghi chú" } })
 
             <input type="submit" value="Xác nhận">

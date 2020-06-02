@@ -75,28 +75,79 @@ namespace PetStore.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            return View();
+            var khachHangRepo = new KhachHangRepository();
+            var userRepo = new UserRepository();
+            var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            if(session == null)
+            {
+                return RedirectToAction("index", "Login");
+            }
+            else
+            {
+                var khachHang = khachHangRepo.GetByUserId(session.UserID);
+                var user = userRepo.GetByID(session.UserID);
+                var model = new RegisterModel();
+                model.ID = session.UserID;
+                model.Name = khachHang.Ten;
+                model.Phone = khachHang.SoDienThoai;
+                model.Email = khachHang.Email;
+                model.Address = khachHang.DiaChi;
+                model.NamSinh = khachHang.NgaySinh;
+                model.GioiTinh = khachHang.GioiTinh;
+                model.UserName = user.Username;
+                model.Password = user.Password;
+                model.ConfirmPassword = user.Password;
+                return View(model);
+            }
+
         }
         
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(User user)
+        public ActionResult Edit(RegisterModel model)
         {
-            int x = user.ID_User;
-            var userRepo = new UserRepository();
-            int id = userRepo.InsertOrUpdate(user);
             if (ModelState.IsValid)
             {
-                if (id > 0)
+                var userRepo = new UserRepository();
+                var khachHangRepo = new KhachHangRepository();
+                if (userRepo.CheckEmail(model.Email)&& !userRepo.GetByID(model.ID).Email.Equals(model.Email))
                 {
-                    return RedirectToAction("Index", "Home");
+                    ModelState.AddModelError("", "Email đã tồn tại");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm User không thành công");
+                    User user = new User();
+                    user.ID_User = model.ID;
+                    user.Ten = model.Name;
+                    user.SoDienThoai = model.Phone;
+                    user.Email = model.Email;
+                    user.Status = true;
+                    user.Password = model.Password;
+                    int userid = userRepo.InsertOrUpdate(user);
+
+                    KhachHang khachHang = new KhachHang();
+                    khachHang.ID_KhachHang = khachHangRepo.GetByUserId(userid).ID_KhachHang;
+                    khachHang.Ten = model.Name;
+                    khachHang.ID_User = userid;
+                    khachHang.GioiTinh = model.GioiTinh;
+                    khachHang.NgaySinh = model.NamSinh;
+                    khachHang.SoDienThoai = model.Phone;
+                    khachHang.Email = model.Email;
+                    khachHang.DiaChi = model.Address;
+                    int khachHangid = khachHangRepo.InsertOrUpdate(khachHang);
+                    if (userid > 0 && khachHangid > 0)
+                    {
+                        ViewBag.Success = "Cập nhật thành công";
+                        model = new RegisterModel();
+                        return RedirectToAction("index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Chỉnh sửa User không thành công");
+                    }
                 }
             }
-            return View("Index","Home");
+            return View(model);
         }
 
     }

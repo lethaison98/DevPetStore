@@ -38,7 +38,7 @@ namespace PetStore.Models
         [Display(Name = "Điện thoại")]
         public string Phone { set; get; }
 
-        [Display(Name = "Ngày sinh")]
+        [Display(Name = "Năm sinh")]
         public string NamSinh { set; get; }
 
         [Display(Name = "Giới tính")]

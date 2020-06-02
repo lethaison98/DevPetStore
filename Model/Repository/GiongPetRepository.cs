@@ -30,8 +30,12 @@ namespace Model.Repository
                 var giongPet = db.GiongPets.Find(entity.ID_GiongPet);
                 giongPet.TenGiongPet = entity.TenGiongPet;
                 giongPet.ID_DanhMuc = entity.ID_DanhMuc;
-                giongPet.Image = entity.Image;
-                giongPet.MoTa = entity.MoTa;
+                giongPet.ImgNguonGoc = entity.ImgNguonGoc;
+                giongPet.NguonGoc = entity.NguonGoc;
+                giongPet.ImgDacDiem = entity.ImgDacDiem;
+                giongPet.DacDiem = entity.DacDiem;
+                giongPet.ImgLyDoNuoi = entity.ImgLyDoNuoi;
+                giongPet.LyDoNuoi = entity.LyDoNuoi;
                 giongPet.MetaTitle = entity.MetaTitle;
                 db.SaveChanges();
             }

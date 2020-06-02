@@ -18,7 +18,6 @@ namespace Model.Repository
 
         public int InsertOrUpdate(User entity)
         {
-            var x = entity.ID_User;
       
             if (entity.ID_User <= 0)
             {
@@ -28,8 +27,7 @@ namespace Model.Repository
             }
             else
             {
-                var user = db.Users.Find(entity.ID_User);
-                user.Username = entity.Username;
+                var user = db.Users.FirstOrDefault(x => x.ID_User == entity.ID_User);
                 user.Password = entity.Password;
                 user.Ten = entity.Ten;
                 user.SoDienThoai = entity.SoDienThoai;

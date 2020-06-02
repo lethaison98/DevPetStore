@@ -1,0 +1,250 @@
+﻿
+@model PetStore.Models.KyGuiModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section jsFooter{
+
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Assets/Client/js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker({ dateFormat: 'dd-mm-yy' });
+        });
+    </script>
+
+}
+<script type="application/x-javascript">
+    addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+</script>
+
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Đặt lịch ký gửi</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<div class="main-w3layouts-content" data-wow-delay=".5s">
+    <div class="top-section">
+        <h2 class="sub-hdng-agileits-w3layouts">Đặt lịch ký gửi</h2>
+        <p>Vui lòng điền đầy đủ thông tin bên dưới</p>
+    </div>
+    <div class="w3-agile-login-form">
+        <form action="#" method="post">
+            <h3 class="inner-hdng-agileinfo">Thông tin liên hệ</h3>
+            <div class="top-fields-wthree">
+                @Html.HiddenFor(model => model.ID_KhachHang)
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.TenKhachHang, new { htmlAttributes = new { placeholder = "Họ tên" ,required =""} })
+                </div>
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email",required ="" } })
+                </div>
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại" ,required =""} })
+                </div>
+            </div>
+            <h3 class="inner-hdng-agileinfo">Thông tin Thú cưng</h3>
+            <div class="top-fields-wthree">
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.TenPet, new { htmlAttributes = new { placeholder = "Tên thường gọi...",required ="" } })
+                </div>
+                <div class="input-fields-w3ls">
+                    @Html.DropDownList("ID_GiongPet", null, htmlAttributes: new { @class = "form-control", placeholder = "Giống Pet", id = "country", name = "Text", type = "text" ,required =""})
+                    @Html.ValidationMessageFor(model => model.ID_GiongPet, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="input-fields-w3ls">
+                    @{
+                        List<SelectListItem> listGioiTinh = new List<SelectListItem>();
+                        listGioiTinh.Add(new SelectListItem
+                        {
+                            Text = "Đực",
+                            Value = "Đực"
+                        });
+                        listGioiTinh.Add(new SelectListItem
+                        {
+                            Text = "Cái",
+                            Value = "Cái",
+                        });
+                    }
+                    @Html.DropDownListFor(model => model.GioiTinh, listGioiTinh, "Giới tính", new { @onchange = "GioiTinh = this.value;", id = "country",required ="" })
+                </div>
+            </div>
+            <div class="top-fields-wthree">
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.SoThang, new { htmlAttributes = new { placeholder = "Số tháng...", type = "text" ,required =""} }) Tháng
+                </div>
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.CanNang, new { htmlAttributes = new { placeholder = "Cân nặng(Kg) ..." ,type = "text" ,required =""} })
+                </div>
+
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.TinhTrangSucKhoe, new { htmlAttributes = new { placeholder = "Tình trạng sức khỏe...",required ="" } })
+
+                </div>
+            </div>
+            <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
+            <div class="mid-fields-agileits-w3layouts">
+                <div class="input-fields-w3ls2">
+                    @Html.EditorFor(model => model.TuNgay, new { htmlAttributes = new { placeholder = "Từ ngày", id = "datepicker1", name = "Text", type = "text" ,required =""} })
+
+                </div>
+                <div class="input-fields-w3ls2">
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "7:00 - 8:00",
+                            Value = "7:00 - 8:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "8:00 - 9:00",
+                            Value = "8:00 - 9:00",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "9:00 - 10:00",
+                            Value = "9:00 - 10:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "10:00 - 11:00",
+                            Value = "10:00 - 11:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "11:00 - 12:00",
+                            Value = "11:00 - 12:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "13:00 - 14:00",
+                            Value = "13:00 - 14:00"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "14:00 - 15:00",
+                            Value = "14:00 - 15:00"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "15:00 - 16:00",
+                            Value = "15:00 - 16:00"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "16:00 - 17:00",
+                            Value = "16:00 - 17:00"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "17:00 - 18:00",
+                            Value = "17:00 - 18:00"
+                        });
+
+
+                    }
+
+                    @Html.DropDownListFor(model => model.TuGio, listItems, "Từ giờ", new { @onchange = "TuGio = this.value;", id = "country",required ="" })
+
+                </div>
+
+
+            </div>
+            <div class="mid-fields-agileits-w3layouts">
+                <div class="input-fields-w3ls2">
+                    @Html.EditorFor(model => model.DenNgay, new { htmlAttributes = new { placeholder = "Đến ngày", id = "datepicker", name = "Text", type = "text" ,required =""} })
+
+                </div>
+                <div class="input-fields-w3ls2">
+                    @{
+                        List<SelectListItem> listItem = new List<SelectListItem>();
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "7:00 - 8:00",
+                            Value = "7:00 - 8:00"
+                        });
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "8:00 - 9:00",
+                            Value = "8:00 - 9:00",
+                        });
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "9:00 - 10:00",
+                            Value = "9:00 - 10:00"
+                        });
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "10:00 - 11:00",
+                            Value = "10:00 - 11:00"
+                        });
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "11:00 - 12:00",
+                            Value = "11:00 - 12:00"
+                        });
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "13:00 - 14:00",
+                            Value = "13:00 - 14:00"
+                        });
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "14:00 - 15:00",
+                            Value = "14:00 - 15:00"
+                        });
+
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "15:00 - 16:00",
+                            Value = "15:00 - 16:00"
+                        });
+
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "16:00 - 17:00",
+                            Value = "16:00 - 17:00"
+                        });
+
+                        listItem.Add(new SelectListItem
+                        {
+                            Text = "17:00 - 18:00",
+                            Value = "17:00 - 18:00"
+                        });
+
+
+                    }
+
+                    @Html.DropDownListFor(model => model.DenGio, listItem, "Đến giờ", new { @onchange = "DenGio = this.value;", id = "country" ,required =""})
+
+                </div>
+
+
+            </div>
+
+            @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { placeholder = "Ghi chú" } })
+
+            <input type="submit" value="Xác nhận">
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+

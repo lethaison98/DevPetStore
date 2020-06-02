@@ -32,6 +32,8 @@ namespace Model.Repository
                 pet.ID_GiongPet = entity.ID_GiongPet;
                 pet.MoTa = entity.MoTa;
                 pet.Image = entity.Image;
+                pet.Image2 = entity.Image2;
+                pet.Image3 = entity.Image3;
                 pet.MauLong = entity.MauLong;
                 pet.GioiTinh = entity.GioiTinh;
                 pet.ChiTiet = entity.ChiTiet;

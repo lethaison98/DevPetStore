@@ -26,6 +26,8 @@ namespace Model.Repository
                 var khachHang = db.KhachHangs.FirstOrDefault(x => x.ID_User == entity.ID_User);
                 khachHang.DiaChi = entity.DiaChi;
                 khachHang.Ten = entity.Ten;
+                khachHang.Email = entity.Email;
+                khachHang.SoDienThoai = entity.SoDienThoai;
                 khachHang.NgaySinh = entity.NgaySinh;
                 khachHang.GioiTinh = entity.GioiTinh;
                 db.SaveChanges();

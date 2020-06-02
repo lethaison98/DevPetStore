@@ -4081,3 +4081,68 @@ select#country option {
 
 /*--responsive--*/
 
+
+/* about */
+.about-right {
+	padding: 3.5em 5em 3em;
+}
+
+.about h3 {
+	font-size: 34px;
+	color: #000;
+}
+
+.about-right p {
+	color: #6b6a6a;
+	font-size: 16px;
+}
+
+a.button-style-3 {
+	border: 1px solid rgba(51, 51, 51, 0.3);
+	-webkit-border-radius: 0px;
+	-o-border-radius: 0px;
+	-ms-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	padding: 13px 22px;
+	color: #333;
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: 600;
+	margin-top: 3em;
+	text-transform: uppercase;
+}
+
+/* //about */
+
+/* about */
+.about-left-inner h3 {
+	text-transform: capitalize;
+	line-height: 36px;
+	font-size: 25px;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+.about-left-inner h5 {
+	font-size: 18px;
+	letter-spacing: 1px;
+	font-family: initial;
+	font-style: italic;
+	margin-top: 15px;
+	line-height: 28px;
+}
+
+.about-right-inner img {
+	padding: 3em 4em;
+}
+
+.sub-content p {
+	display: block;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	overflow: hidden;
+	max-height: 3.6em;
+	line-height: 1.8em;
+}
+/* //about */

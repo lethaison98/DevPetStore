@@ -1,0 +1,71 @@
+﻿
+@model  PagedList.IPagedList<Model.EF.BaiViet>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý bài viết</div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("Index", "BaiVietManagement", FormMethod.Get))
+        {
+            <div class="row" style="padding-bottom: 5px ">
+                <div class="col-sm-8">
+                    <a type="button" class="btn btn-primary" href="/Admin/BaiVietManagement/Create">Tạo mới</a>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" name="searchString" />
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+        }
+
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tiêu đề</th>
+                        <th>Ngày tạo</th>
+                        <th>Meta Title</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tiêu đề</th>
+                        <th>Ngày tạo</th>
+                        <th>Meta Title</th>
+                        <th>#</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID_BaiViet">
+                            <td>@item.Title</td>
+                            <td>@item.CreateDate.ToString()</td>
+                            <td>@item.Metatitle</td>
+                            <td>
+                                <a href="/Admin/BaiVietManagement/Edit/@item.ID_BaiViet">Sửa</a>
+                                |
+                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID_BaiViet }, new AjaxOptions
+                            {
+                               Confirm = "Xác nhận xóa",
+                               OnComplete = "$('#row_" + @item.ID_BaiViet + "').remove()",
+                               HttpMethod = "Delete"
+                            })
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
+        </div>
+    </div>
+</div>

@@ -26,6 +26,12 @@ namespace PetStore
                 namespaces: new[] { "PetStore.Controllers" }
                 );
             routes.MapRoute(
+                name: "bai_viet",
+                url: "KienThuc/{MetaTitle}",
+                defaults: new { controller = "KienThuc", action = "ChiTiet", id = UrlParameter.Optional },
+                namespaces: new[] { "PetStore.Controllers" }
+                );
+            routes.MapRoute(
                 name: "Add Cart",
                 url: "Them_gio_hang",
                 defaults: new { controller = "GioHang", action = "AddItem", id = UrlParameter.Optional },

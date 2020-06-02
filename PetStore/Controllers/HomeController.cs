@@ -13,7 +13,10 @@ namespace PetStore.Controllers
         {
             return View();
         }
-
+        public ActionResult PageNotFound()
+        {
+            return View();
+        }
         [ChildActionOnly]
         public PartialViewResult _SessionHeader()
         {

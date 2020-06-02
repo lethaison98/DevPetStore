@@ -1,0 +1,53 @@
+﻿@model Model.EF.BaiViet
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <h1 class="animated wow zoomIn" data-wow-delay=".5s">@Model.Title</h1>
+        </ol>
+    </div>
+</div>
+
+<section class="about py-5">
+    <div class="py-xl-5 py-lg-3">
+        <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImageLink1" alt="" class="imgs-fluid" />
+            </div>
+            <div class="col-xl-8 about-right border-bottom">
+                <p class="mb-3">
+                    @Html.Raw(@Model.Para1)
+                </p>
+
+            </div>
+        </div>
+        <div class="d-xl-flex about-grids flex-row-reverse animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgLink2" alt="" class="imgs-fluid" />
+            </div>
+            <div class="col-xl-8 about-right border-bottom">
+                <p class="mb-3">
+                    @Html.Raw(@Model.Para2)
+                </p>
+
+            </div>
+        </div>
+        <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgLink3" alt="" class="imgs-fluid" />
+            </div>
+            <div class="col-xl-8 about-right">
+                <p class="mb-3">
+                    @Html.Raw(@Model.Para3)
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

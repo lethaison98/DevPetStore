@@ -22,15 +22,29 @@
         [Display(Name = "Tên giống Pet")]
         public string TenGiongPet { get; set; }
 
+        [Display(Name = "Danh mục")]
         public int? ID_DanhMuc { get; set; }
 
   
-        [Display(Name ="Mô Tả")]
-        public string MoTa { get; set; }
+        [Display(Name ="Nguồn gốc")]
+        public string NguonGoc{ get; set; }
 
         [StringLength(250)]
-        [Display(Name ="Link Ảnh")]
-        public string Image { get; set; }
+        [Display(Name ="Ảnh nguồn gốc")]
+        public string ImgNguonGoc { get; set; }
+
+        [Display(Name = "Đặc điểm")]
+        public string DacDiem { get; set; }
+
+        [StringLength(250)]
+        [Display(Name = "Ảnh đặc điểm")]
+        public string ImgDacDiem { get; set; }
+        [Display(Name = "Lý do nuôi")]
+        public string LyDoNuoi { get; set; }
+
+        [StringLength(250)]
+        [Display(Name = "Ảnh lý do nuôi")]
+        public string ImgLyDoNuoi { get; set; }
 
         [StringLength(50)]
         [Display(Name ="Meta Title")]

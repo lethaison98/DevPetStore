@@ -5,12 +5,71 @@
     var Pets = (List<Model.EF.Pet>)ViewBag.Item;
 }
 
+@section jsFooter{
+    <script src="~/Assets/Client/js/imagezoom.js"></script>
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="~/Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Chó cảnh</li>
+            <li class="active">@Model.TenGiongPet</li>
+        </ol>
+    </div>
+</div>
+<div class="register">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Thông tin @Model.TenGiongPet</h3>
+    </div>
+</div>
+<section class="about py-5">
+    <div class="py-xl-5 py-lg-3">
+        <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgNguonGoc" alt="" class="img" />
+            </div>
+            <div class="col-xl-8 about-right border-bottom">
+                <h3 class="mb-3">Nguồn gốc @Model.TenGiongPet</h3>
+                <p class="mb-3">
+                    @Html.Raw(@Model.NguonGoc)
+                </p>
+
+            </div>
+        </div>
+        <div class="d-xl-flex about-grids flex-row-reverse animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgDacDiem" alt="" class="img" />
+            </div>
+            <div class="col-xl-8 about-right border-bottom">
+                <h3 class="mb-3">Đặc điểm @Model.TenGiongPet</h3>
+                <p class="mb-3">
+                    @Html.Raw(@Model.DacDiem)
+                </p>
+
+            </div>
+        </div>
+        <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgLyDoNuoi" alt="" class="img" />
+            </div>
+            <div class="col-xl-8 about-right">
+                <h3 class="mb-3">Lý do nuôi @Model.TenGiongPet</h3>
+                <p class="mb-3">
+                    @Html.Raw(@Model.LyDoNuoi)
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- collections -->
 <div class="new-collections">
     <div class="container">
         <h3 class="animated wow zoomIn" data-wow-delay=".5s">Bảng giá @Model.TenGiongPet</h3>
         <p class="est animated wow zoomIn" data-wow-delay=".5s">
-           
+
         </p>
         <div class="row">
             @foreach (var item in Pets)
@@ -20,18 +79,87 @@
                         <div class="new-collections-grid1-image">
                             <a href="single.html" class="product-image"><img src="@item.Image" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a>
+                                <a href="#" class="item_add " style="position:center" data-toggle="modal" data-target="#exampleModalLive">Chi tiết </a>
                             </div>
                         </div>
                         <h4><a href="single.html">@item.Ten_Pet</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
-                            <p><span class="item_price">@item.GiaTien</span><a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a></p>
+                            <p><span class="item_price">@item.GiaTien.ToString("N0")</span><a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLiveLabel">Bird Care</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                    <div class="container">
+                                        <div class="col-md-8 single-right">
+                                            <div class="col-md-5 single-right-left ">
+                                                <div class="flexslider">
+                                                    <ul class="slides">
+                                                        <li data-thumb="@item.Image">
+                                                            <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                                        </li>
+                                                        <li data-thumb="@item.Image">
+                                                            <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                                        </li>
+                                                        <li data-thumb="@item.Image">
+                                                            <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <!-- flixslider -->
+                                                <script src="~/Assets/Client/js/jquery.flexslider.js"></script>
+                                                <link rel="stylesheet" href="~/Assets/Client/css/flexslider.css" type="text/css" media="screen" />
+                                                <script>
+                                                    // Can also be used with $(document).ready()
+                                                    $(window).load(function () {
+                                                        $('.flexslider').flexslider({
+                                                            animation: "slide",
+                                                            controlNav: "thumbnails"
+                                                        });
+                                                    });
+                                                </script>
+                                                <!-- flixslider -->
+                                            </div>
+                                            <div class="col-md-7 single-right-left simpleCart_shelfItem ">
+                                                <h3>Men's Solid Casual Shirt</h3>
+                                                <h4><span class="item_price">$550</span> - $900</h4>
+
+                                                <div class="description">
+                                                    <h5><i>Description</i></h5>
+                                                    <p>
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                                        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                                                    </p>
+                                                </div>
+
+                                                <div class="occasion-cart">
+                                                    <a class="item_add" href="#">add to cart </a>
+                                                </div>
+
+                                            </div>
+                                            <div class="clearfix"> </div>
+
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             }
-            @Html.Raw(@Model.MoTa)
-
             <div class="clearfix"> </div>
         </div>
     </div>
