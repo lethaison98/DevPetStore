@@ -25,12 +25,12 @@
                         </div>
                         <h4><a href="single.html">@item.Ten_Pet</a></h4>
                         <div class="simpleCart_shelfItem products-right-grid1-add-cart">
-                            <p><span class="item_price">@item.GiaTien.GetValueOrDefault(0).ToString("N0")</span><a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a></p>
+                            <p><span class="item_price">@item.GiaTien.ToString("N0")</span><a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a></p>
                         </div>
                     </div>
                 </div>
             }
-            @Html.Raw(@Model.MoTa)
+            @Html.Raw(@Model.NguonGoc)
 
             <div class="clearfix"> </div>
         </div>

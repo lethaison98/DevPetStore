@@ -34,8 +34,8 @@
                     <ul>
                         @foreach (var item in Model)
                         {
-                            <li>@item.Pet.Ten_Pet<i></i><span>@((@item.Pet.GiaTien.GetValueOrDefault(0) * @item.SoLuong).ToString("N0"))</span></li>
-                            tong += (@item.Pet.GiaTien.GetValueOrDefault(0) * @item.SoLuong);
+                            <li>@item.Pet.Ten_Pet<i></i><span>@((@item.Pet.GiaTien * @item.SoLuong).ToString("N0"))</span></li>
+                            tong += (@item.Pet.GiaTien * @item.SoLuong);
                         }
                         <li><hr /></li>
                         <li><strong>Tổng cộng <i></i> <span>@tong.ToString("N0")</span></strong></li>

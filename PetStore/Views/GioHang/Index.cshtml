@@ -49,8 +49,8 @@
                                     <input type="number" min="1" class="txtQuantity" data-id="@Model[i].Pet.ID_Item" value="@Model[i].SoLuong" />
                                     
                                 </td>
-                                <td>@Model[i].Pet.GiaTien.GetValueOrDefault(0).ToString("N0")</td>
-                                <td>@((@Model[i].Pet.GiaTien.GetValueOrDefault(0) * @Model[i].SoLuong).ToString("N0"))</td>
+                                <td>@Model[i].Pet.GiaTien.ToString("N0")</td>
+                                <td>@((@Model[i].Pet.GiaTien * @Model[i].SoLuong).ToString("N0"))</td>
                                 <td><a href="#" data-id="@Model[i].Pet.ID_Item" class="btn-delete">Xoá</a></td>
                             </tr>
                         }
@@ -65,8 +65,8 @@
                     <ul>
                         @foreach (var item in Model)
                         {
-                            <li>@item.Pet.Ten_Pet<i></i><span>@((@item.Pet.GiaTien.GetValueOrDefault(0) * @item.SoLuong).ToString("N0"))</span></li>
-                            tong += (@item.Pet.GiaTien.GetValueOrDefault(0) * @item.SoLuong);
+                            <li>@item.Pet.Ten_Pet<i></i><span>@((@item.Pet.GiaTien * @item.SoLuong).ToString("N0"))</span></li>
+                            tong += (@item.Pet.GiaTien * @item.SoLuong);
                         }
                         <li><hr /></li>
                         <li><strong>Tổng cộng <i></i> <span>@tong.ToString("N0")</span></strong></li>
