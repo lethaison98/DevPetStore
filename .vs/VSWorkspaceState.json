@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\PetStore",
+    "\\PetStore\\Areas",
+    "\\PetStore\\Areas\\Admin",
+    "\\PetStore\\Areas\\Admin\\Views",
+    "\\PetStore\\Areas\\Admin\\Views\\Shared",
+    "\\PetStore\\Areas\\Admin\\Views\\UserManagement",
+    "\\PetStore\\bin"
+  ],
+  "SelectedNode": "\\PetStore\\Areas\\Admin\\Views\\UserManagement\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

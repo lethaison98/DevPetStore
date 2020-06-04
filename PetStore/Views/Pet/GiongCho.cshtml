@@ -82,7 +82,7 @@
                         <div class="new-collections-grid1-image">
                             <a href="single.html" class="product-image"><img src="@item.Image" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a href="#" class="item_add " style="position:center" data-toggle="modal" data-target="#Cho_alaska_duc_mau_trang">Chi tiết </a>
+                                <a href="#" class="item_add " style="position:center" data-toggle="modal" data-target="#Modal_@item.ID_Item">Chi tiết </a>
                             </div>
                         </div>
                         <h4><a href="single.html">@item.Ten_Pet</a></h4>
@@ -115,7 +115,7 @@
 
                 </script>*@
                 <!-- flixslider -->
-                <div class="modal fade" id="@item.MetaTitle.ToString()" role="dialog">
+                <div class="modal fade" id="Modal_@item.ID_Item" role="dialog">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">

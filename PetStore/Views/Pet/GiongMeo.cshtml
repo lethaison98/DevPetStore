@@ -5,6 +5,68 @@
     var Pets = (List<Model.EF.Pet>)ViewBag.Item;
 }
 
+@section jsFooter{
+    <script src="~/Assets/Client/js/imagezoom.js"></script>
+
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="~/Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Chó cảnh</li>
+            <li class="active">@Model.TenGiongPet</li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="register">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Thông tin @Model.TenGiongPet</h3>
+    </div>
+</div>
+<section class="about py-5">
+    <div class="py-xl-5 py-lg-3">
+        <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgNguonGoc" alt="" class="img" />
+            </div>
+            <div class="col-xl-8 about-right border-bottom">
+                <h3 class="mb-3">Nguồn gốc @Model.TenGiongPet</h3>
+                <p class="mb-3">
+                    @Html.Raw(@Model.NguonGoc)
+                </p>
+
+            </div>
+        </div>
+        <div class="d-xl-flex about-grids flex-row-reverse animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgDacDiem" alt="" class="img" />
+            </div>
+            <div class="col-xl-8 about-right border-bottom">
+                <h3 class="mb-3">Đặc điểm @Model.TenGiongPet</h3>
+                <p class="mb-3">
+                    @Html.Raw(@Model.DacDiem)
+                </p>
+
+            </div>
+        </div>
+        <div class="d-xl-flex about-grids animated wow zoomIn" data-wow-delay=".5s">
+            <div class="col-xl-4 about-left p-0">
+                <img src="@Model.ImgLyDoNuoi" alt="" class="img" />
+            </div>
+            <div class="col-xl-8 about-right">
+                <h3 class="mb-3">Lý do nuôi @Model.TenGiongPet</h3>
+                <p class="mb-3">
+                    @Html.Raw(@Model.LyDoNuoi)
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- collections -->
 <div class="new-collections">
     <div class="container">
@@ -20,7 +82,7 @@
                         <div class="new-collections-grid1-image">
                             <a href="single.html" class="product-image"><img src="@item.Image" alt=" " class="img-responsive"></a>
                             <div class="new-collections-grid1-image-pos products-right-grids-pos">
-                                <a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a>
+                                <a href="#" class="item_add " style="position:center" data-toggle="modal" data-target="#Modal_@item.ID_Item">Chi tiết </a>
                             </div>
                         </div>
                         <h4><a href="single.html">@item.Ten_Pet</a></h4>
@@ -29,9 +91,92 @@
                         </div>
                     </div>
                 </div>
-            }
-            @Html.Raw(@Model.NguonGoc)
+                <!-- flixslider -->
+                @*<script src="~/Assets/Client/js/jquery.flexslider.js"></script>
+                    <link rel="stylesheet" href="~/Assets/Client/css/flexslider.css" type="text/css" media="screen" />
+                    <script>
+                        var meta = @Html.Raw(Json.Encode(@item.MetaTitle));
+                        var z = "#"
+                        var x = z.concat(meta);
+                        $(x).on('shown.bs.modal', function () {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: "thumbnails",
+                            });
 
+                        });
+
+                        function myFunction() {
+                          var str1 = "#";
+                          var str2 = @Html.Raw(Json.Encode(@item.MetaTitle));
+                          var res = str1.concat(str2);
+                             document.getElementById("demo").innerHTML = res;
+                       }
+
+                    </script>*@
+                <!-- flixslider -->
+                <div class="modal fade" id="Modal_@item.ID_Item" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="exampleModalLiveLabel">Chi tiết thú cưng</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="single-right">
+                                    <div class="col-md-5 single-right-left ">
+                                        <div class="flexslider">
+                                            <ul class="slides">
+                                                <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+
+                                                @*<li data-thumb="@item.Image">
+                                                        <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                                    </li>
+                                                    <li data-thumb="@item.Image">
+                                                        <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                                    </li>
+                                                    <li data-thumb="@item.Image">
+                                                        <div class="thumb-image"> <img src="@item.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                                    </li>*@
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-7 single-right-left simpleCart_shelfItem ">
+                                        <h4>@item.Ten_Pet</h4>
+                                        <h5><i>Giá tiền: </i></h5><h4><span class="item_price">@item.GiaTien.ToString("N0")</span></h4>
+
+                                        <div class="description">
+                                            <h5><i>Mô tả</i></h5>
+                                            <p>
+                                                @Html.Raw(item.MoTa)
+                                            </p>
+                                        </div>
+                                        <div class="description">
+                                            <h5><i>Màu lông: </i>@item.MauLong</h5>
+
+                                        </div>
+                                        <div class="occasion-cart">
+                                            <a class="item_add" href="/Them_gio_hang?itemId=@item.ID_Item&soLuong=1">Thêm vào giỏ </a>
+                                        </div>
+
+                                    </div>
+                                    <div class="clearfix"> </div>
+
+                                </div>
+                                <div class="clearfix"> </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
             <div class="clearfix"> </div>
         </div>
     </div>

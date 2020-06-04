@@ -121,9 +121,13 @@ namespace PetStore.Controllers
             {
                 var khachHangRepo = new KhachHangRepository();
                 var khachHang = khachHangRepo.GetByUserId(UserSession.UserID);
-                ViewBag.Name = khachHang.Ten;
-                ViewBag.Phone = khachHang.SoDienThoai;
-                ViewBag.Address = khachHang.DiaChi;
+                if(khachHang!= null)
+                {
+                    ViewBag.Name = khachHang.Ten;
+                    ViewBag.Phone = khachHang.SoDienThoai;
+                    ViewBag.Address = khachHang.DiaChi;
+                }
+
             }
                 return View(list);
         }
@@ -164,7 +168,7 @@ namespace PetStore.Controllers
                 Console.WriteLine("ex");
                 return Redirect("/loi-thanh-toan");
             }
-            return Redirect("/hoan-thanh");
+            return Redirect("~/Home");
         }
     }
 }
