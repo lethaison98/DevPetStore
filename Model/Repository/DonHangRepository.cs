@@ -30,5 +30,15 @@ namespace Model.Repository
             }
             return model.OrderByDescending(x => x.CreateDate).ToPagedList(page, pageSize);
         }
+
+        public  bool XacNhan (int id)
+        {
+            var entity = db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id);
+
+            entity.TrangThaiDonHang = 2;
+            db.SaveChanges();
+            return true;
+            
+        } 
     }
 }

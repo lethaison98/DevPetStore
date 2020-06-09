@@ -5,6 +5,9 @@
     ViewBag.Title = "Quản lý Đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+@section jsFooter{
+    <script src="~/Assets/Admin/dist/js/Controller/DonHangController.js"></script>
+}
 
 <div class="card mb-4">
     <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
@@ -14,8 +17,8 @@
         {
             <div class="row" style="padding-bottom: 5px ">
                 @*<div class="col-sm-8">
-                    <a type="button" class="btn btn-primary" href="/Admin/PetManagement/Create">Tạo mới</a>
-                </div>*@
+                        <a type="button" class="btn btn-primary" href="/Admin/PetManagement/Create">Tạo mới</a>
+                    </div>*@
                 <div class="col-sm-4">
                     <input type="text" name="searchString" />
                     <button type="submit" class="btn btn-primary">Search</button>
@@ -27,14 +30,14 @@
         <div class="table-responsive">
             <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
-                    <tr>              
+                    <tr>
                         <th>Ngày tạo</th>
                         <th>Tên người nhận</th>
                         <th>Số điện thoại</th>
                         <th>Địa chỉ ship</th>
                         <th>Tổng tiền</th>
-                        <th>Trạng thái đơn hàng</th>
-                        <th>#</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -52,24 +55,15 @@
                     @foreach (var item in Model)
                     {
                         <tr id="row_@item.ID_DonHang">
-                            
+
                             <td>@item.CreateDate</td>
                             <td>@item.ShipName</td>
                             <td>@item.ShipMobile</td>
                             <td>@item.ShipAddress</td>
                             <td>@item.TongTien.ToString("N0")</td>
                             <td>@item.TrangThaiDonHang</td>
-                            
                             <td>
-                                #
-                                @*<a href="/Admin/PetManagement/Edit/@item.ID_Item">Sửa</a>
-                                |
-                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID_Item }, new AjaxOptions
-                            {
-                               Confirm = "Xác nhận xóa",
-                               OnComplete = "$('#row_" + @item.ID_Item + "').remove()",
-                               HttpMethod = "Delete"
-                            })*@
+                                <button class="btn-status" data-id="@item.ID_DonHang">@item.TrangThaiDonHang</button>
                             </td>
                         </tr>
 

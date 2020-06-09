@@ -86,6 +86,7 @@
     <Compile Include="Repository\KhachHangRepository.cs" />
     <Compile Include="Repository\LichHenRepository.cs" />
     <Compile Include="Repository\PetRepository.cs" />
+    <Compile Include="Repository\SlideRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

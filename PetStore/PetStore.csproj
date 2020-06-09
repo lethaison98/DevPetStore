@@ -192,6 +192,7 @@
     <Content Include="Assets\Admin\dist\css\styles.css" />
     <Content Include="Assets\Admin\dist\js\all.min.js" />
     <Content Include="Assets\Admin\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Assets\Admin\dist\js\Controller\DonHangController.js" />
     <Content Include="Assets\Admin\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Assets\Admin\dist\js\scripts.js" />
     <Content Include="Assets\Admin\plugins\ckeditor\adapters\jquery.js" />

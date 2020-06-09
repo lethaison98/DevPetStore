@@ -16,5 +16,16 @@ namespace PetStore.Areas.Admin.Controllers
             var model = donHangRepo.ListAllPaging(searchString, page, pagesize);
             return View(model);
         }
+
+        [HttpPost]
+        public JsonResult XacNhan (int id)
+        {
+            var donHangRepo = new DonHangRepository();
+            var thanhCong = donHangRepo.XacNhan(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
     }
 }

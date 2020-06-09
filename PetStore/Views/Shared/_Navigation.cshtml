@@ -34,8 +34,14 @@
             {
                 <div class="header-grid-right" data-wow-delay=".5s">
                     <ul>
-                        <li>
-                            <a href="~/Account/Edit"><strong>Xin chào: @session.UserName</strong></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Xin chào: @session.UserName</strong></a>
+                            <ul class="dropdown-menu multi-column">
+                                <li><a href="~/Account/Edit">Chỉnh sửa tài khoản</a></li>
+                                <li><a href="~/KyGui">Danh sách đơn hàng</a></li>
+                                <li><a href="~/KyGui">Danh sách lịch hẹn</a></li>
+                                <li><a href="~/KyGui">Danh sách ký gửi</a></li>
+                            </ul>
                         </li>
                         <li>
                             <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> @Html.ActionLink("Thoát", "LogOut", "Login")
