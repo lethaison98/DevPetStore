@@ -79,7 +79,6 @@ namespace PetStore.Controllers
         {
             var repo = new GiongPetRepository();
             ViewBag.ID_GiongPet = new SelectList(repo.ListAll(), "ID_GiongPet", "TenGiongPet", selectedID);
-
         }
     }
 }

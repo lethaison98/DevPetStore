@@ -59,8 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\TrangThaiAttribute.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Dto\DonHangChiTietDto.cs" />
+    <Compile Include="Dto\DonHangDto.cs" />
     <Compile Include="EF\BaiViet.cs" />
     <Compile Include="EF\DanhMuc.cs" />
     <Compile Include="EF\DichVu.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="EF\Pet.cs" />
     <Compile Include="EF\Slide.cs" />
     <Compile Include="EF\User.cs" />
+    <Compile Include="Enums\GetEnum.cs" />
+    <Compile Include="Enums\TrangThaiDonHangEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DanhMucRepository.cs" />
     <Compile Include="Repository\DichVuRepository.cs" />

@@ -1,6 +1,7 @@
 ﻿
-@model  PagedList.IPagedList<Model.EF.DonHang>
+@model  PagedList.IPagedList<Model.Dto.DonHangDto>
 @using PagedList.Mvc
+@using Model.Enums
 @{
     ViewBag.Title = "Quản lý Đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -13,12 +14,9 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
     <div class="card-body">
 
-        @using (Html.BeginForm("Index", "DonHangManagement", FormMethod.Get))
+        @using (Html.BeginForm("DonDaChuaXacNhan", "DonHangManagement", FormMethod.Get))
         {
             <div class="row" style="padding-bottom: 5px ">
-                @*<div class="col-sm-8">
-                        <a type="button" class="btn btn-primary" href="/Admin/PetManagement/Create">Tạo mới</a>
-                    </div>*@
                 <div class="col-sm-4">
                     <input type="text" name="searchString" />
                     <button type="submit" class="btn btn-primary">Search</button>
@@ -61,7 +59,7 @@
                             <td>@item.ShipMobile</td>
                             <td>@item.ShipAddress</td>
                             <td>@item.TongTien.ToString("N0")</td>
-                            <td>@item.TrangThaiDonHang</td>
+                            <td>@item.TenTrangThaiDonHang</td>
                             <td>
                                 <button class="btn-status" data-id="@item.ID_DonHang">@item.TrangThaiDonHang</button>
                             </td>
@@ -71,7 +69,7 @@
 
                 </tbody>
             </table>
-            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
+            @Html.PagedListPager(Model, Page => Url.Action("DonHangDaXacNhan", new { Page }))
         </div>
     </div>
 </div>

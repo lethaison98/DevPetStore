@@ -26,7 +26,7 @@ namespace PetStore.Models
         public string GioHen { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }
-        public int? TrangThaiLichHen { get; set; }
+        public int TrangThaiLichHen { get; set; }
 
         public List<DichVuModel> DanhSachDichVu { get; set; }
     }
