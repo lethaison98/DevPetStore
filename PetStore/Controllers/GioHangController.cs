@@ -142,6 +142,11 @@ namespace PetStore.Controllers
             donHang.TrangThaiDatHang = 1;
             donHang.TrangThaiDonHang = 1;
             donHang.TrangThaiGiaoHang = 0;
+            var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            if (session != null)
+            {
+                donHang.ID_KhachHang = new KhachHangRepository().GetByUserId(session.UserID).ID_KhachHang;
+            }
             try
             {               
                 var cart = (List<CartItem>)Session[CartSession];
@@ -158,7 +163,8 @@ namespace PetStore.Controllers
                     var donHangChiTiet = new DonHangDetail();
                     donHangChiTiet.ID_Item = item.Pet.ID_Item;
                     donHangChiTiet.ID_DonHang = id;
-                    donHangChiTiet.GiaTien = item.Pet.GiaTien;
+                    donHangChiTiet.DonGia = item.Pet.GiaTien;
+                    donHangChiTiet.ThanhTien = item.Pet.GiaTien * item.SoLuong;
                     donHangChiTiet.SoLuong = item.SoLuong;
                     var idItem = donHangChiTietRepo.Insert(donHangChiTiet);
                 }               

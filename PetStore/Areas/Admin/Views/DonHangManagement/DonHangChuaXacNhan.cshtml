@@ -32,10 +32,10 @@
                         <th>Ngày tạo</th>
                         <th>Tên người nhận</th>
                         <th>Số điện thoại</th>
-                        <th>Địa chỉ ship</th>
+                      @*  <th>Địa chỉ ship</th>*@
                         <th>Tổng tiền</th>
                         <th>Trạng thái</th>
-                        <th>Thao tác</th>
+                        <th style="width: 275px">Thao tác</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -43,10 +43,10 @@
                         <th>Ngày tạo</th>
                         <th>Tên người nhận</th>
                         <th>Số điện thoại</th>
-                        <th>Địa chỉ ship</th>
+                       @* <th>Địa chỉ ship</th>*@
                         <th>Tổng tiền</th>
                         <th>Trạng thái đơn hàng</th>
-                        <th>#</th>
+                        <th style="width: 275px">Thao tác</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -57,12 +57,14 @@
                             <td>@item.CreateDate</td>
                             <td>@item.ShipName</td>
                             <td>@item.ShipMobile</td>
-                            <td>@item.ShipAddress</td>
+                            @*<td>@item.ShipAddress</td>*@
                             <td>@item.TongTien.ToString("N0")</td>
                             <td>@item.TenTrangThaiDonHang</td>
-                            <td>
-                                <button class="btn-xacNhan glyphicon-check" data-id="@item.ID_DonHang">Xác nhận</button>
-                                <button class="btn-tuChoi glyphicon-check" data-id="@item.ID_DonHang">Từ chối</button>
+                            <td style="width: 275px">
+                                <button class="btn-xacNhan btn btn-primary btn-sm" style="width:80px" data-id="@item.ID_DonHang">Xác nhận</button>
+                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:80px" data-id="@item.ID_DonHang">Từ chối</button>
+                                <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:80px"> Chi tiết</a>
+
                             </td>
                         </tr>
 

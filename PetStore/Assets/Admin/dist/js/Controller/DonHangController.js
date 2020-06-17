@@ -7,32 +7,39 @@
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
-            $.ajax({
-                url : "/DonHangManagement/XacNhan",
-                data: { id: id },
-                dataType: "json",
-                type: "POST",
-                success: function (response) {
-                    console.log(response);
-                    $("#row_"+id).remove();
-                }
-            });
+            var r= confirm("Xác nhận đơn hàng?");
+            if (r == true) {
+                $.ajax({
+                    url : "/DonHangManagement/XacNhan",
+                    data: { id: id },
+                    dataType: "json",
+                    type: "POST",
+                    success: function (response) {
+                        console.log(response);
+                        $("#row_"+id).remove();
+                    }
+                });
+            }
+
         });
 
         $('.btn-tuChoi').off('click').on('click', function (e) {
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
-            $.ajax({
-                url: "/DonHangManagement/TuChoi",
-                data: { id: id },
-                dataType: "json",
-                type: "POST",
-                success: function (response) {
-                    console.log(response);
-                    $("#row_" + id).remove();
-                }
-            });
+            var r = confirm("Từ chối đơn hàng?");
+            if (r == true) {
+                $.ajax({
+                    url: "/DonHangManagement/TuChoi",
+                    data: { id: id },
+                    dataType: "json",
+                    type: "POST",
+                    success: function (response) {
+                        console.log(response);
+                        $("#row_" + id).remove();
+                    }
+                });
+            }
         });
     }
 }

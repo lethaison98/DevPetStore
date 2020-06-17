@@ -55,6 +55,10 @@ namespace Model.Repository
             return returnData.ToPagedList(page, pageSize);
         }
 
+        public DonHangDto GetDonHangById(int id)
+        {
+            return ConvertToDto(db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id));
+        }
         public  bool XacNhan (int id)
         {
             var entity = db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id);

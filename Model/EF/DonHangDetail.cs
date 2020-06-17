@@ -16,7 +16,10 @@ namespace Model.EF
         public int ID_Item { get; set; }
         public int ID_DonHang { get; set; }
         public int SoLuong { get; set; }
-        public decimal GiaTien { get; set; }
+        public decimal DonGia { get; set; }
+        public decimal ThanhTien { get; set; }
+        public virtual DonHang DonHang { get; set; }
+        public virtual Pet Pet { get; set; }
 
 
     }

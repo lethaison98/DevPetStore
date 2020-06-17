@@ -54,3 +54,5 @@ E:\DevPetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
 E:\DevPetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\DevPetStore\Model\obj\Debug\Model.dll
 E:\DevPetStore\Model\obj\Debug\Model.pdb
+E:\PetStore\Model\obj\Debug\Model.Migrations.init.resources
+E:\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache

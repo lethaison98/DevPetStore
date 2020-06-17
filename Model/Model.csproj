@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Attributes\TrangThaiAttribute.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Dto\DonHangChiTietDto.cs" />
     <Compile Include="Dto\DonHangDto.cs" />
     <Compile Include="EF\BaiViet.cs" />
     <Compile Include="EF\DanhMuc.cs" />

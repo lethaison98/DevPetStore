@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PetStore.Areas.Admin.Controllers
 {
-    public class DonHangManagementController : Controller
+    public class DonHangManagementController : BaseController
     {
         // GET: Admin/DonHangManagement
         public ActionResult DonHangChuaXacNhan(String searchString, int page = 1, int pagesize = 20)
@@ -24,7 +24,15 @@ namespace PetStore.Areas.Admin.Controllers
             var model = donHangRepo.ListAllPaging(searchString, page, pagesize, TrangThaiDonHangEnum.DaXacNhan);
             return View(model);
         }
-
+        public ActionResult ChiTietDonHang(int id)
+        {
+            int page = 1;
+            int pagesize = 20;
+            var donHangChiTietRepo = new DonHangChiTietRepository();
+            var model = donHangChiTietRepo.ListAllPaging(id, page, pagesize);
+            ViewBag.DonHang = new DonHangRepository().GetDonHangById(id);
+            return View(model);
+        }
 
         [HttpPost]
         public JsonResult XacNhan (int id)
@@ -46,5 +54,6 @@ namespace PetStore.Areas.Admin.Controllers
                 status = thanhCong
             });
         }
+
     }
 }

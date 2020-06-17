@@ -1,0 +1,58 @@
+﻿@model  PagedList.IPagedList<Model.Dto.DonHangDetailDto>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var DonHang = ViewBag.DonHang;
+}
+
+
+@section jsFooter{
+    <script src="~/Assets/Admin/dist/js/Controller/DonHangController.js"></script>
+}
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
+    <div class="card-body">
+
+        <div>
+            <h6>Tên người nhận: @DonHang.ShipName</h6>
+            <h6>Số điện thoại: @DonHang.ShipMobile</h6>
+            <h6>Địa chỉ: @DonHang.ShipAddress</h6>
+            <h6>Trạng thái đơn hàng: @DonHang.TenTrangThaiDonHang</h6>
+            <h6>Trạng thái giao hàng: @DonHang.TenTrangThaiGiaoHang</h6>
+            <h6>Ngày đặt hàng: @DonHang.CreateDate</h6>
+            <h6>Ngày xác nhận: @DonHang.ConfirmDate</h6>
+            <h6>Tổng tiền: @DonHang.TongTien.ToString("N0")</h6>
+
+        </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered"  width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Tên mặt hàng</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TenItem</td>
+                        <td>@item.SoLuong</td>
+                        <td>@item.GiaTien.ToString("N0")</td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        @Html.PagedListPager(Model, Page => Url.Action("ChiTietDonHang", new { Page }))
+        <a href="/Admin/DonHangManagement/DonHangChuaXacNhan" class="btn btn-secondary btn-sm" style="width:80px"> Quay lại</a>
+
+    </div>
+    </div>
+</div>
+

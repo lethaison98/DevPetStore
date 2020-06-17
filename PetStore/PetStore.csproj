@@ -1288,6 +1288,7 @@
     <Content Include="Areas\Admin\Views\BaiVietManagement\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BaiVietManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangManagement\DonHangDaXacNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangManagement\ChiTietDonHang.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
