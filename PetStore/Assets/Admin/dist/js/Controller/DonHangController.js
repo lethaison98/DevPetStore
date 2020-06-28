@@ -41,6 +41,26 @@
                 });
             }
         });
+        $('.btn-hoanThanh').off('click').on('click', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var id = btn.data('id');
+            var r = confirm("Xác nhận hoàn thành đơn hàng?");
+            if (r == true) {
+                $.ajax({
+                    url: "/DonHangManagement/HoanThanh",
+                    data: { id: id },
+                    dataType: "json",
+                    type: "POST",
+                    success: function (response) {
+                        console.log(response);
+                        $("#row_" + id).remove();
+                    }
+                });
+            }
+
+        });
+
     }
 }
 

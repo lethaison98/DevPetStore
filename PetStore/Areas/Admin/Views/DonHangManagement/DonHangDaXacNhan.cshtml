@@ -14,7 +14,7 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
     <div class="card-body">
 
-        @using (Html.BeginForm("DonDaChuaXacNhan", "DonHangManagement", FormMethod.Get))
+        @using (Html.BeginForm("DonHangDaXacNhan", "DonHangManagement", FormMethod.Get))
         {
             <div class="row" style="padding-bottom: 5px ">
                 <div class="col-sm-4">
@@ -26,7 +26,7 @@
         }
 
         <div class="table-responsive">
-            <table class="table table-bordered" width="100%" cellspacing="0">
+            <table class="table table-bordered" width="100%"  style="font-size:13px" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Ngày tạo</th>
@@ -45,7 +45,7 @@
                         <th>Số điện thoại</th>
                         <th>Địa chỉ ship</th>
                         <th>Tổng tiền</th>
-                        <th>Trạng thái đơn hàng</th>
+                        <th>Thao tác</th>
                         <th>#</th>
                     </tr>
                 </tfoot>
@@ -60,8 +60,10 @@
                             <td>@item.ShipAddress</td>
                             <td>@item.TongTien.ToString("N0")</td>
                             <td>@item.TenTrangThaiDonHang</td>
-                            <td>
-                                <button class="btn-status" data-id="@item.ID_DonHang">@item.TrangThaiDonHang</button>
+                            <td sstyle="width: 275px">
+                                <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hoàn thành</button>
+                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_DonHang">Không thành công</button>
+                                <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:100px"> Chi tiết</a>
                             </td>
                         </tr>
 

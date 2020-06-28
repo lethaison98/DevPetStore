@@ -25,6 +25,7 @@ namespace Model.Repository
             data.ID_DonHang = entity.ID_DonHang;
             data.CreateDate = entity.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.ConfirmDate = entity.ConfirmDate?.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            data.ShipDate = entity.ShipDate?.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.ShipName = entity.ShipName;
             data.ShipMobile = entity.ShipMobile;
             data.ShipAddress = entity.ShipAddress;
@@ -59,24 +60,47 @@ namespace Model.Repository
         {
             return ConvertToDto(db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id));
         }
+        public List<DonHangDto> LayDanhSachDonHangByKhachHangId(int id)
+        {
+            List<DonHangDto> returnData;
+            returnData = db.DonHangs.Where(x => x.ID_KhachHang == id).OrderBy(x => x.TrangThaiDonHang).Select(ConvertToDto).ToList();
+            return returnData;
+        }
         public  bool XacNhan (int id)
         {
             var entity = db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id);
-
-            entity.TrangThaiDonHang = GetEnum.GetCode(TrangThaiDonHangEnum.DaXacNhan);
-            entity.ConfirmDate = DateTime.Now;
-            db.SaveChanges();
-            return true;
-            
+            if (entity.TrangThaiDonHang == GetEnum.GetCode(TrangThaiDonHangEnum.ChuaXacNhan))
+            {
+                entity.TrangThaiDonHang = GetEnum.GetCode(TrangThaiDonHangEnum.DaXacNhan);
+                entity.ConfirmDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
         }
         public bool TuChoi(int id)
         {
             var entity = db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id);
-
-            entity.TrangThaiDonHang = GetEnum.GetCode(TrangThaiDonHangEnum.DaHuy);
-            entity.ConfirmDate = DateTime.Now;
-            db.SaveChanges();
-            return true;
+            if (entity.TrangThaiDonHang == GetEnum.GetCode(TrangThaiDonHangEnum.ChuaXacNhan) || (entity.TrangThaiDonHang == GetEnum.GetCode(TrangThaiDonHangEnum.DaXacNhan)))
+            {
+                entity.TrangThaiDonHang = GetEnum.GetCode(TrangThaiDonHangEnum.DaHuy);
+                entity.ConfirmDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
+        }
+        public bool HoanThanh(int id)
+        {
+            var entity = db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id);
+            if (entity.TrangThaiDonHang == GetEnum.GetCode(TrangThaiDonHangEnum.DaXacNhan))
+            {
+                entity.TrangThaiDonHang = GetEnum.GetCode(TrangThaiDonHangEnum.DaHoanThanh);
+                entity.ShipDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            else return false;
         }
     }
 }

@@ -93,6 +93,59 @@ namespace PetStore.Controllers
             });
         }
 
+        public JsonResult Increase(int id)
+        {
+            var cart = Session[CartSession];
+            var list = (List<CartItem>)cart;
+            if (list.Exists(x => x.Pet.ID_Item == id))
+            {
+                foreach (var item in list)
+                {
+                    if (item.Pet.ID_Item == id)
+                    {
+                        item.SoLuong += 1;
+                    }
+                }
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+
+        }
+        public JsonResult Decrease(int id)
+        {
+            var cart = Session[CartSession];
+            var list = (List<CartItem>)cart;
+            if (list.Exists(x => x.Pet.ID_Item == id))
+            {
+                foreach (var item in list)
+                {
+                    if (item.Pet.ID_Item == id)
+                    {
+                        item.SoLuong -= 1;
+                    }
+                }
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+        }
         public JsonResult Delete(int id)
         {
             var sessionCart = (List<CartItem>)Session[CartSession];

@@ -46,26 +46,103 @@
 
         $('.btn-delete').off('click').on('click', function (e) {
             e.preventDefault();
+            var btn = $(this);
+            var id = btn.data('id');
+            var r = confirm("Bỏ sản phẩm?");
+            if (r == true) {
+                $.ajax({
+                    data: { id: id },
+                    url: '/GioHang/Delete',
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (response) {
+                        console.log(response);
+                        if (response.status == true) {
+                            btn.text('Kích hoạt');
+                            $("#row_" + id).remove();
+                            $("#Update_GioHang").load(location.href + " #Update_GioHang");
+                            $("#Count").load(location.href + " #Count");
+
+                        }
+
+                    }
+                })
+            }
+            
+        });
+        $('.value-plus').off('click').on('click', function (e) {
+            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+            divUpd.text(newVal);
+            e.preventDefault();
+            var btn = $(this);
+            var id = btn.data('id');
             $.ajax({
-                data: { id: $(this).data('id') },
-                url: '/GioHang/Delete',
+                data: { id: id },
+                url: '/GioHang/Increase',
                 dataType: 'json',
                 type: 'POST',
-                success: function (res) {
-                    if (res.status == true) {
-                        window.location.href = "GioHang";
+                success: function (response) {
+                    console.log(response);
+                    if (response.status == true) {
+                        $("#ThanhTien_" + id).load(location.href + " #ThanhTien_" + id);
+                        $("#Update_GioHang").load(location.href + " #Update_GioHang");
+                        $("#Count").load(location.href + " #Count");
+
                     }
+
                 }
             })
         });
-        $('.value-plus').on('click', function () {
-            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
-            divUpd.text(newVal);
-        });
 
-        $('.value-minus').on('click', function () {
+        $('.value-minus').off('click').on('click', function (e) {
             var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
-            if (newVal >= 1) divUpd.text(newVal);
+            if (newVal >= 1) {
+                divUpd.text(newVal);
+                e.preventDefault();
+                var btn = $(this);
+                var id = btn.data('id');
+                $.ajax({
+                    data: { id: id },
+                    url: '/GioHang/Decrease',
+                    dataType: 'json',
+                    type: 'POST',
+                    success: function (response) {
+                        console.log(response);
+                        if (response.status == true) {
+                            $("#ThanhTien_" + id).load(location.href + " #ThanhTien_" + id);
+                            $("#Update_GioHang").load(location.href + " #Update_GioHang");
+                            $("#Count").load(location.href + " #Count");
+
+                        }
+
+                    }
+                })
+            } else {
+                e.preventDefault();
+                var btn = $(this);
+                var id = btn.data('id');
+                var r = confirm("Bỏ sản phẩm?");
+                if (r == true) {
+                    $.ajax({
+                        data: { id: id },
+                        url: '/GioHang/Delete',
+                        dataType: 'json',
+                        type: 'POST',
+                        success: function (response) {
+                            console.log(response);
+                            if (response.status == true) {
+                                btn.text('Kích hoạt');
+                                $("#row_" + id).remove();
+                                $("#Update_GioHang").load(location.href + " #Update_GioHang");
+                                $("#Count").load(location.href + " #Count");
+
+                            }
+
+                        }
+                    })
+                }
+            }
+           
         });
     }
 }

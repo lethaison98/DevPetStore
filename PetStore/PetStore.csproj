@@ -1289,6 +1289,8 @@
     <Content Include="Areas\Admin\Views\BaiVietManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangManagement\DonHangDaXacNhan.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangManagement\ChiTietDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangManagement\DonHangDaHuy.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangManagement\DonHangDaHoanThanh.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1334,6 +1336,7 @@
     <Content Include="Views\Home\PageNotFound.cshtml" />
     <Content Include="Views\KienThuc\Index.cshtml" />
     <Content Include="Views\KienThuc\ChiTiet.cshtml" />
+    <Content Include="Views\Account\DonHangCuaToi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,7 +23,7 @@
     <div class="container">
         @if (@Model.Count > 0)
         {
-            <h3 class="animated wow slideInLeft" data-wow-delay=".5s">Giỏ hàng của bạn có: <span>@Model.Count Mặt hàng</span></h3>
+            <h3 class="animated wow slideInLeft" data-wow-delay=".5s">Giỏ hàng của bạn có: <span id="Count">@Model.Count Mặt hàng</span></h3>
             <div class="checkout-right animated wow slideInUp" data-wow-delay=".5s">
                 <table class="timetable_sub">
                     <thead>
@@ -40,17 +40,23 @@
                     <tbody>
                         @for (int i = 0; i < Model.Count; i++)
                         {
-                            <tr>
+                            <tr id="row_@Model[i].Pet.ID_Item">
                                 <td>@(i + 1)</td>
                                 <td><img src="@Model[i].Pet.Image" width="100" /> </td>
                                 <td>@Model[i].Pet.Ten_Pet</td>
                                 <td style="width: 35%">
+@*                                    <input type="number" min="1" class="txtQuantity" data-id="@Model[i].Pet.ID_Item" value="@Model[i].SoLuong" />*@
 
-                                    <input type="number" min="1" class="txtQuantity" data-id="@Model[i].Pet.ID_Item" value="@Model[i].SoLuong" />
-                                    
+                                    <div class="quantity">
+                                        <div class="quantity-select">
+                                            <div class="entry value-minus"data-id="@Model[i].Pet.ID_Item">&nbsp;</div>
+                                            <div class="entry value"><span>@Model[i].SoLuong</span></div>
+                                            <div class="entry value-plus active" data-id="@Model[i].Pet.ID_Item">&nbsp;</div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>@Model[i].Pet.GiaTien.ToString("N0")</td>
-                                <td>@((@Model[i].Pet.GiaTien * @Model[i].SoLuong).ToString("N0"))</td>
+                                <td> <span id="ThanhTien_@Model[i].Pet.ID_Item">@((@Model[i].Pet.GiaTien * @Model[i].SoLuong).ToString("N0"))</span></td>
                                 <td><a href="#" data-id="@Model[i].Pet.ID_Item" class="btn-delete">Xoá</a></td>
                             </tr>
                         }
@@ -62,7 +68,7 @@
                 <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
 
                     <h4>Danh sách sản phẩm</h4>
-                    <ul>
+                    <ul id="Update_GioHang">
                         @foreach (var item in Model)
                         {
                             <li>@item.Pet.Ten_Pet<i></i><span>@((@item.Pet.GiaTien * @item.SoLuong).ToString("N0"))</span></li>

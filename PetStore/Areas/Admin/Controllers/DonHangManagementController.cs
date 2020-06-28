@@ -24,6 +24,18 @@ namespace PetStore.Areas.Admin.Controllers
             var model = donHangRepo.ListAllPaging(searchString, page, pagesize, TrangThaiDonHangEnum.DaXacNhan);
             return View(model);
         }
+        public ActionResult DonHangDaHoanThanh(String searchString, int page = 1, int pagesize = 20)
+        {
+            var donHangRepo = new DonHangRepository();
+            var model = donHangRepo.ListAllPaging(searchString, page, pagesize, TrangThaiDonHangEnum.DaHoanThanh);
+            return View(model);
+        }
+        public ActionResult DonHangDaHuy(String searchString, int page = 1, int pagesize = 20)
+        {
+            var donHangRepo = new DonHangRepository();
+            var model = donHangRepo.ListAllPaging(searchString, page, pagesize, TrangThaiDonHangEnum.DaHuy);
+            return View(model);
+        }
         public ActionResult ChiTietDonHang(int id)
         {
             int page = 1;
@@ -54,6 +66,15 @@ namespace PetStore.Areas.Admin.Controllers
                 status = thanhCong
             });
         }
-
+        [HttpPost]
+        public JsonResult HoanThanh(int id)
+        {
+            var donHangRepo = new DonHangRepository();
+            var thanhCong = donHangRepo.HoanThanh(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
     }
 }

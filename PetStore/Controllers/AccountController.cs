@@ -1,4 +1,5 @@
-﻿using Model.EF;
+﻿using Model.Dto;
+using Model.EF;
 using Model.Repository;
 using PetStore.Models;
 using System;
@@ -68,8 +69,8 @@ namespace PetStore.Controllers
                         ModelState.AddModelError("", "Thêm User không thành công");
                     }
                 }
-            }          
-            
+            }
+
             return View(model);
         }
         [HttpGet]
@@ -78,7 +79,7 @@ namespace PetStore.Controllers
             var khachHangRepo = new KhachHangRepository();
             var userRepo = new UserRepository();
             var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
-            if(session == null)
+            if (session == null)
             {
                 return RedirectToAction("index", "Login");
             }
@@ -101,7 +102,7 @@ namespace PetStore.Controllers
             }
 
         }
-        
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(RegisterModel model)
@@ -110,7 +111,7 @@ namespace PetStore.Controllers
             {
                 var userRepo = new UserRepository();
                 var khachHangRepo = new KhachHangRepository();
-                if (userRepo.CheckEmail(model.Email)&& !userRepo.GetByID(model.ID).Email.Equals(model.Email))
+                if (userRepo.CheckEmail(model.Email) && !userRepo.GetByID(model.ID).Email.Equals(model.Email))
                 {
                     ModelState.AddModelError("", "Email đã tồn tại");
                 }
@@ -149,6 +150,24 @@ namespace PetStore.Controllers
             }
             return View(model);
         }
+        [HttpGet]
+        public ActionResult DonHangCuaToi()
+        {
+            var khachHangRepo = new KhachHangRepository();
+            var userRepo = new UserRepository();
+            var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            if (session == null)
+            {
+                return RedirectToAction("index", "Login");
+            }
+            else
+            {
+                var khachHang = khachHangRepo.GetByUserId(session.UserID);
+                var list = new List<DonHangDto>();
+                list = new DonHangRepository().LayDanhSachDonHangByKhachHangId(khachHang.ID_KhachHang);
+                return View(list);
+            }
 
+        }
     }
 }

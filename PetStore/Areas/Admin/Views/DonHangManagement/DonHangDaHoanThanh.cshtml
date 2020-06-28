@@ -14,7 +14,7 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
     <div class="card-body">
 
-        @using (Html.BeginForm("DonHangChuaXacNhan", "DonHangManagement", FormMethod.Get))
+        @using (Html.BeginForm("DonHangHoanThanh", "DonHangManagement", FormMethod.Get))
         {
             <div class="row" style="padding-bottom: 5px ">
                 <div class="col-sm-4">
@@ -26,16 +26,16 @@
         }
 
         <div class="table-responsive">
-            <table class="table table-bordered" style="font-size:13px" width="100%" cellspacing="0">
+            <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Ngày tạo</th>
                         <th>Tên người nhận</th>
                         <th>Số điện thoại</th>
-                      @*  <th>Địa chỉ ship</th>*@
+                        <th>Địa chỉ ship</th>
                         <th>Tổng tiền</th>
-                        <th>Trạng thái đơn hàng</th>
-                        <th style="width: 275px">Thao tác</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -43,10 +43,10 @@
                         <th>Ngày tạo</th>
                         <th>Tên người nhận</th>
                         <th>Số điện thoại</th>
-                       @* <th>Địa chỉ ship</th>*@
+                        <th>Địa chỉ ship</th>
                         <th>Tổng tiền</th>
                         <th>Trạng thái đơn hàng</th>
-                        <th style="width: 275px">Thao tác</th>
+                        <th>Ngày hoàn thành</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -57,14 +57,11 @@
                             <td>@item.CreateDate</td>
                             <td>@item.ShipName</td>
                             <td>@item.ShipMobile</td>
-                            @*<td>@item.ShipAddress</td>*@
+                            <td>@item.ShipAddress</td>
                             <td>@item.TongTien.ToString("N0")</td>
                             <td>@item.TenTrangThaiDonHang</td>
-                            <td style="width: 275px">
-                                <button class="btn-xacNhan btn btn-primary btn-sm" style="width:80px" data-id="@item.ID_DonHang">Xác nhận</button>
-                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:80px" data-id="@item.ID_DonHang">Từ chối</button>
-                                <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:80px"> Chi tiết</a>
-
+                            <td>
+                               @item.ShipDate
                             </td>
                         </tr>
 
@@ -72,7 +69,7 @@
 
                 </tbody>
             </table>
-            @Html.PagedListPager(Model, Page => Url.Action("DonHangChuaXacNhan", new { Page }))
+            @Html.PagedListPager(Model, Page => Url.Action("DonHangDaHuy", new { Page }))
         </div>
     </div>
 </div>
