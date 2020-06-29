@@ -220,7 +220,8 @@ namespace PetStore.Controllers
                     donHangChiTiet.ThanhTien = item.Pet.GiaTien * item.SoLuong;
                     donHangChiTiet.SoLuong = item.SoLuong;
                     var idItem = donHangChiTietRepo.Insert(donHangChiTiet);
-                }               
+                }
+                Session[CartSession] = null;
             }
             catch (Exception ex)
             {

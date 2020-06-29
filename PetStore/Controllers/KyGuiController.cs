@@ -47,7 +47,6 @@ namespace PetStore.Controllers
                 lichHen.NgayHen = kyGuiModel.NgayHen;
                 lichHen.GioHen = kyGuiModel.GioHen;
                 lichHen.GhiChu = kyGuiModel.GhiChu;
-                lichHen.ID_GiongPet = kyGuiModel.ID_GiongPet;
                 lichHen.ID_KhachHang = kyGuiModel.ID_KhachHang;
                 var id = repo.Insert(lichHen);
 

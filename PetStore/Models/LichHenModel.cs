@@ -11,7 +11,6 @@ namespace PetStore.Models
     {
         public int LichHen_ID { get; set; }
         public int ID_KhachHang { get; set; }
-        public int? ID_GiongPet { get; set; }
 
         [StringLength(50)]
         public string TenNguoiHen { get; set; }
@@ -26,7 +25,9 @@ namespace PetStore.Models
         public string GioHen { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }
-        public int TrangThaiLichHen { get; set; }
+        public string TrangThaiLichHen { get; set; }
+        public string LoaiThuCung { get; set; }
+        public string GiongThuCung { get; set; }
 
         public List<DichVuModel> DanhSachDichVu { get; set; }
     }

@@ -32,6 +32,7 @@ namespace Model.Repository
             data.TongTien = entity.TongTien;
             data.TrangThaiDonHang = entity.TrangThaiDonHang;
             data.TenTrangThaiDonHang= GetEnum.GetText(GetEnum.GetByCode(data.TrangThaiDonHang));
+            data.DanhSachDonHangChiTiet = new DonHangChiTietRepository().ListAllPaging(data.ID_DonHang, 1, 10).ToList();
             return data;
         }
         public int Insert(DonHang donHang)
@@ -63,7 +64,7 @@ namespace Model.Repository
         public List<DonHangDto> LayDanhSachDonHangByKhachHangId(int id)
         {
             List<DonHangDto> returnData;
-            returnData = db.DonHangs.Where(x => x.ID_KhachHang == id).OrderBy(x => x.TrangThaiDonHang).Select(ConvertToDto).ToList();
+            returnData = db.DonHangs.Where(x => x.ID_KhachHang == id).OrderByDescending(x => x.CreateDate).Select(ConvertToDto).ToList();
             return returnData;
         }
         public  bool XacNhan (int id)

@@ -1183,6 +1183,7 @@
     <Content Include="Assets\Client\js\bootstrap-3.1.1.min.js" />
     <Content Include="Assets\Client\js\classie.js" />
     <Content Include="Assets\Client\js\Controller\CartController.js" />
+    <Content Include="Assets\Client\js\Controller\DonHangCuaToiController.js" />
     <Content Include="Assets\Client\js\imagezoom.js" />
     <Content Include="Assets\Client\js\jquery-ui.js" />
     <Content Include="Assets\Client\js\jquery-ui.min.js" />

@@ -11,7 +11,7 @@
 }
 
 <div class="card mb-4">
-    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Đơn hàng đã xác nhận</div>
     <div class="card-body">
 
         @using (Html.BeginForm("DonHangDaXacNhan", "DonHangManagement", FormMethod.Get))
@@ -45,8 +45,8 @@
                         <th>Số điện thoại</th>
                         <th>Địa chỉ ship</th>
                         <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
                         <th>Thao tác</th>
-                        <th>#</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -60,10 +60,10 @@
                             <td>@item.ShipAddress</td>
                             <td>@item.TongTien.ToString("N0")</td>
                             <td>@item.TenTrangThaiDonHang</td>
-                            <td sstyle="width: 275px">
+                            <td style="width: 320px">
                                 <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hoàn thành</button>
-                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_DonHang">Không thành công</button>
-                                <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:100px"> Chi tiết</a>
+                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:90px" data-id="@item.ID_DonHang">Hủy</button>
+                                <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:90px"> Chi tiết</a>
                             </td>
                         </tr>
 

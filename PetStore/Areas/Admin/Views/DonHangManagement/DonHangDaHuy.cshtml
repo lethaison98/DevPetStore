@@ -11,7 +11,7 @@
 }
 
 <div class="card mb-4">
-    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Đơn Hàng</div>
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Đơn hàng đã hủy</div>
     <div class="card-body">
 
         @using (Html.BeginForm("DonHangDaHuy", "DonHangManagement", FormMethod.Get))
@@ -61,7 +61,7 @@
                             <td>@item.TongTien.ToString("N0")</td>
                             <td>@item.TenTrangThaiDonHang</td>
                             <td>
-                                <button class="btn-status" data-id="@item.ID_DonHang">@item.TrangThaiDonHang</button>
+                                <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:100px"> Chi tiết</a>
                             </td>
                         </tr>
 

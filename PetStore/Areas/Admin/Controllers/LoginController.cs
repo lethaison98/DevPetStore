@@ -51,5 +51,10 @@ namespace PetStore.Areas.Admin.Controllers
             
             return View("Index");
         }
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

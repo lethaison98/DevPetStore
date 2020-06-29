@@ -25,7 +25,8 @@ namespace Model.Repository
             data.SoLuong = entity.SoLuong;
             data.DonGia = entity.DonGia;
             data.ThanhTien = entity.ThanhTien;
-            data.TenItem = entity.Pet.Ten_Pet; 
+            data.TenItem = entity.Pet.Ten_Pet;
+            data.ImgLink = entity.Pet.Image;
             return data;
         }
         public int Insert(DonHangDetail donHangChiTiet)

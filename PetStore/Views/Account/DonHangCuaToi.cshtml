@@ -6,7 +6,7 @@
 }
 @section jsFooter{
 
-    <script src="/assets/client/js/controller/CartController.js"></script>
+    <script src="~/Assets/Client/js/Controller/DonHangCuaToiController.js"></script>
 }
 <!-- breadcrumbs -->
 <div class="breadcrumbs">
@@ -34,10 +34,9 @@
                                 <th>Ngày tạo</th>
                                 <th>Tên người nhận</th>
                                 <th>Số điện thoại</th>
-                                @*  <th>Địa chỉ ship</th>*@
-                                <th>Tổng tiền</th>
+                                <th>Địa chỉ ship</th>
                                 <th>Trạng thái</th>
-                                <th style="width: 275px">Thao tác</th>
+                                <th>Tổng tiền</th>
                             </tr>
                         </thead>
 
@@ -48,21 +47,53 @@
                                 <td>@item.CreateDate</td>
                                 <td>@item.ShipName</td>
                                 <td>@item.ShipMobile</td>
-                                @*<td>@item.ShipAddress</td>*@
+                                <td>@item.ShipAddress</td>
+                                <td id="Update_TrangThai_@item.ID_DonHang">@item.TenTrangThaiDonHang</td>
                                 <td>@item.TongTien.ToString("N0")</td>
-                                <td>@item.TenTrangThaiDonHang</td>
-                                <td style="width: 275px">
-                                    <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:80px"> Chi tiết</a>
-                                    <button class="btn-tuChoi btn btn-danger btn-sm" style="width:80px" data-id="@item.ID_DonHang">Hủy đơn hàng</button>
-
-                                </td>
                             </tr>
 
+                            <tr>
+                                <td id="Update_button_@item.ID_DonHang">
+                                    @if (item.TrangThaiDonHang == 1)
+                                    {
+                                        <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hủy đơn hàng</button>
+                                    }
+                                    else if (item.TrangThaiDonHang == 2)
+                                    {
+                                        <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hoàn thành</button>
+                                    }
+                                </td>
+                                <td colspan="5">
+                                    <table class="timetable_sub">
+                                        <thead>
+                                            <tr>
+                                                <th>Thú cưng</th>
+                                                <th>Tên thú cưng</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var donHangChiTiet in item.DanhSachDonHangChiTiet)
+                                            {
+                                                <tr>
+                                                    <td><img src="@donHangChiTiet.ImgLink" width="100" /> </td>
+                                                    <td style="width: 30%">@donHangChiTiet.TenItem</td>
+                                                    <td style="width: 10%">
+                                                        @donHangChiTiet.SoLuong
+                                                    </td>
+                                                    <td>@donHangChiTiet.DonGia.ToString("N0")</td>
+                                                    <td> <span>@donHangChiTiet.ThanhTien.ToString("N0")</span></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
 
+                            </tr>
                         </tbody>
-
                     </table>
-
                     <br />
                     <br />
                     <br />

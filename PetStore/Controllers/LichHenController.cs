@@ -56,8 +56,11 @@ namespace PetStore.Controllers
                 lichHen.NgayHen = lichHenModel.NgayHen;
                 lichHen.GioHen = lichHenModel.GioHen;
                 lichHen.GhiChu = lichHenModel.GhiChu;
-                lichHen.ID_GiongPet = lichHenModel.ID_GiongPet;
                 lichHen.ID_KhachHang = lichHenModel.ID_KhachHang;
+                lichHen.TrangThaiLichHen = 1;
+                lichHen.LoaiThuCung = lichHenModel.LoaiThuCung;
+                lichHen.GiongThuCung = lichHenModel.GiongThuCung;
+                lichHen.LoaiLichHen = 1;
                 var id = repo.Insert(lichHen);
 
                 foreach(var item in lichHenModel.DanhSachDichVu)

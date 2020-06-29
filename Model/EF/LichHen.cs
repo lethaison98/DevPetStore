@@ -13,10 +13,11 @@ namespace Model.EF
     {
         [Key]
         public int LichHen_ID { get; set; }
-        public int? ID_KhachHang { get; set; }
-        public int? ID_GiongPet { get; set; }
+        public int ID_KhachHang { get; set; }
         public virtual KhachHang KhachHang{get;set;}
-        public virtual GiongPet GiongPet { get; set; }
+        public string LoaiThuCung { get; set; }
+        public string GiongThuCung { get; set; }
+        public int LoaiLichHen { get; set; }
 
         [StringLength(50)]
         public string TenNguoiHen { get; set; }
@@ -31,7 +32,7 @@ namespace Model.EF
         public string GioHen { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }
-        public int? TrangThaiLichHen { get; set; }
+        public int TrangThaiLichHen { get; set; }
 
 
     }

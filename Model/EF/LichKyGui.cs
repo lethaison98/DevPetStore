@@ -23,6 +23,8 @@ namespace Model.EF
         public decimal CanNang { get; set; }
         public string GioiTinh { get; set; }
         public string TinhTrangSucKhoe { get; set; }
+        public bool DonTraTaiNha { get; set; }
+        public string DiaChiDonTra { get; set; }
         public int LoaiKyGuiID { get; set; }
         [StringLength(20)]
         public string TenLoaiKyGui { get; set; }

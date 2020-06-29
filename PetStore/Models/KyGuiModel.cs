@@ -10,7 +10,6 @@ namespace PetStore.Models
     {
         public int ID_LichKyGui { get; set; }
         public int ID_KhachHang { get; set; }
-        public int? ID_GiongPet { get; set; }
 
         [StringLength(50)]
         public string TenKhachHang { get; set; }
@@ -31,7 +30,10 @@ namespace PetStore.Models
         public decimal CanNang { get; set; }
         public string GioiTinh { get; set; }
         public string TinhTrangSucKhoe { get; set; }
+        public bool DonTraTaiNha { get; set; }
+        public string DiaChiDonTra { get; set; }
         public int LoaiKyGuiId { get; set; }
+        public string TenLoaiKyGui { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }
 
