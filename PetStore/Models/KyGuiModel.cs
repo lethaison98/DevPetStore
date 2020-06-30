@@ -26,6 +26,8 @@ namespace PetStore.Models
         public string DenNgay { get; set; }
         public string DenGio { get; set; }
         public string TenPet { get; set; }
+        public string LoaiThuCung { get; set; }
+        public string GiongThuCung { get; set; }
         public int SoThang { get; set; }
         public decimal CanNang { get; set; }
         public string GioiTinh { get; set; }

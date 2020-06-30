@@ -64,10 +64,27 @@
                     @Html.EditorFor(model => model.TenPet, new { htmlAttributes = new { placeholder = "Tên thường gọi *", required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.DropDownList("ID_GiongPet", null, htmlAttributes: new { @class = "form-control", placeholder = "Giống Pet", id = "country", name = "Text", type = "text", required = "" })
-                    @Html.ValidationMessageFor(model => model.ID_GiongPet, "", new { @class = "text-danger" })
+                    @{
+                        List<SelectListItem> listLoaiThu = new List<SelectListItem>();
+                        listLoaiThu.Add(new SelectListItem
+                        {
+                            Text = "Chó",
+                            Value = "Chó"
+                        });
+                        listLoaiThu.Add(new SelectListItem
+                        {
+                            Text = "Mèo",
+                            Value = "Mèo",
+                        });
+                    }
+                    @Html.DropDownListFor(model => model.LoaiThuCung, listLoaiThu, "Loại thú *", new { @onchange = "LoaiThu = this.value;", id = "country", required = "" })
+                </div>
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.GiongThuCung, new { htmlAttributes = new { placeholder = "Giống thú cưng *", required = "" } })
                 </div>
 
+            </div>
+            <div class="top-fields-wthree">
                 <div class="input-fields-w3ls">
                     @{
                         List<SelectListItem> listGioiTinh = new List<SelectListItem>();
@@ -84,8 +101,6 @@
                     }
                     @Html.DropDownListFor(model => model.GioiTinh, listGioiTinh, "Giới tính *", new { @onchange = "GioiTinh = this.value;", id = "country", required = "" })
                 </div>
-            </div>
-            <div class="top-fields-wthree">
                 <div class="input-fields-w3ls">
                     @Html.EditorFor(model => model.SoThang, new { htmlAttributes = new { placeholder = "Số tháng", type = "text", required = "" } })
                 </div>
@@ -93,10 +108,7 @@
                     @Html.EditorFor(model => model.CanNang, new { htmlAttributes = new { placeholder = "Cân nặng(Kg)", type = "text", required = "" } })
                 </div>
 
-                <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.TinhTrangSucKhoe, new { htmlAttributes = new { placeholder = "Tình trạng sức khỏe *", required = "" } })
 
-                </div>
             </div>
             <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
             <div class="mid-fields-agileits-w3layouts">
@@ -241,7 +253,55 @@
 
 
             </div>
+            <div class="mid-fields-agileits-w3layouts">
+                <div class="input-fields-w3ls2">
+                    @{
+                        List<SelectListItem> LoaiKyGui = new List<SelectListItem>();
+                        LoaiKyGui.Add(new SelectListItem
+                        {
+                            Text = "Gói đặc biệt",
+                            Value = "Gói đặc biệt"
+                        });
+                        LoaiKyGui.Add(new SelectListItem
+                        {
+                            Text = "Gói cao cấp",
+                            Value = "Gói cao cấp",
+                        });
+                        LoaiKyGui.Add(new SelectListItem
+                        {
+                            Text = "Gói cơ bản",
+                            Value = "Gói cơ bản"
+                        });
 
+                    }
+
+                    @Html.DropDownListFor(model => model.TenLoaiKyGui, LoaiKyGui, "Loại ký gửi *", new { id = "country", required = "" })
+
+                </div>
+                <div class="input-fields-w3ls2">
+                    @{
+                        List<SelectListItem> DonTraTaiNha = new List<SelectListItem>();
+                        DonTraTaiNha.Add(new SelectListItem
+                        {
+                            Text = "Đón trả tại nhà",
+                            Selected = true,
+                        });
+                        DonTraTaiNha.Add(new SelectListItem
+                        {
+                            Text = "Đón trả tại cửa hàng",
+                            Value = "Gói cao cấp",
+                        });
+
+                    }
+
+                    @Html.DropDownListFor(model => model.DonTraTaiNha, DonTraTaiNha, "Đón trả pet *", new { id = "country", required = "" })
+
+                </div>
+
+            </div>
+            <div class="input-fields-w3ls2">
+                @Html.EditorFor(model => model.DiaChiDonTra, new { htmlAttributes = new { @placeholder = "Địa chỉ đón trả (Nếu đón trả tại nhà)" } })
+            </div>
             <h3 class="inner-hdng-agileinfo" style="display:inline-block">Ghi chú</h3>
             <div class="input-fields-w3ls2">
                 @Html.TextAreaFor(model => model.GhiChu, new { htmlAttributes = new { @placeholder = "Ghi chú" } })

@@ -47,7 +47,10 @@ namespace PetStore.Controllers
                 lichHen.NgayHen = kyGuiModel.NgayHen;
                 lichHen.GioHen = kyGuiModel.GioHen;
                 lichHen.GhiChu = kyGuiModel.GhiChu;
+                lichHen.LoaiThuCung = kyGuiModel.LoaiThuCung;
+                lichHen.GiongThuCung = kyGuiModel.GiongThuCung;
                 lichHen.ID_KhachHang = kyGuiModel.ID_KhachHang;
+                lichHen.LoaiLichHen = 2;
                 var id = repo.Insert(lichHen);
 
                 var lichKyGui = new LichKyGui();
@@ -61,6 +64,8 @@ namespace PetStore.Controllers
                 lichKyGui.SoThang = kyGuiModel.SoThang;
                 lichKyGui.CanNang = kyGuiModel.CanNang;
                 lichKyGui.GioiTinh = kyGuiModel.GioiTinh;
+                lichKyGui.DonTraTaiNha = kyGuiModel.DonTraTaiNha;
+                lichKyGui.DiaChiDonTra = lichKyGui.DiaChiDonTra;
                 lichKyGui.TinhTrangSucKhoe = kyGuiModel.TinhTrangSucKhoe;
                 var lichKyGuiId = repo.InsertLichKyGui(lichKyGui);
                 if (id > 0)
