@@ -24,7 +24,7 @@ namespace Model.Enums
         ChuaXacNhan,
         [TrangThai(2, "Đã xác nhận")]
         DaXacNhan,
-        [TrangThai(3, "Đang thực ký gửi")]
+        [TrangThai(3, "Đang thực hiện")]
         DangKyGui,
         [TrangThai(4, "Đã hủy")]
         DaHuy,

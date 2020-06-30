@@ -1,0 +1,71 @@
+﻿
+@model  PagedList.IPagedList<Model.Dto.LichHenDto>
+@using PagedList.Mvc
+@using Model.Enums
+@{
+    ViewBag.Title = "Lịch hẹn chăm sóc đã hủy";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Assets/Admin/dist/js/Controller/LichHenController.js"></script>
+}
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Lịch hẹn chăm sóc đã hủy</div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("LichHenDaHuy", "LichHenManagement", FormMethod.Get))
+        {
+            <div class="row" style="padding-bottom: 5px ">
+                <div class="col-sm-4">
+                    <input type="text" name="searchString" />
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+        }
+
+        <div class="table-responsive">
+            <table class="table table-bordered" style="font-size:13px" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ngày tạo</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Thời gian hẹn</th>
+                        <th>Giống Pet</th>
+                        <th style="width: 120px">Thao tác</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Ngày tạo</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Thời gian hẹn</th>
+                        <th>Giống Pet</th>
+                        <th style="width: 120px">Thao tác</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID_LichHen">
+
+                            <td>@item.CreateDate</td>
+                            <td>@item.TenKhachHang</td>
+                            <td>@item.SoDienThoai</td>
+                            <td>@item.GioHen ngày @item.NgayHen</td>
+                            <td>@item.GiongThuCung</td>
+                            <td style="width: 120px">
+                                <a href="/Admin/LichHenManagement/ChiTietLichHen/@item.ID_LichHen" class="btn btn-secondary btn-sm" style="width:100px"> Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, Page => Url.Action("LichHenDaHuy", new { Page }))
+        </div>
+    </div>
+</div>

@@ -158,6 +158,7 @@
     <Compile Include="Areas\Admin\Controllers\BaiVietManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\GiongPetController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LichHenManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PetManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserManagementController.cs" />
@@ -193,6 +194,7 @@
     <Content Include="Assets\Admin\dist\css\styles.css" />
     <Content Include="Assets\Admin\dist\js\all.min.js" />
     <Content Include="Assets\Admin\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Assets\Admin\dist\js\Controller\LichHenController.js" />
     <Content Include="Assets\Admin\dist\js\Controller\KyGuiController.js" />
     <Content Include="Assets\Admin\dist\js\Controller\DonHangController.js" />
     <Content Include="Assets\Admin\dist\js\jquery.validate.unobtrusive.min.js" />
@@ -1300,6 +1302,11 @@
     <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiDangThucHien.cshtml" />
     <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiDaHoanThanh.cshtml" />
     <Content Include="Areas\Admin\Views\KyGuiManagement\ChiTietKyGui.cshtml" />
+    <Content Include="Areas\Admin\Views\LichHenManagement\LichHenChuaXacNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\LichHenManagement\LichHenDaXacNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\LichHenManagement\LichHenDaHoanThanh.cshtml" />
+    <Content Include="Areas\Admin\Views\LichHenManagement\LichHenDaHuy.cshtml" />
+    <Content Include="Areas\Admin\Views\LichHenManagement\ChiTietLichHen.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
