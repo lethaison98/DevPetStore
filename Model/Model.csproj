@@ -64,6 +64,7 @@
     <Compile Include="Dto\DonHangDto.cs" />
     <Compile Include="Dto\KyGuiDto.cs" />
     <Compile Include="EF\BaiViet.cs" />
+    <Compile Include="EF\LichHen.cs" />
     <Compile Include="EF\DanhMuc.cs" />
     <Compile Include="EF\DichVu.cs" />
     <Compile Include="EF\DonHang.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="EF\GiongPet.cs" />
     <Compile Include="EF\KhachHang.cs" />
     <Compile Include="EF\KhuyenMai.cs" />
-    <Compile Include="EF\LichHen.cs" />
     <Compile Include="EF\LichHenDetail.cs" />
     <Compile Include="EF\LichKyGui.cs" />
     <Compile Include="EF\PetStoreDbContext.cs" />

@@ -12,9 +12,9 @@ namespace Model.EF
     public class LichHen
     {
         [Key]
-        public int LichHen_ID { get; set; }
+        public int ID_LichHen { get; set; }
         public int ID_KhachHang { get; set; }
-        public virtual KhachHang KhachHang{get;set;}
+        public virtual KhachHang KhachHang { get; set; }
         public string LoaiThuCung { get; set; }
         public string GiongThuCung { get; set; }
         public int LoaiLichHen { get; set; }

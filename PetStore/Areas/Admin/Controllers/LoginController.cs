@@ -21,7 +21,7 @@ namespace PetStore.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var userRepo = new UserRepository();
-                var result = userRepo.Login(model.Username, model.Password);
+                var result = userRepo.Login(model.Username, model.Password, true);
                 if (result ==1)
                 {
                     var user = userRepo.GetByUsername(model.Username);
@@ -44,6 +44,10 @@ namespace PetStore.Areas.Admin.Controllers
                     if(result == 3)
                     {
                         ModelState.AddModelError("", "Mật khẩu sai");
+                    }
+                    if(result == 4)
+                    {
+                        ModelState.AddModelError("", "Bạn không có quyền");
                     }
                     
                 }

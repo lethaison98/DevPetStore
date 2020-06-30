@@ -21,7 +21,7 @@ namespace PetStore.Controllers
             if (ModelState.IsValid)
             {
                 var userRepo = new UserRepository();
-                var result = userRepo.Login(model.Username, model.Password);
+                var result = userRepo.Login(model.Username, model.Password, false);
                 if (result == 1)
                 {
                     var user = userRepo.GetByUsername(model.Username);

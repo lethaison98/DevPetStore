@@ -16,6 +16,7 @@ namespace Model.EF
         public int ID_LichHen { get; set; }
         public int ID_KhachHang { get; set; }
         public int ID_DichVu { get; set; }
+        public virtual LichHen LichHen { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ namespace PetStore.Models
 {
     public class LichHenModel
     {
-        public int LichHen_ID { get; set; }
+        public int ID_LichHen { get; set; }
         public int ID_KhachHang { get; set; }
 
         [StringLength(50)]

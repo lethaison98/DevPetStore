@@ -49,19 +49,19 @@
             <div class="top-fields-wthree">
                 @Html.HiddenFor(model => model.ID_KhachHang)
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.TenKhachHang, new { htmlAttributes = new { placeholder = "Họ tên *", required = "" } })
+                    @Html.EditorFor(model => model.TenKhachHang, new { htmlAttributes = new { placeholder = "Họ tên *",autocomplete="off", required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email *", required = "" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email *",autocomplete="off", required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại *", required = "" } })
+                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại *",autocomplete="off", required = "" } })
                 </div>
             </div>
             <h3 class="inner-hdng-agileinfo">Thông tin Thú cưng</h3>
             <div class="top-fields-wthree">
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.TenPet, new { htmlAttributes = new { placeholder = "Tên thường gọi *", required = "" } })
+                    @Html.EditorFor(model => model.TenPet, new { htmlAttributes = new { placeholder = "Tên thường gọi *",autocomplete="off", required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
                     @{
@@ -77,10 +77,10 @@
                             Value = "Mèo",
                         });
                     }
-                    @Html.DropDownListFor(model => model.LoaiThuCung, listLoaiThu, "Loại thú *", new { @onchange = "LoaiThu = this.value;", id = "country", required = "" })
+                    @Html.DropDownListFor(model => model.LoaiThuCung, listLoaiThu, "Loại thú *", new { @onchange = "LoaiThu = this.value;", id = "country", autocomplete="off",required = "" })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.GiongThuCung, new { htmlAttributes = new { placeholder = "Giống thú cưng *", required = "" } })
+                    @Html.EditorFor(model => model.GiongThuCung, new { htmlAttributes = new { placeholder = "Giống thú cưng *", autocomplete="off", required = "" } })
                 </div>
 
             </div>
@@ -99,13 +99,13 @@
                             Value = "Cái",
                         });
                     }
-                    @Html.DropDownListFor(model => model.GioiTinh, listGioiTinh, "Giới tính *", new { @onchange = "GioiTinh = this.value;", id = "country", required = "" })
+                    @Html.DropDownListFor(model => model.GioiTinh, listGioiTinh, "Giới tính *", new { @onchange = "GioiTinh = this.value;", id = "country",autocomplete="off", required = "" })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.SoThang, new { htmlAttributes = new { placeholder = "Số tháng", type = "text", required = "" } })
+                    @Html.EditorFor(model => model.SoThang, new { htmlAttributes = new { placeholder = "Số tháng", type = "text", autocomplete="off",required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.CanNang, new { htmlAttributes = new { placeholder = "Cân nặng(Kg)", type = "text", required = "" } })
+                    @Html.EditorFor(model => model.CanNang, new { htmlAttributes = new { placeholder = "Cân nặng(Kg)", type = "text", autocomplete="off", required = "" } })
                 </div>
 
 
@@ -113,7 +113,7 @@
             <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
             <div class="mid-fields-agileits-w3layouts">
                 <div class="input-fields-w3ls2">
-                    @Html.EditorFor(model => model.TuNgay, new { htmlAttributes = new { placeholder = "Từ ngày *", id = "datepicker1", name = "Text", type = "text", required = "" } })
+                    @Html.EditorFor(model => model.TuNgay, new { htmlAttributes = new { placeholder = "Từ ngày *", id = "datepicker1", name = "Text", type = "text",autocomplete="off", required = "" } })
 
                 </div>
                 <div class="input-fields-w3ls2">
@@ -184,7 +184,7 @@
             </div>
             <div class="mid-fields-agileits-w3layouts">
                 <div class="input-fields-w3ls2">
-                    @Html.EditorFor(model => model.DenNgay, new { htmlAttributes = new { placeholder = "Đến ngày *", id = "datepicker", name = "Text", type = "text", required = "" } })
+                    @Html.EditorFor(model => model.DenNgay, new { htmlAttributes = new { placeholder = "Đến ngày *", id = "datepicker",autocomplete="off", name = "Text", type = "text", required = "" } })
 
                 </div>
                 <div class="input-fields-w3ls2">
@@ -300,7 +300,7 @@
 
             </div>
             <div class="input-fields-w3ls2">
-                @Html.EditorFor(model => model.DiaChiDonTra, new { htmlAttributes = new { @placeholder = "Địa chỉ đón trả (Nếu đón trả tại nhà)" } })
+                @Html.EditorFor(model => model.DiaChiDonTra, new { htmlAttributes = new { @placeholder = "Địa chỉ đón trả (Nếu đón trả tại nhà)" ,autocomplete="off"} })
             </div>
             <h3 class="inner-hdng-agileinfo" style="display:inline-block">Ghi chú</h3>
             <div class="input-fields-w3ls2">

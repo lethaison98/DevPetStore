@@ -19,7 +19,7 @@ namespace Model.Repository
             lichHen.CreateDate = DateTime.Now;
             db.LichHens.Add(lichHen);
             db.SaveChanges();
-            return lichHen.LichHen_ID;
+            return lichHen.ID_LichHen;
         }
         public int InsertLichHenDetail(LichHenDetail lichHenDetail)
         {

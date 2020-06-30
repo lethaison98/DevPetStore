@@ -12,7 +12,7 @@ namespace Model.EF
     public class Slide
     {
         [Key]
-        public int Slide_ID { get; set; }
+        public int ID_Slide { get; set; }
         public string Link_Image { get; set; }
         public string TieuDe { get; set; }
         public string ChiTiet { get; set; }

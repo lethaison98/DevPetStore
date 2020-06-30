@@ -19,22 +19,22 @@ namespace Model.Repository
 
         public int InsertOrUpdate(Slide entity)
         {
-            var x = entity.Slide_ID;
-            if (entity.Slide_ID <= 0)
+            var x = entity.ID_Slide;
+            if (entity.ID_Slide <= 0)
             {
                 db.Slides.Add(entity);
                 db.SaveChanges();
             }
             else
             {
-                var slide = db.Slides.Find(entity.Slide_ID);
+                var slide = db.Slides.Find(entity.ID_Slide);
                 slide.TieuDe = entity.TieuDe;
                 slide.Link_Image = entity.Link_Image;
                 slide.ThuTu = entity.ThuTu;
                 slide.ChiTiet = entity.ChiTiet;
                 db.SaveChanges();
             }
-            return entity.Slide_ID;
+            return entity.ID_Slide;
         }
         public IEnumerable<Slide> ListAllPaging(String searchString, int page, int pageSize)
         {
@@ -43,18 +43,18 @@ namespace Model.Repository
             {
                 model = model.Where(x => x.TieuDe.Contains(searchString));
             }
-            return model.OrderByDescending(x=> x.ThuTu).ThenBy(x => x.TieuDe).ToPagedList(page, pageSize);
+            return model.OrderByDescending(x => x.ThuTu).ThenBy(x => x.TieuDe).ToPagedList(page, pageSize);
         }
         public void Delete(int id)
         {
-            Slide Slide = db.Slides.SingleOrDefault(x => x.Slide_ID == id);
+            Slide Slide = db.Slides.SingleOrDefault(x => x.ID_Slide == id);
             db.Slides.Remove(Slide);
             db.SaveChanges();
         }
 
         public Slide GetByID(int id)
         {
-            return (db.Slides.SingleOrDefault(x => x.Slide_ID == id));
+            return (db.Slides.SingleOrDefault(x => x.ID_Slide == id));
         }
         public List<Slide> ListAll()
         {

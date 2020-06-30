@@ -22,27 +22,28 @@ namespace Model.Repository
         public KyGuiDto ConvertToLichHenDto(LichHen entity)
         {
             var data = new KyGuiDto();
-            data.ID_LichHen = entity.LichHen_ID;
+            data.ID_LichHen = entity.ID_LichHen;
             data.ID_KhachHang = entity.ID_KhachHang;
             data.TenKhachHang = entity.TenNguoiHen;
             data.CreateDate = entity.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.SoDienThoai = entity.SoDienThoai;
-            data.TenTrangThaiLichHen = GetEnum.GetText(GetEnum.GetByCode(entity.TrangThaiLichHen));
+            data.TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(entity.TrangThaiLichHen));
             data.GiongThuCung = entity.GiongThuCung;
             data.NgayHen = entity.NgayHen;
             data.GioHen = entity.GioHen;
             return data;
         }
-        public KyGuiChiTietDto ConvertToChiTietDto (LichKyGui entity)
+        public KyGuiChiTietDto ConvertToChiTietDto(LichKyGui entity)
         {
             var data = new KyGuiChiTietDto();
             data.TenKhachHang = entity.LichHen.TenNguoiHen;
             data.SoDienThoai = entity.LichHen.SoDienThoai;
             data.Email = entity.LichHen.Email;
-            data.TenTrangThaiLichHen = GetEnum.GetText(GetEnum.GetByCode(entity.LichHen.TrangThaiLichHen));
+            data.TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(entity.LichHen.TrangThaiLichHen));
             data.CreateDate = entity.LichHen.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.TenPet = entity.TenPet;
             data.GiongThuCung = entity.LichHen.GiongThuCung;
+            data.LoaiThuCung = entity.LichHen.LoaiThuCung;
             data.SoThang = entity.SoThang;
             data.CanNang = entity.CanNang;
             data.GioiTinh = entity.GioiTinh;
@@ -75,14 +76,14 @@ namespace Model.Repository
             var trangThaiKyGui = GetLichHenEnum.GetCode(trangThaiEnum);
             model = model.Where(x => x.TrangThaiLichHen == trangThaiKyGui);
             data = model.OrderByDescending(x => x.CreateDate);
-            returnData = data.Select(x => new KyGuiDto 
+            returnData = data.Select(x => new KyGuiDto
             {
-                ID_LichHen = x.LichHen_ID,
+                ID_LichHen = x.ID_LichHen,
                 ID_KhachHang = x.ID_KhachHang,
                 TenKhachHang = x.TenNguoiHen,
                 CreateDate = x.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                 SoDienThoai = x.SoDienThoai,
-                TenTrangThaiLichHen = GetEnum.GetText(GetEnum.GetByCode(x.TrangThaiLichHen)),
+                TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(x.TrangThaiLichHen)),
                 GiongThuCung = x.GiongThuCung,
                 NgayHen = x.NgayHen,
                 GioHen = x.GioHen
@@ -102,7 +103,7 @@ namespace Model.Repository
         }
         public bool XacNhan(int id)
         {
-            var entity = db.LichHens.SingleOrDefault(x => x.LichHen_ID == id);
+            var entity = db.LichHens.SingleOrDefault(x => x.ID_LichHen == id);
             if (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.ChuaXacNhan))
             {
                 entity.TrangThaiLichHen = GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaXacNhan);
@@ -113,7 +114,7 @@ namespace Model.Repository
         }
         public bool DangKyGui(int id)
         {
-            var entity = db.LichHens.SingleOrDefault(x => x.LichHen_ID == id);
+            var entity = db.LichHens.SingleOrDefault(x => x.ID_LichHen == id);
             if ((entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaXacNhan)))
             {
                 entity.TrangThaiLichHen = GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DangKyGui);
@@ -124,7 +125,7 @@ namespace Model.Repository
         }
         public bool TuChoi(int id)
         {
-            var entity = db.LichHens.SingleOrDefault(x => x.LichHen_ID == id);
+            var entity = db.LichHens.SingleOrDefault(x => x.ID_LichHen == id);
             if (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.ChuaXacNhan) || (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaXacNhan)))
             {
                 entity.TrangThaiLichHen = GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaHuy);
@@ -135,7 +136,7 @@ namespace Model.Repository
         }
         public bool HoanThanh(int id)
         {
-            var entity = db.LichHens.SingleOrDefault(x => x.LichHen_ID == id);
+            var entity = db.LichHens.SingleOrDefault(x => x.ID_LichHen == id);
             if ((entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DangKyGui)))
             {
                 entity.TrangThaiLichHen = GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaHoanThanh);

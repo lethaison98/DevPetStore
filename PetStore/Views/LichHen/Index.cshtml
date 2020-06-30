@@ -49,22 +49,43 @@
             <div class="top-fields-wthree">
                 @Html.HiddenFor(model => model.ID_KhachHang)
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.TenNguoiHen, new { htmlAttributes = new { placeholder = "Họ tên *", required = "" } })
+                    @Html.EditorFor(model => model.TenNguoiHen, new { htmlAttributes = new { placeholder = "Họ tên *", autocomplete = "off", required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email *", type = "email", required = "" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email *", type = "email", autocomplete = "off", required = "" } })
                 </div>
                 <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại *", type = "text", required = "" } })
+                    @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { placeholder = "Số điện thoại *", type = "text", autocomplete = "off", required = "" } })
                 </div>
             </div>
             <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
             <div class="mid-fields-agileits-w3layouts">
-                <div class="input-fields-w3ls">
-                    @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { placeholder = "Ngày hẹn *", id = "datepicker", name = "Text", type = "text", required = "" } })
-
+                <div class="input-fields-w3ls2">
+                    @{
+                        List<SelectListItem> listLoaiThu = new List<SelectListItem>();
+                        listLoaiThu.Add(new SelectListItem
+                        {
+                            Text = "Chó",
+                            Value = "Chó"
+                        });
+                        listLoaiThu.Add(new SelectListItem
+                        {
+                            Text = "Mèo",
+                            Value = "Mèo",
+                        });
+                    }
+                    @Html.DropDownListFor(model => model.LoaiThuCung, listLoaiThu, "Loại thú *", new { @onchange = "LoaiThu = this.value;", id = "country", autocomplete = "off", required = "" })
                 </div>
-                <div class="input-fields-w3ls">
+                <div class="input-fields-w3ls2">
+                    @Html.EditorFor(model => model.GiongThuCung, new { htmlAttributes = new { placeholder = "Giống thú cưng *", autocomplete = "off", required = "" } })
+                </div>
+            </div>            
+            <div class="mid-fields-agileits-w3layouts">
+                <div class="input-fields-w3ls2">
+                    @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { placeholder = "Ngày hẹn *", id = "datepicker", name = "Text", type = "text", autocomplete = "off", required = "" } })
+                </div>
+                
+                <div class="input-fields-w3ls2">
                     @{
                         List<SelectListItem> listItems = new List<SelectListItem>();
                         listItems.Add(new SelectListItem
@@ -120,19 +141,11 @@
                             Text = "17:00 - 18:00",
                             Value = "17:00 - 18:00"
                         });
-
-
                     }
 
                     @Html.DropDownListFor(model => model.GioHen, listItems, "Giờ hẹn *", new { @onchange = "GioHen = this.value;", id = "country", required = "" })
 
                 </div>
-                @*<div class="input-fields-w3ls">
-                    @Html.DropDownList("ID_GiongPet", null, htmlAttributes: new { @class = "form-control", placeholder = "Giống Pet", id = "country", name = "Text", type = "text" })
-                    @Html.ValidationMessageFor(model => model.ID_GiongPet, "", new { @class = "text-danger" })
-
-                </div>*@
-
             </div>
             <h3 class="inner-hdng-agileinfo">Lựa chọn dịch vụ</h3>
             <div class="input-fields-w3ls2">

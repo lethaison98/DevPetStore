@@ -66,29 +66,41 @@ namespace Model.Repository
             return (db.Users.SingleOrDefault(x => x.Username == userName));
         }
 
-        public int Login(string username, string password)
+        public int Login(string username, string password, bool admin)
         {
             var result = db.Users.SingleOrDefault(x => x.Username == username);
             if (result == null)
             {
                 return 0;
             }
-            else{
-                if(result.Status != true)
+            else
+            {
+                if (result.Password != password)
                 {
-                    return 2;
+                    return 3;
                 }
                 else
                 {
-                    if(password == result.Password)
+                    if(result.Status != true)
                     {
-                        return 1;
+                        return 2;
                     }
                     else
                     {
-                        return 3;
+                        if (admin == true)
+                        {
+                            if (result.IsAdmin == true)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                return 4;
+                            }
+                        }
+                        else return 1;
                     }
-                }             
+                }
             }
         }
         public bool CheckUserName(string userName)
@@ -98,6 +110,10 @@ namespace Model.Repository
         public bool CheckEmail(string email)
         {
             return db.Users.Count(x => x.Email == email) > 0;
+        }
+        public bool CheckAdmin(string username)
+        {
+            return db.Users.FirstOrDefault(x => x.Username == username).IsAdmin;
         }
     }
 }
