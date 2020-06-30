@@ -28,5 +28,6 @@ namespace Model.EF
         public int LoaiKyGuiID { get; set; }
         [StringLength(20)]
         public string TenLoaiKyGui { get; set; }
+        public virtual LichHen LichHen { get; set; }
     }
 }

@@ -56,6 +56,3 @@ E:\DevPetStore\Model\obj\Debug\Model.dll
 E:\DevPetStore\Model\obj\Debug\Model.pdb
 E:\DevPetStore\Model\obj\Debug\Model.Migrations.init.resources
 E:\DevPetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
-E:\PetStore\Model\obj\Debug\Model.Migrations.init.resources
-E:\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
-E:\PetStore\Model\obj\Debug\Model.Migrations.init1.resources

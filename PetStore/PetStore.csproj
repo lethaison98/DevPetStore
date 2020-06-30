@@ -153,6 +153,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DanhMucController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KyGuiManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaiVietManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\GiongPetController.cs" />
@@ -192,6 +193,7 @@
     <Content Include="Assets\Admin\dist\css\styles.css" />
     <Content Include="Assets\Admin\dist\js\all.min.js" />
     <Content Include="Assets\Admin\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Assets\Admin\dist\js\Controller\KyGuiController.js" />
     <Content Include="Assets\Admin\dist\js\Controller\DonHangController.js" />
     <Content Include="Assets\Admin\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Assets\Admin\dist\js\scripts.js" />
@@ -1292,6 +1294,12 @@
     <Content Include="Areas\Admin\Views\DonHangManagement\ChiTietDonHang.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangManagement\DonHangDaHuy.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangManagement\DonHangDaHoanThanh.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiChuaXacNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiDaHuy.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiDaXacNhan.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiDangThucHien.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\KyGuiDaHoanThanh.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\ChiTietKyGui.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

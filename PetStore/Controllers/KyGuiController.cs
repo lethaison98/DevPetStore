@@ -37,46 +37,46 @@ namespace PetStore.Controllers
         [HttpPost]
         public ActionResult Index(KyGuiModel kyGuiModel)
         {
-            if (ModelState.IsValid)
-            {
-                var repo = new LichHenRepository();
-                var lichHen = new LichHen();
-                lichHen.TenNguoiHen = kyGuiModel.TenKhachHang;
-                lichHen.SoDienThoai = kyGuiModel.SoDienThoai;
-                lichHen.Email = kyGuiModel.Email;
-                lichHen.NgayHen = kyGuiModel.NgayHen;
-                lichHen.GioHen = kyGuiModel.GioHen;
-                lichHen.GhiChu = kyGuiModel.GhiChu;
-                lichHen.LoaiThuCung = kyGuiModel.LoaiThuCung;
-                lichHen.GiongThuCung = kyGuiModel.GiongThuCung;
-                lichHen.ID_KhachHang = kyGuiModel.ID_KhachHang;
-                lichHen.LoaiLichHen = 2;
-                var id = repo.Insert(lichHen);
+            var repo = new LichHenRepository();
+            var lichHen = new LichHen();
+            lichHen.TenNguoiHen = kyGuiModel.TenKhachHang;
+            lichHen.SoDienThoai = kyGuiModel.SoDienThoai;
+            lichHen.Email = kyGuiModel.Email;
+            lichHen.NgayHen = kyGuiModel.TuNgay;
+            lichHen.GioHen = kyGuiModel.TuGio;
+            lichHen.GhiChu = kyGuiModel.GhiChu;
+            lichHen.LoaiThuCung = kyGuiModel.LoaiThuCung;
+            lichHen.GiongThuCung = kyGuiModel.GiongThuCung;
+            lichHen.ID_KhachHang = kyGuiModel.ID_KhachHang;
+            lichHen.LoaiLichHen = 2;
+            lichHen.TrangThaiLichHen = 1;
+            var id = repo.Insert(lichHen);
 
-                var lichKyGui = new LichKyGui();
-                lichKyGui.ID_LichHen = id;
-                lichKyGui.TuNgay = kyGuiModel.TuNgay;
-                lichKyGui.TuGio = kyGuiModel.TuGio;
-                lichKyGui.DenNgay = kyGuiModel.DenNgay;
-                lichKyGui.DenGio = kyGuiModel.DenGio;
-                lichKyGui.LoaiKyGuiID = kyGuiModel.LoaiKyGuiId;
-                lichKyGui.TenPet = kyGuiModel.TenPet;
-                lichKyGui.SoThang = kyGuiModel.SoThang;
-                lichKyGui.CanNang = kyGuiModel.CanNang;
-                lichKyGui.GioiTinh = kyGuiModel.GioiTinh;
-                lichKyGui.DonTraTaiNha = kyGuiModel.DonTraTaiNha;
-                lichKyGui.DiaChiDonTra = lichKyGui.DiaChiDonTra;
-                lichKyGui.TinhTrangSucKhoe = kyGuiModel.TinhTrangSucKhoe;
-                var lichKyGuiId = repo.InsertLichKyGui(lichKyGui);
-                if (id > 0)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Thêm Lịch hẹn không thành công");
-                }
+            var lichKyGui = new LichKyGui();
+            lichKyGui.ID_LichHen = id;
+            lichKyGui.TuNgay = kyGuiModel.TuNgay;
+            lichKyGui.TuGio = kyGuiModel.TuGio;
+            lichKyGui.DenNgay = kyGuiModel.DenNgay;
+            lichKyGui.DenGio = kyGuiModel.DenGio;
+            lichKyGui.LoaiKyGuiID = kyGuiModel.LoaiKyGuiId;
+            lichKyGui.TenPet = kyGuiModel.TenPet;
+            lichKyGui.SoThang = kyGuiModel.SoThang;
+            lichKyGui.CanNang = kyGuiModel.CanNang;
+            lichKyGui.GioiTinh = kyGuiModel.GioiTinh;
+            lichKyGui.DonTraTaiNha = kyGuiModel.DonTraTaiNha;
+            lichKyGui.DiaChiDonTra = kyGuiModel.DiaChiDonTra;
+            lichKyGui.TenLoaiKyGui = kyGuiModel.TenLoaiKyGui;
+            lichKyGui.TinhTrangSucKhoe = kyGuiModel.TinhTrangSucKhoe;
+            var lichKyGuiId = repo.InsertLichKyGui(lichKyGui);
+            if (id > 0)
+            {
+                return RedirectToAction("Index", "Home");
             }
+            else
+            {
+                ModelState.AddModelError("", "Thêm Lịch hẹn không thành công");
+            }
+            
             return View();
         }
         public void SetViewBag(int? selectedID = null)
