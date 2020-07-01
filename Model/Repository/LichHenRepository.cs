@@ -27,6 +27,7 @@ namespace Model.Repository
             data.CreateDate = entity.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.SoDienThoai = entity.SoDienThoai;
             data.Email = entity.Email;
+            data.TrangThaiLichHen = entity.TrangThaiLichHen;
             data.TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(entity.TrangThaiLichHen));
             data.GiongThuCung = entity.GiongThuCung;
             data.NgayHen = entity.NgayHen;
@@ -84,6 +85,7 @@ namespace Model.Repository
                 CreateDate = x.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                 SoDienThoai = x.SoDienThoai,
                 Email = x.Email,
+                TrangThaiLichHen = x.TrangThaiLichHen,
                 TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(x.TrangThaiLichHen)),
                 GiongThuCung = x.GiongThuCung,
                 NgayHen = x.NgayHen,
@@ -109,7 +111,7 @@ namespace Model.Repository
         public List<LichHenDto> LayDanhSachLichHenByKhachHangId(int id)
         {
             List<LichHenDto> returnData;
-            returnData = db.LichHens.Where(x => x.ID_KhachHang == id && x.LoaiLichHen == 2).OrderByDescending(x => x.CreateDate).Select(ConvertToLichHenDto).ToList();
+            returnData = db.LichHens.Where(x => x.ID_KhachHang == id && x.LoaiLichHen == 1).OrderByDescending(x => x.CreateDate).Select(ConvertToLichHenDto).ToList();
             return returnData;
         }
         public bool XacNhan(int id)

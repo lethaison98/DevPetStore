@@ -17,6 +17,7 @@ namespace Model.Dto
         public string SoDienThoai { get; set; }
         public string Email { get; set; }
         public string TenTrangThaiLichHen { get; set; }
+        public int TrangThaiLichHen { get; set; }
         public string CreateDate { get; set; }
         public string NgayHen { get; set; }
         public string GioHen { get; set; }

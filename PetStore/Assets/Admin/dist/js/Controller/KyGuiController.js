@@ -10,7 +10,7 @@
             var r= confirm("Xác nhận lịch ký gửi?");
             if (r == true) {
                 $.ajax({
-                    url : "/KyGuiManagement/XacNhan",
+                    url: "/Admin/KyGuiManagement/XacNhan",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
@@ -30,7 +30,7 @@
             var r = confirm("Từ chối lịch ký gửi?");
             if (r == true) {
                 $.ajax({
-                    url: "/KyGuiManagement/TuChoi",
+                    url: "/Admin/KyGuiManagement/TuChoi",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
@@ -48,7 +48,7 @@
             var r = confirm("Cập nhật trạng thái đang ký gửi?");
             if (r == true) {
                 $.ajax({
-                    url: "/KyGuiManagement/DangKyGui",
+                    url: "/Admin/KyGuiManagement/DangKyGui",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
@@ -67,7 +67,7 @@
             var r = confirm("Xác nhận hoàn thành ký gửi?");
             if (r == true) {
                 $.ajax({
-                    url: "/KyGuiManagement/HoanThanh",
+                    url: "/Admin/KyGuiManagement/HoanThanh",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",

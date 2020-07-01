@@ -1,0 +1,92 @@
+﻿@model List<Model.Dto.KyGuiDto>
+@{
+    ViewBag.Title = "KyGuiCuaToi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+    <script src="~/Assets/Client/js/Controller/KyGuiCuaToiController.js"></script>
+}
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="~/Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Tài khoản</li>
+            <li class="active">Ký gửi của tôi</li>
+
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+
+<div class="checkout">
+    <div class="container">
+        @if (@Model.Count > 0)
+        {
+            <div class="checkout-right animated wow slideInUp" data-wow-delay=".5s">
+                @foreach (var item in Model)
+                {
+                    <table class="timetable_sub">
+                        <thead>
+                            <tr>
+                                <th>Ngày tạo</th>
+                                <th>Tên Khách hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Giống Pet</th>
+                                <th>Thời gian hẹn</th>
+                                <th>Trạng thái ký gửi</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr id="row_@item.ID_LichHen">
+
+                                <td>@item.CreateDate</td>
+                                <td>@item.TenKhachHang</td>
+                                <td>@item.SoDienThoai</td>
+                                <td>@item.GiongThuCung</td>
+                                <td>@item.GioHen ngày @item.NgayHen</td>
+                                <td><span id="Update_TrangThai_@item.ID_LichHen">@item.TenTrangThaiLichHen</span></td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span id="Update_button_@item.ID_LichHen">
+                                        @if (item.TrangThaiLichHen == 1)
+                                        {
+                                            <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_LichHen">Hủy ký gửi</button>
+                                        }
+                                        else if (item.TrangThaiLichHen == 2)
+                                        {
+                                            <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_LichHen">Hủy ký gửi</button>
+                                        }
+                                        else if (item.TrangThaiLichHen == 3)
+                                        {
+                                            <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_LichHen">Hoàn thành</button>
+                                            <a href="/Account/ChiTietKyGui/@item.ID_LichHen" class="btn btn-secondary btn-sm" style="width:100px"> Chi tiết</a>
+                                        }
+                                    </span>
+
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                }
+            </div>
+
+        }
+        else
+        {
+            <h3><span>Bạn chưa có lịch hẹn nào</span></h3>
+        }
+    </div>
+</div>

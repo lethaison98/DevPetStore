@@ -1,0 +1,70 @@
+﻿@model Model.EF.CapNhatKyGui
+
+@{
+    ViewBag.Title = "CapNhatThongTinKyGui";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Cập nhật thông tin thú cưng đang ký gửi</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID_LichKyGui)
+        <div class="form-group">
+            @Html.LabelFor(model => model.TinhTrangThuCung, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TinhTrangThuCung, new { htmlAttributes = new { @class = "form-control", @autocomplete="off" } })
+                @Html.ValidationMessageFor(model => model.TinhTrangThuCung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoiDungCapNhat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.NoiDungCapNhat, new { htmlAttributes = new { @class = "form-control" }, id = "noidung" })
+                @Html.ValidationMessageFor(model => model.NoiDungCapNhat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImgLink1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ImgLink1, new { htmlAttributes = new { @class = "form-control" }, id = "linkImage" })
+                <button type="button" id="selectImage">Upload</button>
+                @Html.ValidationMessageFor(model => model.ImgLink1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImgLink2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ImgLink2, new { htmlAttributes = new { @class = "form-control" }, id = "linkImage1" })
+                <button type="button" id="selectImage1">Upload</button>
+                @Html.ValidationMessageFor(model => model.ImgLink2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImgLink3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ImgLink3, new { htmlAttributes = new { @class = "form-control" }, id = "linkImage2" })
+                <button type="button" id="selectImage2">Upload</button>
+                @Html.ValidationMessageFor(model => model.ImgLink3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

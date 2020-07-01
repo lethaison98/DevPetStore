@@ -16,6 +16,7 @@ namespace Model.Dto
         [StringLength(20)]
         public string SoDienThoai { get; set; }
         public string TenTrangThaiLichHen { get; set; }
+        public int TrangThaiLichHen { get; set; }
         public string CreateDate { get; set; }
         public string NgayHen { get; set; }
         public string GioHen { get; set; }
@@ -36,6 +37,7 @@ namespace Model.Dto
         [StringLength(30)]
         public string Email { get; set; }
         public string CreateDate { get; set; }
+        public int TrangThaiLichHen { get; set; }
         public string TenTrangThaiLichHen { get; set; }
         public string TuNgay { get; set; }
         public string TuGio { get; set; }
@@ -53,5 +55,17 @@ namespace Model.Dto
         public string TenLoaiKyGui { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }
+        public List<CapNhatKyGuiDto> DanhSachCapNhat { get; set; }
+    }
+    public class CapNhatKyGuiDto
+    {
+        public int ID_CapNhatKyGui { get; set; }
+        public int ID_LichKyGui { get; set; }
+        public string ThoiGianCapNhat { get; set; }
+        public string imgLink1 { get; set; }
+        public string imgLink2 { get; set; }
+        public string imgLink3 { get; set; }
+        public string TinhTrangThuCung { get; set; }
+        public string NoiDungCapNhat { get; set; }
     }
 }

@@ -40,6 +40,34 @@
             <h6>Địa chỉ đón trả: <strong>@Model.DiaChiDonTra</strong></h6>
             <h6>Ghi chú: <strong>@Model.GhiChu</strong></h6>
 
+
+        </div>
+        <br />
+        <h4>Thông tin ký gửi </h4>
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Thời gian cập nhật</th>
+                        <th>Tình trạng thú cưng</th>
+                        <th>Nội dung cập nhật</th>
+                        <th>Hình ảnh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.DanhSachCapNhat)
+                    {
+                        <tr>
+                            <td>@item.ThoiGianCapNhat</td>
+                            <td>@item.TinhTrangThuCung</td>
+                            <td>@Html.Raw(item.NoiDungCapNhat)</td>
+                            <td style="width: 330px"><img src="@item.imgLink1" width="100" /> <img src="@item.imgLink2" width="100" /><img src="@item.imgLink3" width="100" /></td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

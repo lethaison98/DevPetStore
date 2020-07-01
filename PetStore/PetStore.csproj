@@ -1187,6 +1187,8 @@
     <Content Include="Assets\Client\js\bootstrap-3.1.1.min.js" />
     <Content Include="Assets\Client\js\classie.js" />
     <Content Include="Assets\Client\js\Controller\CartController.js" />
+    <Content Include="Assets\Client\js\Controller\LichHenCuaToiController.js" />
+    <Content Include="Assets\Client\js\Controller\KyGuiCuaToiController.js" />
     <Content Include="Assets\Client\js\Controller\DonHangCuaToiController.js" />
     <Content Include="Assets\Client\js\imagezoom.js" />
     <Content Include="Assets\Client\js\jquery-ui.js" />
@@ -1307,6 +1309,7 @@
     <Content Include="Areas\Admin\Views\LichHenManagement\LichHenDaHoanThanh.cshtml" />
     <Content Include="Areas\Admin\Views\LichHenManagement\LichHenDaHuy.cshtml" />
     <Content Include="Areas\Admin\Views\LichHenManagement\ChiTietLichHen.cshtml" />
+    <Content Include="Areas\Admin\Views\KyGuiManagement\CapNhatThongTinKyGui.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1353,6 +1356,8 @@
     <Content Include="Views\KienThuc\Index.cshtml" />
     <Content Include="Views\KienThuc\ChiTiet.cshtml" />
     <Content Include="Views\Account\DonHangCuaToi.cshtml" />
+    <Content Include="Views\Account\LichHenCuaToi.cshtml" />
+    <Content Include="Views\Account\KyGuiCuaToi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

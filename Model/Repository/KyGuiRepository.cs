@@ -27,6 +27,7 @@ namespace Model.Repository
             data.TenKhachHang = entity.TenNguoiHen;
             data.CreateDate = entity.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.SoDienThoai = entity.SoDienThoai;
+            data.TrangThaiLichHen = entity.TrangThaiLichHen;
             data.TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(entity.TrangThaiLichHen));
             data.GiongThuCung = entity.GiongThuCung;
             data.NgayHen = entity.NgayHen;
@@ -36,9 +37,11 @@ namespace Model.Repository
         public KyGuiChiTietDto ConvertToChiTietDto(LichKyGui entity)
         {
             var data = new KyGuiChiTietDto();
+            data.ID_LichKyGui = entity.ID_LichKyGui;
             data.TenKhachHang = entity.LichHen.TenNguoiHen;
             data.SoDienThoai = entity.LichHen.SoDienThoai;
             data.Email = entity.LichHen.Email;
+            data.TrangThaiLichHen = entity.LichHen.TrangThaiLichHen; 
             data.TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(entity.LichHen.TrangThaiLichHen));
             data.CreateDate = entity.LichHen.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.TenPet = entity.TenPet;
@@ -55,6 +58,21 @@ namespace Model.Repository
             data.DiaChiDonTra = entity.DiaChiDonTra;
             data.TenLoaiKyGui = entity.TenLoaiKyGui;
             data.GhiChu = entity.LichHen.GhiChu;
+            data.DanhSachCapNhat = LayThongTinKyGui(entity.ID_LichHen);
+            return data;
+        }
+
+        public CapNhatKyGuiDto ConvertToCapNhatKyGuiDto(CapNhatKyGui entity)
+        {
+            var data = new CapNhatKyGuiDto();
+            data.ID_CapNhatKyGui = entity.ID_CapNhatKyGui;
+            data.ID_LichKyGui = entity.ID_LichKyGui;
+            data.imgLink1 = entity.ImgLink1;
+            data.imgLink2 = entity.ImgLink2;
+            data.imgLink3 = entity.ImgLink3;
+            data.NoiDungCapNhat = entity.NoiDungCapNhat;
+            data.TinhTrangThuCung = entity.TinhTrangThuCung;
+            data.ThoiGianCapNhat = entity.ThoiGianCapNhat.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             return data;
         }
         public int Insert(LichKyGui kyGui)
@@ -83,6 +101,7 @@ namespace Model.Repository
                 TenKhachHang = x.TenNguoiHen,
                 CreateDate = x.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                 SoDienThoai = x.SoDienThoai,
+                TrangThaiLichHen = x.TrangThaiLichHen,
                 TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(x.TrangThaiLichHen)),
                 GiongThuCung = x.GiongThuCung,
                 NgayHen = x.NgayHen,
@@ -91,9 +110,14 @@ namespace Model.Repository
             return returnData.ToPagedList(page, pageSize);
         }
 
-        public KyGuiChiTietDto GetKyGuiById(int id)
+        public KyGuiChiTietDto GetKyGuiChiTietDtoByLichHenId(int id)
         {
             return ConvertToChiTietDto(db.LichKyGuis.SingleOrDefault(x => x.ID_LichHen == id));
+        }
+        public LichHen GetLichHenByID_LichKyGui(int id)
+        {
+            var ID_LichHen = db.LichKyGuis.SingleOrDefault(x => x.ID_LichKyGui == id).ID_LichHen;
+            return db.LichHens.SingleOrDefault(x => x.ID_LichHen == ID_LichHen);
         }
         public List<KyGuiDto> LayDanhSachKyGuiByKhachHangId(int id)
         {
@@ -144,6 +168,18 @@ namespace Model.Repository
                 return true;
             }
             else return false;
+        }
+
+        public int CapNhatKyGui (CapNhatKyGui entity)
+        {
+            db.CapNhatKyGuis.Add(entity);
+            entity.ThoiGianCapNhat = DateTime.Now;
+            db.SaveChanges();
+            return entity.ID_LichKyGui;
+        }
+        public List<CapNhatKyGuiDto> LayThongTinKyGui (int id)
+        {
+            return db.CapNhatKyGuis.Where(x => x.LichKyGui.LichHen.ID_LichHen == id).Select(ConvertToCapNhatKyGuiDto).ToList();
         }
     }
 }

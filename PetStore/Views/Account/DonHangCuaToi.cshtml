@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "DonHangCuaToi";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    decimal tong = 0;
 }
 @section jsFooter{
 
@@ -48,20 +47,23 @@
                                 <td>@item.ShipName</td>
                                 <td>@item.ShipMobile</td>
                                 <td>@item.ShipAddress</td>
-                                <td id="Update_TrangThai_@item.ID_DonHang">@item.TenTrangThaiDonHang</td>
+                                <td><span id="Update_TrangThai_@item.ID_DonHang">@item.TenTrangThaiDonHang</span></td>
                                 <td>@item.TongTien.ToString("N0")</td>
                             </tr>
 
                             <tr>
-                                <td id="Update_button_@item.ID_DonHang">
-                                    @if (item.TrangThaiDonHang == 1)
-                                    {
-                                        <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hủy đơn hàng</button>
-                                    }
-                                    else if (item.TrangThaiDonHang == 2)
-                                    {
-                                        <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hoàn thành</button>
-                                    }
+                                <td >
+                                    <span id="Update_button_@item.ID_DonHang">
+                                        @if (item.TrangThaiDonHang == 1)
+                                        {
+                                            <button class="btn-tuChoi btn btn-danger btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hủy đơn hàng</button>
+                                        }
+                                        else if (item.TrangThaiDonHang == 2)
+                                        {
+                                            <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hoàn thành</button>
+                                        }
+                                    </span>
+
                                 </td>
                                 <td colspan="5">
                                     <table class="timetable_sub">

@@ -3,65 +3,46 @@
         donHang.RegisterEvents();
     },
     RegisterEvents: function () {
-        $('.btn-xacNhan').off('click').on('click', function (e) {
-            e.preventDefault();
-            var btn = $(this);
-            var id = btn.data('id');
-            var r= confirm("Xác nhận lịch hẹn chăm sóc?");
-            if (r == true) {
-                $.ajax({
-                    url: "/Admin/LichHenManagement/XacNhan",
-                    data: { id: id },
-                    dataType: "json",
-                    type: "POST",
-                    success: function (response) {
-                        console.log(response);
-                        $("#row_"+id).remove();
-                    }
-                });
-            }
-
-        });
 
         $('.btn-tuChoi').off('click').on('click', function (e) {
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
-            var r = confirm("Từ chối lịch hẹn chăm sóc?");
+            var r = confirm("Hủy lịch hẹn đã đặt?");
             if (r == true) {
                 $.ajax({
-                    url: "/Admin/LichHenManagement/TuChoi",
+                    url: "/Account/HuyLichHen",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
                     success: function (response) {
                         console.log(response);
-                        $("#row_" + id).remove();
+                        $("#Update_TrangThai_"+id).load(location.href + " #Update_TrangThai_"+id);
+                        $("#Update_button_"+id).load(location.href + " #Update_button_"+id);
+
                     }
                 });
             }
         });
-       
         $('.btn-hoanThanh').off('click').on('click', function (e) {
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
-            var r = confirm("Xác nhận hoàn thành lịch chăm soc?");
+            var r = confirm("Xác nhận lịch chăm sóc đã hoàn tất?");
             if (r == true) {
                 $.ajax({
-                    url: "/Admin/LichHenManagement/HoanThanh",
+                    url: "/Account/HoanThanhLichHen",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
                     success: function (response) {
                         console.log(response);
-                        $("#row_" + id).remove();
+                        $("#Update_TrangThai_" + id).load(location.href + " #Update_TrangThai_" + id);
+                        $("#Update_button_"+id).load(location.href + " #Update_button_"+id);
                     }
                 });
             }
-
         });
-
     }
 }
 

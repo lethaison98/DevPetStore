@@ -26,6 +26,7 @@ namespace Model.EF
         public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
         public virtual DbSet<BaiViet> BaiViets { get; set; }
         public virtual DbSet<DonHangDetail> DonHangDetails { get; set; }
+        public virtual DbSet<CapNhatKyGui> CapNhatKyGuis { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DanhMuc>()

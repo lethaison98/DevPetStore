@@ -169,5 +169,110 @@ namespace PetStore.Controllers
             }
 
         }
+        [HttpPost]
+        public JsonResult HuyDonHang(int id)
+        {
+            var donHangRepo = new DonHangRepository();
+            var thanhCong = donHangRepo.TuChoi(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
+        [HttpPost]
+        public JsonResult HoanThanhDonHang(int id)
+        {
+            var donHangRepo = new DonHangRepository();
+            var thanhCong = donHangRepo.HoanThanh(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
+
+
+        [HttpGet]
+        public ActionResult LichHenCuaToi()
+        {
+            var khachHangRepo = new KhachHangRepository();
+            var userRepo = new UserRepository();
+            var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            if (session == null)
+            {
+                return RedirectToAction("index", "Login");
+            }
+            else
+            {
+                var khachHang = khachHangRepo.GetByUserId(session.UserID);
+                var list = new List<LichHenDto>();
+                list = new LichHenRepository().LayDanhSachLichHenByKhachHangId(khachHang.ID_KhachHang);
+                return View(list);
+            }
+
+        }
+
+        [HttpPost]
+        public JsonResult HuyLichHen(int id)
+        {
+            var LichHenRepo = new LichHenRepository();
+            var thanhCong = LichHenRepo.TuChoi(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
+
+        [HttpPost]
+        public JsonResult HoanThanhLichHen(int id)
+        {
+            var LichHenRepo = new LichHenRepository();
+            var thanhCong = LichHenRepo.HoanThanh(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
+
+        [HttpGet]
+        public ActionResult KyGuiCuaToi()
+        {
+            var khachHangRepo = new KhachHangRepository();
+            var userRepo = new UserRepository();
+            var session = (PetStore.Common.UserLogin)Session[PetStore.Common.CommonConstants.USER_SESSION];
+            if (session == null)
+            {
+                return RedirectToAction("index", "Login");
+            }
+            else
+            {
+                var khachHang = khachHangRepo.GetByUserId(session.UserID);
+                var list = new List<KyGuiDto>();
+                list = new KyGuiRepository().LayDanhSachKyGuiByKhachHangId(khachHang.ID_KhachHang);
+                return View(list);
+            }
+
+        }
+        [HttpPost]
+        public JsonResult HuyKyGui(int id)
+        {
+            var kyGuiRepo = new KyGuiRepository();
+            var thanhCong = kyGuiRepo.TuChoi(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
+
+        [HttpPost]
+        public JsonResult HoanThanhKyGui(int id)
+        {
+            var kyGuiRepo = new KyGuiRepository();
+            var thanhCong = kyGuiRepo.HoanThanh(id);
+            return Json(new
+            {
+                status = thanhCong
+            });
+        }
+
     }
 }

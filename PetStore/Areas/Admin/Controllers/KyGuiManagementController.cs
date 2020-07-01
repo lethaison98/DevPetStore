@@ -1,4 +1,5 @@
-﻿using Model.Enums;
+﻿using Model.EF;
+using Model.Enums;
 using Model.Repository;
 using System;
 using System.Collections.Generic;
@@ -45,8 +46,40 @@ namespace PetStore.Areas.Admin.Controllers
         public ActionResult ChiTietKyGui(int id)
         {
             var kyGuiRepo = new KyGuiRepository();
-            var model = kyGuiRepo.GetKyGuiById(id);
+            var model = kyGuiRepo.GetKyGuiChiTietDtoByLichHenId(id);
             return View(model);
+        }
+        [HttpGet]
+        public ActionResult CapNhatThongTinKyGui(int id)
+        {
+            var kyGuiRepo = new KyGuiRepository();
+            var model = new CapNhatKyGui();
+            var ID_LichKyGui = kyGuiRepo.GetKyGuiChiTietDtoByLichHenId(id).ID_LichKyGui;
+            model.ID_LichKyGui = ID_LichKyGui;
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult CapNhatThongTinKyGui(CapNhatKyGui model)
+        {
+            var trangThai = new KyGuiRepository().GetLichHenByID_LichKyGui(model.ID_LichKyGui).TrangThaiLichHen;
+            if(trangThai != GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DangKyGui))
+            {
+                ModelState.AddModelError("", "Cập nhật không thành công");
+            }
+            else
+            {
+                var id = new KyGuiRepository().CapNhatKyGui(model);
+                if (id > 0)
+                {
+                    return RedirectToAction("KyGuiDangThucHien", "KyGuiManagement");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật không thành công");
+                }
+            }
+            return View("KyGuiDangThucHien");
         }
 
         [HttpPost]

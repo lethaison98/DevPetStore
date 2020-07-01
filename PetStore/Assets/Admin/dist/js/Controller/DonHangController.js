@@ -10,7 +10,7 @@
             var r= confirm("Xác nhận đơn hàng?");
             if (r == true) {
                 $.ajax({
-                    url : "/DonHangManagement/XacNhan",
+                    url : "/Admin/DonHangManagement/XacNhan",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
@@ -30,7 +30,7 @@
             var r = confirm("Từ chối đơn hàng?");
             if (r == true) {
                 $.ajax({
-                    url: "/DonHangManagement/TuChoi",
+                    url: "/Admin/DonHangManagement/TuChoi",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",
@@ -48,7 +48,7 @@
             var r = confirm("Xác nhận hoàn thành đơn hàng?");
             if (r == true) {
                 $.ajax({
-                    url: "/DonHangManagement/HoanThanh",
+                    url: "/Admin/DonHangManagement/HoanThanh",
                     data: { id: id },
                     dataType: "json",
                     type: "POST",

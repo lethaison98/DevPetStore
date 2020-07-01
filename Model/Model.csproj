@@ -65,6 +65,7 @@
     <Compile Include="Dto\KyGuiDto.cs" />
     <Compile Include="Dto\LichHenDto.cs" />
     <Compile Include="EF\BaiViet.cs" />
+    <Compile Include="EF\CapNhatKyGui.cs" />
     <Compile Include="EF\DanhMuc.cs" />
     <Compile Include="EF\DichVu.cs" />
     <Compile Include="EF\DonHang.cs" />
