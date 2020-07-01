@@ -26,6 +26,7 @@ namespace Model.Dto
     public class KyGuiChiTietDto
     {
         public int ID_LichKyGui { get; set; }
+        public int ID_LichHen { get; set; }
         public int ID_KhachHang { get; set; }
 
         [StringLength(50)]

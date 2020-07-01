@@ -1,4 +1,4 @@
-﻿@model List<Model.Dto.KyGuiDto>
+﻿@model List<Model.Dto.KyGuiChiTietDto>
 @{
     ViewBag.Title = "KyGuiCuaToi";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -34,7 +34,8 @@
                                 <th>Tên Khách hàng</th>
                                 <th>Số điện thoại</th>
                                 <th>Giống Pet</th>
-                                <th>Thời gian hẹn</th>
+                                <th>Thời gian bắt đầu</th>
+                                <th>Thời gian kết thúc</th>
                                 <th>Trạng thái ký gửi</th>
 
                             </tr>
@@ -48,7 +49,8 @@
                                 <td>@item.TenKhachHang</td>
                                 <td>@item.SoDienThoai</td>
                                 <td>@item.GiongThuCung</td>
-                                <td>@item.GioHen ngày @item.NgayHen</td>
+                                <td>@item.TuGio ngày @item.TuNgay</td>
+                                <td>@item.DenGio ngày @item.DenNgay</td>
                                 <td><span id="Update_TrangThai_@item.ID_LichHen">@item.TenTrangThaiLichHen</span></td>
 
                             </tr>
@@ -66,13 +68,38 @@
                                         }
                                         else if (item.TrangThaiLichHen == 3)
                                         {
-                                            <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_LichHen">Hoàn thành</button>
-                                            <a href="/Account/ChiTietKyGui/@item.ID_LichHen" class="btn btn-secondary btn-sm" style="width:100px"> Chi tiết</a>
+                                            <button class="btn-hoanThanh btn btn-success btn-sm" style="width:100px" data-id="@item.ID_LichHen">Hoàn thành</button>
+                                            <button class="btn btn-primary btn-sm" style="width:100px" data-toggle="collapse" data-target="#@item.ID_LichKyGui">Tình trạng</button>
                                         }
                                     </span>
 
                                 </td>
+                                <td colspan="6">
+                                    <div id="@item.ID_LichKyGui"class="collapse">
+                                        <table class="timetable_sub">
+                                            <thead>
+                                                <tr>
+                                                    <th>Thời gian cập nhật</th>
+                                                    <th>Tình trạng thú cưng</th>
+                                                    <th>Nội dung cập nhật</th>
+                                                    <th>Hình ảnh</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var capNhat in item.DanhSachCapNhat)
+                                                {
+                                                    <tr>
+                                                        <td>@capNhat.ThoiGianCapNhat</td>
+                                                        <td>@capNhat.TinhTrangThuCung</td>
+                                                        <td>@Html.Raw(capNhat.NoiDungCapNhat)</td>
+                                                        <td style="width: 340px"><img src="@capNhat.imgLink1" width="100" />    <img src="@capNhat.imgLink2" width="100" />    <img src="@capNhat.imgLink3" width="100" /></td>
 
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

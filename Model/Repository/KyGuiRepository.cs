@@ -38,6 +38,8 @@ namespace Model.Repository
         {
             var data = new KyGuiChiTietDto();
             data.ID_LichKyGui = entity.ID_LichKyGui;
+            data.ID_LichHen = entity.ID_LichHen;
+            data.ID_KhachHang = entity.LichHen.ID_KhachHang;
             data.TenKhachHang = entity.LichHen.TenNguoiHen;
             data.SoDienThoai = entity.LichHen.SoDienThoai;
             data.Email = entity.LichHen.Email;
@@ -119,10 +121,10 @@ namespace Model.Repository
             var ID_LichHen = db.LichKyGuis.SingleOrDefault(x => x.ID_LichKyGui == id).ID_LichHen;
             return db.LichHens.SingleOrDefault(x => x.ID_LichHen == ID_LichHen);
         }
-        public List<KyGuiDto> LayDanhSachKyGuiByKhachHangId(int id)
+        public List<KyGuiChiTietDto> LayDanhSachKyGuiByKhachHangId(int id)
         {
-            List<KyGuiDto> returnData;
-            returnData = db.LichHens.Where(x => x.ID_KhachHang == id && x.LoaiLichHen == 2).OrderByDescending(x => x.CreateDate).Select(ConvertToLichHenDto).ToList();
+            List<KyGuiChiTietDto> returnData;
+            returnData = db.LichKyGuis.Where(x => x.LichHen.ID_KhachHang == id && x.LichHen.LoaiLichHen == 2).OrderByDescending(x => x.LichHen.CreateDate).Select(ConvertToChiTietDto).ToList();
             return returnData;
         }
         public bool XacNhan(int id)

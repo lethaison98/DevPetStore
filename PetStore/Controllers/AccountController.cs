@@ -246,7 +246,7 @@ namespace PetStore.Controllers
             else
             {
                 var khachHang = khachHangRepo.GetByUserId(session.UserID);
-                var list = new List<KyGuiDto>();
+                var list = new List<KyGuiChiTietDto>();
                 list = new KyGuiRepository().LayDanhSachKyGuiByKhachHangId(khachHang.ID_KhachHang);
                 return View(list);
             }
@@ -271,6 +271,16 @@ namespace PetStore.Controllers
             return Json(new
             {
                 status = thanhCong
+            });
+        }
+        [HttpGet]
+        public JsonResult ChiTietKyGui(int id)
+        {
+            var kyGuiRepo = new KyGuiRepository();
+            var model = kyGuiRepo.GetKyGuiChiTietDtoByLichHenId(id);
+            return Json(new
+            {
+                data = model
             });
         }
 
