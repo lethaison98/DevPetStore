@@ -6,9 +6,9 @@ using System.Web;
 
 namespace PetStore.Models
 {
-    public class DichVuModel
+    public class DichVuChamSocModel
     {
-        public DichVu dichVu { get; set; }
+        public DichVuChamSoc DichVuChamSoc { get; set; }
         public bool available { get; set; }
     }
 }

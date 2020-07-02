@@ -40,9 +40,9 @@ namespace Model.Repository
             var data = new LichHenDetailDto();
             data.ID_LichHenDetail = entity.ID_LichHenDetail;
             data.ID_LichHen = entity.ID_LichHen;
-            data.TenDichVu = entity.DichVu.TenDichVu;
-            data.DonGia = entity.DichVu.DonGia;
-            data.DonViTinh = entity.DichVu.DonViTinh;
+            data.TenDichVuChamSoc = entity.DichVuChamSoc.TenDichVuChamSoc;
+            //data.DonGia = entity.DichVuChamSoc.DonGia;
+            data.DonViTinh = entity.DichVuChamSoc.DonViTinh;
             return data;
         }
         public int Insert(LichHen lichHen)

@@ -29,14 +29,14 @@ namespace PetStore.Controllers
                 lichHen.TenNguoiHen = khachHang.Ten;
                 lichHen.SoDienThoai = khachHang.SoDienThoai;
                 lichHen.Email = khachHang.Email;
-                var dichVuRepo = new DichVuRepository();
-                var listDichVu = dichVuRepo.ListAll();
-                List<DichVuModel> list = new List<DichVuModel>();
-                foreach(var item in listDichVu)
+                var DichVuChamSocRepo = new DichVuChamSocRepository();
+                var listDichVuChamSoc = DichVuChamSocRepo.ListAll();
+                List<DichVuChamSocModel> list = new List<DichVuChamSocModel>();
+                foreach(var item in listDichVuChamSoc)
                 {
-                    list.Add(new DichVuModel { dichVu = item, available = false });
+                    list.Add(new DichVuChamSocModel { DichVuChamSoc = item, available = false });
                 }
-                lichHen.DanhSachDichVu = list;
+                lichHen.DanhSachDichVuChamSoc = list;
                 SetViewBag();
                 return View(lichHen);
             }
@@ -63,14 +63,14 @@ namespace PetStore.Controllers
                 lichHen.GiongThuCung = lichHenModel.GiongThuCung;
                 var id = repo.Insert(lichHen);
 
-                foreach(var item in lichHenModel.DanhSachDichVu)
+                foreach(var item in lichHenModel.DanhSachDichVuChamSoc)
                 {
                     if (item.available)
                     {
                         var lichHenDetail = new LichHenDetail();
                         lichHenDetail.ID_LichHen = id;
                         lichHenDetail.ID_KhachHang = lichHenModel.ID_KhachHang;
-                        lichHenDetail.ID_DichVu = item.dichVu.ID_DichVu;
+                        lichHenDetail.ID_DichVuChamSoc = item.DichVuChamSoc.ID_DichVuChamSoc;
                         var idLichHenDetail = repo.InsertLichHenDetail(lichHenDetail);
                     }
 

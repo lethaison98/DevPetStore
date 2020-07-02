@@ -28,7 +28,7 @@ namespace Model.Dto
     {
         public int ID_LichHenDetail { get; set; }
         public int ID_LichHen { get; set; }
-        public string TenDichVu { get; set; }
+        public string TenDichVuChamSoc { get; set; }
         public decimal DonGia { get; set; }
         public string DonViTinh { get; set; }
     } 

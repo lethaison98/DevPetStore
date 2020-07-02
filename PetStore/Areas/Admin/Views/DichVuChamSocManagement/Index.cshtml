@@ -1,0 +1,56 @@
+﻿@model  List<Model.EF.DichVuChamSoc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý dịch vụ chăm sóc</div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("Index", "DichVuChamSocManagement", FormMethod.Get))
+        {
+            <div class="row" style="padding-bottom: 5px ">
+                <div class="col-sm-8">
+                    <a type="button" class="btn btn-primary" href="/Admin/DichVuChamSocManagement/Create">Tạo mới</a>
+                </div>
+            </div>
+
+        }
+
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID Dịch vụ chăm sóc</th>
+                        <th>Tên dịch vụ</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID_DichVuChamSoc">
+                            <td>@item.ID_DichVuChamSoc</td>
+                            <td>@item.TenDichVuChamSoc</td>
+                            <td>
+                                <a href="/Admin/DichVuChamSocManagement/Edit/@item.ID_DichVuChamSoc">Sửa</a>
+                                |
+                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID_DichVuChamSoc }, new AjaxOptions
+                           {
+                               Confirm = "Xác nhận xóa",
+                               OnComplete = "$('#row_" + @item.ID_DichVuChamSoc + "').remove()",
+                               HttpMethod = "Delete"
+                           })
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

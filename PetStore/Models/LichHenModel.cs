@@ -29,6 +29,6 @@ namespace PetStore.Models
         public string LoaiThuCung { get; set; }
         public string GiongThuCung { get; set; }
 
-        public List<DichVuModel> DanhSachDichVu { get; set; }
+        public List<DichVuChamSocModel> DanhSachDichVuChamSoc { get; set; }
     }
 }

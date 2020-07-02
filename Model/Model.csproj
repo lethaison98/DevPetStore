@@ -67,10 +67,12 @@
     <Compile Include="EF\BaiViet.cs" />
     <Compile Include="EF\CapNhatKyGui.cs" />
     <Compile Include="EF\DanhMuc.cs" />
-    <Compile Include="EF\DichVu.cs" />
+    <Compile Include="EF\DichVuChamSoc.cs" />
+    <Compile Include="EF\DichVuKyGui.cs" />
     <Compile Include="EF\DonHang.cs" />
     <Compile Include="EF\DonHangDetail.cs" />
     <Compile Include="EF\GiongPet.cs" />
+    <Compile Include="EF\HotDeal.cs" />
     <Compile Include="EF\KhachHang.cs" />
     <Compile Include="EF\KhuyenMai.cs" />
     <Compile Include="EF\LichHen.cs" />

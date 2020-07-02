@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var dichVu = (List<Model.EF.DichVu>)ViewBag.DichVu;
+    var DichVuChamSoc = (List<Model.EF.DichVuChamSoc>)ViewBag.DichVuChamSoc;
 }
 @section jsFooter{
 
@@ -149,11 +149,11 @@
             </div>
             <h3 class="inner-hdng-agileinfo">Lựa chọn dịch vụ</h3>
             <div class="input-fields-w3ls2">
-                @for (int i = 0; i < Model.DanhSachDichVu.Count(); i++)
+                @for (int i = 0; i < Model.DanhSachDichVuChamSoc.Count(); i++)
                 {
                     <div class="col-sm-4">
-                        @Html.HiddenFor(m => m.DanhSachDichVu[i].dichVu.ID_DichVu)
-                        @Html.CheckBoxFor(m => m.DanhSachDichVu[i].available, false)<span style="color:bisque">  @Model.DanhSachDichVu[i].dichVu.TenDichVu </span>
+                        @Html.HiddenFor(m => m.DanhSachDichVuChamSoc[i].DichVuChamSoc.ID_DichVuChamSoc)
+                        @Html.CheckBoxFor(m => m.DanhSachDichVuChamSoc[i].available, false)<span style="color:bisque">  @Model.DanhSachDichVuChamSoc[i].DichVuChamSoc.TenDichVuChamSoc </span>
                     </div>
 
 
