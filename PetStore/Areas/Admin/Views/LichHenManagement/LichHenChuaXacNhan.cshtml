@@ -59,10 +59,33 @@
                             <td>@item.GiongThuCung</td>
                             <td style="width: 275px">
                                 <button class="btn-xacNhan btn btn-primary btn-sm" style="width:80px" data-id="@item.ID_LichHen">Xác nhận</button>
-                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:80px" data-id="@item.ID_LichHen">Từ chối</button>
+                                <button class="btn btn-danger btn-sm" style="position:center; width: 80px" data-toggle="modal" data-target="#Modal_@item.ID_LichHen">Từ chối</button>
                                 <a href="/Admin/LichHenManagement/ChiTietLichHen/@item.ID_LichHen" class="btn btn-secondary btn-sm" style="width:80px"> Chi tiết</a>
+
                             </td>
                         </tr>
+                        <div class="modal fade" id="Modal_@item.ID_LichHen" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLiveLabel">Lý do từ chối</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <textarea id="txtarea_@item.ID_LichHen" rows="5" cols="104" placeholder="Nhập lý do từ chối..."></textarea><br><br>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn-tuChoi btn btn-danger btn-sm" data-dismiss="modal" data-id="@item.ID_LichHen">Từ chối lịch chăm sóc</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     }
 
                 </tbody>

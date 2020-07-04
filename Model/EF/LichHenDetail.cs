@@ -17,6 +17,7 @@ namespace Model.EF
         public int ID_KhachHang { get; set; }
         public int ID_DichVuChamSoc { get; set; }
         public virtual LichHen LichHen { get; set; }
+        public decimal GiaTien { get; set; }
         public virtual DichVuChamSoc DichVuChamSoc { get; set; }
 
     }

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PetStore.Areas.Admin.Controllers
 {
-    public class LichHenManagementController : Controller
+    public class LichHenManagementController : BaseController
     {
         public ActionResult LichHenChuaXacNhan(String searchString, int page = 1, int pagesize = 20)
         {
@@ -57,10 +57,10 @@ namespace PetStore.Areas.Admin.Controllers
             });
         }
         [HttpPost]
-        public JsonResult TuChoi(int id)
+        public JsonResult TuChoi(int id, string lydo)
         {
             var LichHenRepo = new LichHenRepository();
-            var thanhCong = LichHenRepo.TuChoi(id);
+            var thanhCong = LichHenRepo.TuChoi(id, lydo);
             return Json(new
             {
                 status = thanhCong

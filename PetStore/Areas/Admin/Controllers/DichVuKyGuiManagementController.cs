@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PetStore.Areas.Admin.Controllers
 {
-    public class DichVuKyGuiManagementController : Controller
+    public class DichVuKyGuiManagementController : BaseController
     {
         public ActionResult Index()
         {
@@ -52,6 +52,7 @@ namespace PetStore.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(DichVuKyGui DichVuKyGui)
         {
             var DichVuKyGuiRepo = new DichVuKyGuiRepository();

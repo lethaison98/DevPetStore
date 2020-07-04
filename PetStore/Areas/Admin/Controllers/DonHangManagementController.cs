@@ -57,10 +57,10 @@ namespace PetStore.Areas.Admin.Controllers
             });
         }
         [HttpPost]
-        public JsonResult TuChoi(int id)
+        public JsonResult TuChoi(int id, string lydo)
         {
             var donHangRepo = new DonHangRepository();
-            var thanhCong = donHangRepo.TuChoi(id);
+            var thanhCong = donHangRepo.TuChoi(id, lydo);
             return Json(new
             {
                 status = thanhCong

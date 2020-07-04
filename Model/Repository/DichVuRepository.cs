@@ -82,6 +82,7 @@ namespace Model.Repository
             {
                 var dichVu = db.DichVuChamSocs.FirstOrDefault(x => x.ID_DichVuChamSoc == entity.ID_DichVuKyGui);
                 dichVu.TenDichVuChamSoc = entity.TenDichVuKyGui;
+                dichVu.GioiThieuDichVu = entity.GioiThieuDichVu;
                 dichVu.Meo_0_2 = entity.Meo_0_2;
                 dichVu.Meo_2_5 = entity.Meo_2_5;
                 dichVu.Meo_5_8 = entity.Meo_5_8;

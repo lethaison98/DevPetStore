@@ -93,10 +93,10 @@ namespace PetStore.Areas.Admin.Controllers
             });
         }
         [HttpPost]
-        public JsonResult TuChoi(int id)
+        public JsonResult TuChoi(int id, string lydo)
         {
             var kyGuiRepo = new KyGuiRepository();
-            var thanhCong = kyGuiRepo.TuChoi(id);
+            var thanhCong = kyGuiRepo.TuChoi(id, lydo);
             return Json(new
             {
                 status = thanhCong

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.EF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace Model.Dto
         public string NgayHen { get; set; }
         public string GioHen { get; set; }
         public string GiongThuCung { get; set; }
+        public decimal TongTien { get; set; }
+        public string LyDoHuy { get; set; }
         public List<LichHenDetailDto> DanhSachLichHenDetail { get; set; }
     }
     public class LichHenDetailDto
@@ -32,4 +35,10 @@ namespace Model.Dto
         public decimal DonGia { get; set; }
         public string DonViTinh { get; set; }
     } 
+
+    public class ChiPhiLichHenDto
+    {
+        public decimal TongTien { get; set; }
+        public List<DichVuChamSoc> DSDichVu { get; set; }
+    }
 }

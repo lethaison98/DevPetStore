@@ -8,11 +8,12 @@
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
+            var text = $('#txtarea_' + id).val();
             var r = confirm("Hủy lịch hẹn đã đặt?");
             if (r == true) {
                 $.ajax({
                     url: "/Account/HuyLichHen",
-                    data: { id: id },
+                    data: { id: id , lydo: text},
                     dataType: "json",
                     type: "POST",
                     success: function (response) {

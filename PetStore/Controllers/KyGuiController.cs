@@ -37,7 +37,9 @@ namespace PetStore.Controllers
         [HttpPost]
         public ActionResult Index(KyGuiModel kyGuiModel)
         {
+            SetViewBag();
             var repo = new LichHenRepository();
+            var kyGuiRepo = new KyGuiRepository();
             var lichHen = new LichHen();
             lichHen.TenNguoiHen = kyGuiModel.TenKhachHang;
             lichHen.SoDienThoai = kyGuiModel.SoDienThoai;
@@ -48,8 +50,10 @@ namespace PetStore.Controllers
             lichHen.LoaiThuCung = kyGuiModel.LoaiThuCung;
             lichHen.GiongThuCung = kyGuiModel.GiongThuCung;
             lichHen.ID_KhachHang = kyGuiModel.ID_KhachHang;
+            lichHen.CanNang = kyGuiModel.CanNang;
             lichHen.LoaiLichHen = 2;
             lichHen.TrangThaiLichHen = 1;
+            lichHen.TongTien = kyGuiRepo.CapNhatChiPhi(kyGuiModel.LoaiThuCung, kyGuiModel.CanNang, kyGuiModel.ID_DichVuKyGui, kyGuiModel.TuNgay, kyGuiModel.TuGio, kyGuiModel.DenNgay, kyGuiModel.DenGio); 
             var id = repo.Insert(lichHen);
 
             var lichKyGui = new LichKyGui();
@@ -58,14 +62,13 @@ namespace PetStore.Controllers
             lichKyGui.TuGio = kyGuiModel.TuGio;
             lichKyGui.DenNgay = kyGuiModel.DenNgay;
             lichKyGui.DenGio = kyGuiModel.DenGio;
-            lichKyGui.LoaiKyGuiID = kyGuiModel.LoaiKyGuiId;
+            lichKyGui.ID_DichVuKyGui = kyGuiModel.ID_DichVuKyGui;
             lichKyGui.TenPet = kyGuiModel.TenPet;
             lichKyGui.SoThang = kyGuiModel.SoThang;
-            lichKyGui.CanNang = kyGuiModel.CanNang;
             lichKyGui.GioiTinh = kyGuiModel.GioiTinh;
             lichKyGui.DonTraTaiNha = kyGuiModel.DonTraTaiNha;
             lichKyGui.DiaChiDonTra = kyGuiModel.DiaChiDonTra;
-            lichKyGui.TenLoaiKyGui = kyGuiModel.TenLoaiKyGui;
+            lichKyGui.TenLoaiKyGui = new DichVuKyGuiRepository().GetByID(kyGuiModel.ID_DichVuKyGui).TenDichVuKyGui;
             lichKyGui.TinhTrangSucKhoe = kyGuiModel.TinhTrangSucKhoe;
             var lichKyGuiId = repo.InsertLichKyGui(lichKyGui);
             if (id > 0)
@@ -81,8 +84,9 @@ namespace PetStore.Controllers
         }
         public void SetViewBag(int? selectedID = null)
         {
-            var repo = new GiongPetRepository();
-            ViewBag.ID_GiongPet = new SelectList(repo.ListAll(), "ID_GiongPet", "TenGiongPet", selectedID);
+            var repo = new DichVuKyGuiRepository();
+            ViewBag.ID_DichVuKyGui = new SelectList(repo.ListAll(), "ID_DichVuKyGui", "TenDichVuKyGui", selectedID);
+            ViewBag.BangGiaDichVu = repo.ListAll();
         }
     }
 }

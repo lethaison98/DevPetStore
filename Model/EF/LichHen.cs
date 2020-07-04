@@ -17,6 +17,7 @@ namespace Model.EF
         public virtual KhachHang KhachHang { get; set; }
         public string LoaiThuCung { get; set; }
         public string GiongThuCung { get; set; }
+        public decimal CanNang { get; set; }
         public int LoaiLichHen { get; set; }
 
         [StringLength(50)]
@@ -33,6 +34,9 @@ namespace Model.EF
         [StringLength(250)]
         public string GhiChu { get; set; }
         public int TrangThaiLichHen { get; set; }
+        public decimal TongTien { get; set; }
+        public string LyDoHuy { get; set; }
+        public string DanhGia { get; set; }
 
 
     }

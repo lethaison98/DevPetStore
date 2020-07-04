@@ -27,11 +27,12 @@
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
+            var text = $('#txtarea_' + id).val();
             var r = confirm("Từ chối đơn hàng?");
             if (r == true) {
                 $.ajax({
                     url: "/Admin/DonHangManagement/TuChoi",
-                    data: { id: id },
+                    data: { id: id, lydo: text },
                     dataType: "json",
                     type: "POST",
                     success: function (response) {

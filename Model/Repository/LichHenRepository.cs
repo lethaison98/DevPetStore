@@ -30,8 +30,10 @@ namespace Model.Repository
             data.TrangThaiLichHen = entity.TrangThaiLichHen;
             data.TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(entity.TrangThaiLichHen));
             data.GiongThuCung = entity.GiongThuCung;
+            data.TongTien = entity.TongTien;
             data.NgayHen = entity.NgayHen;
             data.GioHen = entity.GioHen;
+            data.LyDoHuy = entity.LyDoHuy;
             data.DanhSachLichHenDetail = LayDanhSachLichHenChiTiet(data.ID_LichHen, 1, 10).ToList();
             return data;
         }
@@ -41,7 +43,7 @@ namespace Model.Repository
             data.ID_LichHenDetail = entity.ID_LichHenDetail;
             data.ID_LichHen = entity.ID_LichHen;
             data.TenDichVuChamSoc = entity.DichVuChamSoc.TenDichVuChamSoc;
-            //data.DonGia = entity.DichVuChamSoc.DonGia;
+            data.DonGia = entity.GiaTien;
             data.DonViTinh = entity.DichVuChamSoc.DonViTinh;
             return data;
         }
@@ -89,6 +91,7 @@ namespace Model.Repository
                 TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(x.TrangThaiLichHen)),
                 GiongThuCung = x.GiongThuCung,
                 NgayHen = x.NgayHen,
+                LyDoHuy = x.LyDoHuy,
                 GioHen = x.GioHen
             });
             return returnData.ToPagedList(page, pageSize);
@@ -125,12 +128,13 @@ namespace Model.Repository
             }
             else return false;
         }
-        public bool TuChoi(int id)
+        public bool TuChoi(int id, string lydo)
         {
             var entity = db.LichHens.SingleOrDefault(x => x.ID_LichHen == id);
             if (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.ChuaXacNhan) || (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaXacNhan)))
             {
                 entity.TrangThaiLichHen = GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaHuy);
+                entity.LyDoHuy = lydo;
                 db.SaveChanges();
                 return true;
             }
@@ -148,6 +152,51 @@ namespace Model.Repository
             else return false;
         }
 
-
+        public LichHenDetail CapNhatChiPhi(string loaiPet, decimal canNang, LichHenDetail lichHenDetail )
+        {
+            if (loaiPet == "Chó")
+            {
+                if (canNang < 10)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Cho_0_10;
+                }
+                else if (canNang >= 10 && canNang < 15)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Cho_10_15;
+                }
+                else if (canNang >= 15 && canNang < 20)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Cho_15_20;
+                }
+                else if (canNang >= 20 && canNang < 25)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Cho_20_25;
+                }
+                else
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Cho_over25;
+                }
+            }
+            else if (loaiPet == "Mèo")
+            {
+                if (canNang < 2)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Meo_0_2;
+                }
+                else if (canNang >= 2 && canNang < 5)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Meo_2_5;
+                }
+                else if (canNang >= 5 && canNang < 8)
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Meo_5_8;
+                }
+                else
+                {
+                    lichHenDetail.GiaTien = db.DichVuChamSocs.SingleOrDefault(x => x.ID_DichVuChamSoc == lichHenDetail.ID_DichVuChamSoc).Meo_over8;
+                }
+            }
+            return lichHenDetail;
+        }
     }
 }

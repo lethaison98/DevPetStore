@@ -10,21 +10,17 @@
     <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Assets/Client/js/jquery-ui.js"></script>
     <script>
-        $(function () {
-            $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker({ dateFormat: 'dd-mm-yy' });
-        });
+		$(function () {
+            $("#datepicker").datepicker({
+                dateFormat: 'dd-mm-yy',
+                minDate: 0,
+                
+            });
+
+		});
     </script>
 
 }
-<script type="application/x-javascript">
-    addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-</script>
 
 <!-- breadcrumbs -->
 <div class="breadcrumbs">
@@ -60,7 +56,7 @@
             </div>
             <h3 class="inner-hdng-agileinfo">Thông tin đặt lịch</h3>
             <div class="mid-fields-agileits-w3layouts">
-                <div class="input-fields-w3ls2">
+                <div class="input-fields-w3ls">
                     @{
                         List<SelectListItem> listLoaiThu = new List<SelectListItem>();
                         listLoaiThu.Add(new SelectListItem
@@ -76,32 +72,35 @@
                     }
                     @Html.DropDownListFor(model => model.LoaiThuCung, listLoaiThu, "Loại thú *", new { @onchange = "LoaiThu = this.value;", id = "country", autocomplete = "off", required = "" })
                 </div>
-                <div class="input-fields-w3ls2">
+                <div class="input-fields-w3ls">
                     @Html.EditorFor(model => model.GiongThuCung, new { htmlAttributes = new { placeholder = "Giống thú cưng *", autocomplete = "off", required = "" } })
                 </div>
-            </div>            
+                <div class="input-fields-w3ls">
+                    @Html.EditorFor(model => model.CanNang, new { htmlAttributes = new { placeholder = "Cân nặng *", autocomplete = "off", required = "" } })
+                </div>
+            </div>
             <div class="mid-fields-agileits-w3layouts">
                 <div class="input-fields-w3ls2">
                     @Html.EditorFor(model => model.NgayHen, new { htmlAttributes = new { placeholder = "Ngày hẹn *", id = "datepicker", name = "Text", type = "text", autocomplete = "off", required = "" } })
                 </div>
-                
+
                 <div class="input-fields-w3ls2">
                     @{
                         List<SelectListItem> listItems = new List<SelectListItem>();
                         listItems.Add(new SelectListItem
                         {
-                            Text = "7:00 - 8:00",
-                            Value = "7:00 - 8:00"
+                            Text = "07:00 - 08:00",
+                            Value = "07:00 - 08:00"
                         });
                         listItems.Add(new SelectListItem
                         {
-                            Text = "8:00 - 9:00",
-                            Value = "8:00 - 9:00",
+                            Text = "08:00 - 09:00",
+                            Value = "08:00 - 09:00",
                         });
                         listItems.Add(new SelectListItem
                         {
-                            Text = "9:00 - 10:00",
-                            Value = "9:00 - 10:00"
+                            Text = "09:00 - 10:00",
+                            Value = "09:00 - 10:00"
                         });
                         listItems.Add(new SelectListItem
                         {
@@ -165,7 +164,68 @@
             <div class="input-fields-w3ls2">
                 @Html.TextAreaFor(model => model.GhiChu, new { htmlAttributes = new { @placeholder = "Ghi chú" } })
             </div>
+            <br />
+            <a href="#" data-toggle="modal" data-target="#BangGiaDichVu">Bảng giá dịch vụ </a>
             <input type="submit" value="Xác nhận">
+            <div class="modal fade" id="BangGiaDichVu" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLiveLabel">Bảng giá dịch vụ chăm sóc</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="timetable_sub">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Tên dịch vụ</th>
+                                        <th colspan="5">Chó</th>
+                                        <th colspan="4"> Mèo</th>
+                                        <th rowspan="2"> Đơn vị tính</th>
+                                    </tr>
+       
+                                    <tr>
+                                        <th>Dưới 10kg</th>
+                                        <th>Từ 10kg đến 15kg</th>
+                                        <th>Từ 15kg đến 20kg</th>
+                                        <th>Từ 20kg đến 25kg</th>
+                                        <th>Trên 25kg</th>
+                                        <th>Dưới 2kg</th>
+                                        <th>Từ 2kg đến 5kg</th>
+                                        <th>Từ 5kg đến 8kg</th>
+                                        <th>Trên 8kg</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach( var item in DichVuChamSoc)
+                                    {
+                                        <tr>
+                                            <td>@item.TenDichVuChamSoc</td>
+                                            <td>@item.Cho_0_10.ToString("N0")</td>
+                                            <td>@item.Cho_10_15.ToString("N0")</td>
+                                            <td>@item.Cho_15_20.ToString("N0")</td>
+                                            <td>@item.Cho_20_25.ToString("N0")</td>
+                                            <td>@item.Cho_over25.ToString("N0")</td>
+                                            <td>@item.Meo_0_2.ToString("N0")</td>
+                                            <td>@item.Meo_2_5.ToString("N0")</td>
+                                            <td>@item.Meo_5_8.ToString("N0")</td>
+                                            <td>@item.Meo_over8.ToString("N0")</td>
+                                            <td>@item.DonViTinh</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </div>

@@ -7,11 +7,12 @@
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
+            var text = $('#txtarea_' + id).val();
             var r= confirm("Xác nhận lịch hẹn chăm sóc?");
             if (r == true) {
                 $.ajax({
                     url: "/Admin/LichHenManagement/XacNhan",
-                    data: { id: id },
+                    data: { id: id, lydo: text },
                     dataType: "json",
                     type: "POST",
                     success: function (response) {

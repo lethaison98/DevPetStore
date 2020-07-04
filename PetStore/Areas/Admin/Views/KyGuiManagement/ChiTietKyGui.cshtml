@@ -36,6 +36,7 @@
             <h6>Thời gian bắt đầu: <strong>@Model.TuGio ngày @Model.TuNgay</strong></h6>
             <h6>Thời gian kết thúc <strong>@Model.DenGio ngày @Model.DenNgay</strong></h6>
             <h6>Gói ký gửi: <strong>@Model.TenLoaiKyGui</strong></h6>
+            <h6>Chi phí dự tính: <strong>@Model.TongTien.ToString("N0") đồng</strong></h6>
             <h6>Đón trả thú cưng tại nhà: <strong>@Model.DonTraTaiNha</strong></h6>
             <h6>Địa chỉ đón trả: <strong>@Model.DiaChiDonTra</strong></h6>
             <h6>Ghi chú: <strong>@Model.GhiChu</strong></h6>
@@ -61,7 +62,7 @@
                             <td>@item.ThoiGianCapNhat</td>
                             <td>@item.TinhTrangThuCung</td>
                             <td>@Html.Raw(item.NoiDungCapNhat)</td>
-                            <td style="width: 330px"><img src="@item.imgLink1" width="100" /> <img src="@item.imgLink2" width="100" /><img src="@item.imgLink3" width="100" /></td>
+                            <td style="width: 340px"><img src="@item.imgLink1" width="100" /> <img src="@item.imgLink2" width="100" /> <img src="@item.imgLink3" width="100" /></td>
 
                         </tr>
                     }

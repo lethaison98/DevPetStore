@@ -62,11 +62,32 @@
                             <td>@item.TenTrangThaiDonHang</td>
                             <td style="width: 320px">
                                 <button class="btn-hoanThanh btn btn-primary btn-sm" style="width:100px" data-id="@item.ID_DonHang">Hoàn thành</button>
-                                <button class="btn-tuChoi btn btn-danger btn-sm" style="width:90px" data-id="@item.ID_DonHang">Bị Hủy</button>
+                                <button class="btn btn-danger btn-sm" style="position:center; width: 90px" data-toggle="modal" data-target="#Modal_@item.ID_DonHang">Bị hủy</button>
                                 <a href="/Admin/DonHangManagement/ChiTietDonHang/@item.ID_DonHang" class="btn btn-secondary btn-sm" style="width:90px"> Chi tiết</a>
                             </td>
                         </tr>
+                        <div class="modal fade" id="Modal_@item.ID_DonHang" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLiveLabel">Lý do bị hủy</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
 
+                                        <textarea id="txtarea_@item.ID_DonHang" rows="5" cols="104" placeholder="Nhập lý do đơn hàng bị hủy..."></textarea><br><br>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn-tuChoi btn btn-danger btn-sm" data-dismiss="modal" data-id="@item.ID_DonHang">Hủy đơn hàng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     }
 
                 </tbody>

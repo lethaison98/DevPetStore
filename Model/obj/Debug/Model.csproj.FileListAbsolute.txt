@@ -39,6 +39,8 @@ E:\New folder\PetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\New folder\PetStore\Model\obj\Debug\Model.dll
 E:\New folder\PetStore\Model\obj\Debug\Model.pdb
 E:\New folder\PetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\PetStore\Model\obj\Debug\Model.Migrations.INIT.resources
+E:\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
 E:\DevPetStore\Model\bin\Debug\Model.dll.config
 E:\DevPetStore\Model\bin\Debug\Model.dll
 E:\DevPetStore\Model\bin\Debug\Model.pdb
@@ -50,11 +52,13 @@ E:\DevPetStore\Model\bin\Debug\EntityFramework.xml
 E:\DevPetStore\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\DevPetStore\Model\bin\Debug\PagedList.xml
 E:\DevPetStore\Model\bin\Debug\PagedList.Mvc.xml
-E:\DevPetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\DevPetStore\Model\obj\Debug\Model.Migrations.init.resources
+E:\DevPetStore\Model\obj\Debug\Model.Migrations.init1.resources
+E:\DevPetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
 E:\DevPetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\DevPetStore\Model\obj\Debug\Model.dll
 E:\DevPetStore\Model\obj\Debug\Model.pdb
-E:\PetStore\Model\obj\Debug\Model.Migrations.INIT.resources
-E:\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
-E:\DevPetStore\Model\obj\Debug\Model.Migrations.init.resources
-E:\DevPetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
+E:\DevPetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\DevPetStore\Model\obj\Debug\Model.Migrations.init2.resources
+E:\DevPetStore\Model\obj\Debug\Model.Migrations.init3.resources
+E:\DevPetStore\Model\obj\Debug\Model.Migrations.init4.resources

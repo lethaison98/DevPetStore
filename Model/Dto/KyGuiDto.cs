@@ -11,6 +11,7 @@ namespace Model.Dto
     {
         public int ID_LichHen { get; set; }
         public int ID_KhachHang { get; set; }
+        public decimal TongTien { get; set; }
         [StringLength(50)]
         public string TenKhachHang { get; set; }
         [StringLength(20)]
@@ -21,6 +22,7 @@ namespace Model.Dto
         public string NgayHen { get; set; }
         public string GioHen { get; set; }
         public string GiongThuCung { get; set; }
+        public string LyDoHuy { get; set; }
 
     }
     public class KyGuiChiTietDto
@@ -28,6 +30,8 @@ namespace Model.Dto
         public int ID_LichKyGui { get; set; }
         public int ID_LichHen { get; set; }
         public int ID_KhachHang { get; set; }
+        public int ID_DichVuKyGui { get; set; }
+        public decimal TongTien { get; set; }
 
         [StringLength(50)]
         public string TenKhachHang { get; set; }
@@ -51,6 +55,7 @@ namespace Model.Dto
         public decimal CanNang { get; set; }
         public string GioiTinh { get; set; }
         public string TinhTrangSucKhoe { get; set; }
+        public string LyDoHuy { get; set; }
         public string DonTraTaiNha { get; set; }
         public string DiaChiDonTra { get; set; }
         public string TenLoaiKyGui { get; set; }

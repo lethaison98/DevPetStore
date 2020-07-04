@@ -27,11 +27,12 @@
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
+            var text = $('#txtarea_' + id).val();
             var r = confirm("Từ chối lịch ký gửi?");
             if (r == true) {
                 $.ajax({
                     url: "/Admin/KyGuiManagement/TuChoi",
-                    data: { id: id },
+                    data: { id: id, lydo: text },
                     dataType: "json",
                     type: "POST",
                     success: function (response) {

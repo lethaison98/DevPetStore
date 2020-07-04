@@ -24,6 +24,7 @@ namespace Model.Repository
             var data = new KyGuiDto();
             data.ID_LichHen = entity.ID_LichHen;
             data.ID_KhachHang = entity.ID_KhachHang;
+            data.TongTien = entity.TongTien;
             data.TenKhachHang = entity.TenNguoiHen;
             data.CreateDate = entity.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             data.SoDienThoai = entity.SoDienThoai;
@@ -32,6 +33,7 @@ namespace Model.Repository
             data.GiongThuCung = entity.GiongThuCung;
             data.NgayHen = entity.NgayHen;
             data.GioHen = entity.GioHen;
+            data.LyDoHuy = entity.LyDoHuy;
             return data;
         }
         public KyGuiChiTietDto ConvertToChiTietDto(LichKyGui entity)
@@ -40,6 +42,8 @@ namespace Model.Repository
             data.ID_LichKyGui = entity.ID_LichKyGui;
             data.ID_LichHen = entity.ID_LichHen;
             data.ID_KhachHang = entity.LichHen.ID_KhachHang;
+            data.ID_DichVuKyGui = entity.ID_DichVuKyGui;
+            data.TongTien = entity.LichHen.TongTien;
             data.TenKhachHang = entity.LichHen.TenNguoiHen;
             data.SoDienThoai = entity.LichHen.SoDienThoai;
             data.Email = entity.LichHen.Email;
@@ -50,7 +54,6 @@ namespace Model.Repository
             data.GiongThuCung = entity.LichHen.GiongThuCung;
             data.LoaiThuCung = entity.LichHen.LoaiThuCung;
             data.SoThang = entity.SoThang;
-            data.CanNang = entity.CanNang;
             data.GioiTinh = entity.GioiTinh;
             data.TuGio = entity.TuGio;
             data.TuNgay = entity.TuNgay;
@@ -60,6 +63,7 @@ namespace Model.Repository
             data.DiaChiDonTra = entity.DiaChiDonTra;
             data.TenLoaiKyGui = entity.TenLoaiKyGui;
             data.GhiChu = entity.LichHen.GhiChu;
+            data.LyDoHuy = entity.LichHen.LyDoHuy;
             data.DanhSachCapNhat = LayThongTinKyGui(entity.ID_LichHen);
             return data;
         }
@@ -104,9 +108,11 @@ namespace Model.Repository
                 CreateDate = x.CreateDate.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                 SoDienThoai = x.SoDienThoai,
                 TrangThaiLichHen = x.TrangThaiLichHen,
+                TongTien = x.TongTien,
                 TenTrangThaiLichHen = GetLichHenEnum.GetText(GetLichHenEnum.GetByCode(x.TrangThaiLichHen)),
                 GiongThuCung = x.GiongThuCung,
                 NgayHen = x.NgayHen,
+                LyDoHuy = x.LyDoHuy,
                 GioHen = x.GioHen
             });
             return returnData.ToPagedList(page, pageSize);
@@ -149,12 +155,13 @@ namespace Model.Repository
             }
             else return false;
         }
-        public bool TuChoi(int id)
+        public bool TuChoi(int id, string lydo)
         {
             var entity = db.LichHens.SingleOrDefault(x => x.ID_LichHen == id);
             if (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.ChuaXacNhan) || (entity.TrangThaiLichHen == GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaXacNhan)))
             {
                 entity.TrangThaiLichHen = GetLichHenEnum.GetCode(TrangThaiLichHenEnum.DaHuy);
+                entity.LyDoHuy = lydo;
                 db.SaveChanges();
                 return true;
             }
@@ -182,6 +189,71 @@ namespace Model.Repository
         public List<CapNhatKyGuiDto> LayThongTinKyGui (int id)
         {
             return db.CapNhatKyGuis.Where(x => x.LichKyGui.LichHen.ID_LichHen == id).Select(ConvertToCapNhatKyGuiDto).ToList();
+        }
+        public decimal CapNhatChiPhi(string loaiPet, decimal canNang, int ID_DichVuKyGui, string fromDate, string fromHour,string toDate, string toHour)
+        {
+            decimal donGia = 0;
+            decimal thanhTien = 0;
+            if (loaiPet == "Chó")
+            {
+                if (canNang < 10)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Cho_0_10;
+                }
+                else if (canNang >= 10 && canNang < 15)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Cho_10_15;
+                }
+                else if (canNang >= 15 && canNang < 20)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Cho_15_20;
+                }
+                else if (canNang >= 20 && canNang < 25)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Cho_20_25;
+                }
+                else
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Cho_over25;
+                }
+            }
+            else if (loaiPet == "Mèo")
+            {
+                if (canNang < 2)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Meo_0_2;
+                }
+                else if (canNang >= 2 && canNang < 5)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Meo_2_5;
+                }
+                else if (canNang >= 5 && canNang < 8)
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Meo_5_8;
+                }
+                else
+                {
+                    donGia = db.DichVuKyGuis.SingleOrDefault(x => x.ID_DichVuKyGui == ID_DichVuKyGui).Meo_over8;
+                }
+            }
+            string from = fromDate + " " + fromHour;
+            string to = toDate + " " + toHour;
+            DateTime tuNgay = DateTime.ParseExact(from, "dd-MM-yyyy HH:mm", null);
+            DateTime denNgay = DateTime.ParseExact(to, "dd-MM-yyyy HH:mm", null);
+            var khoangThoiGian = denNgay - tuNgay;
+            double soNgay = khoangThoiGian.Days;
+            var soGio = khoangThoiGian.Hours;
+            if(soGio > 12)
+            {
+                soNgay = soNgay + 1;
+            }
+            else
+            if(soNgay >0 )
+            {
+                soNgay = soNgay + 0.5;
+            }
+            thanhTien = (decimal)soNgay * donGia;
+            return thanhTien;
         }
     }
 }

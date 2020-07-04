@@ -35,6 +35,8 @@ namespace Model.EF
         public int TrangThaiDatHang { get; set; }
         public int TrangThaiGiaoHang { get; set; }
         public int TrangThaiDonHang { get; set; }
+        public string LyDoHuy { get; set; }
+        public string DanhGia { get; set; }
 
     }
 }

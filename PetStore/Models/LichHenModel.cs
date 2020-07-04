@@ -28,6 +28,7 @@ namespace PetStore.Models
         public string TrangThaiLichHen { get; set; }
         public string LoaiThuCung { get; set; }
         public string GiongThuCung { get; set; }
+        public decimal CanNang { get; set; }
 
         public List<DichVuChamSocModel> DanhSachDichVuChamSoc { get; set; }
     }

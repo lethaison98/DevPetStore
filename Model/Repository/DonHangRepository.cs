@@ -32,6 +32,7 @@ namespace Model.Repository
             data.TongTien = entity.TongTien;
             data.TrangThaiDonHang = entity.TrangThaiDonHang;
             data.TenTrangThaiDonHang= GetEnum.GetText(GetEnum.GetByCode(data.TrangThaiDonHang));
+            data.LyDoHuy = entity.LyDoHuy;
             data.DanhSachDonHangChiTiet = new DonHangChiTietRepository().ListAllPaging(data.ID_DonHang, 1, 10).ToList();
             return data;
         }
@@ -79,12 +80,13 @@ namespace Model.Repository
             }
             else return false;
         }
-        public bool TuChoi(int id)
+        public bool TuChoi(int id, string lydo)
         {
             var entity = db.DonHangs.SingleOrDefault(x => x.ID_DonHang == id);
             if (entity.TrangThaiDonHang == GetEnum.GetCode(TrangThaiDonHangEnum.ChuaXacNhan) || (entity.TrangThaiDonHang == GetEnum.GetCode(TrangThaiDonHangEnum.DaXacNhan)))
             {
                 entity.TrangThaiDonHang = GetEnum.GetCode(TrangThaiDonHangEnum.DaHuy);
+                entity.LyDoHuy = lydo;
                 entity.ConfirmDate = DateTime.Now;
                 db.SaveChanges();
                 return true;

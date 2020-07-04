@@ -170,10 +170,10 @@ namespace PetStore.Controllers
 
         }
         [HttpPost]
-        public JsonResult HuyDonHang(int id)
+        public JsonResult HuyDonHang(int id, string lydo)
         {
             var donHangRepo = new DonHangRepository();
-            var thanhCong = donHangRepo.TuChoi(id);
+            var thanhCong = donHangRepo.TuChoi(id, lydo);
             return Json(new
             {
                 status = thanhCong
@@ -212,10 +212,10 @@ namespace PetStore.Controllers
         }
 
         [HttpPost]
-        public JsonResult HuyLichHen(int id)
+        public JsonResult HuyLichHen(int id, string lydo)
         {
             var LichHenRepo = new LichHenRepository();
-            var thanhCong = LichHenRepo.TuChoi(id);
+            var thanhCong = LichHenRepo.TuChoi(id, lydo);
             return Json(new
             {
                 status = thanhCong
@@ -253,10 +253,10 @@ namespace PetStore.Controllers
 
         }
         [HttpPost]
-        public JsonResult HuyKyGui(int id)
+        public JsonResult HuyKyGui(int id, string lydo)
         {
             var kyGuiRepo = new KyGuiRepository();
-            var thanhCong = kyGuiRepo.TuChoi(id);
+            var thanhCong = kyGuiRepo.TuChoi(id, lydo);
             return Json(new
             {
                 status = thanhCong

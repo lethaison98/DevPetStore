@@ -31,6 +31,7 @@ namespace Model.Dto
         public string TenTrangThaiGiaoHang { get; set; }
         public int TrangThaiDonHang { get; set; }
         public string TenTrangThaiDonHang { get; set; }
+        public string LyDoHuy { get; set; }
         public List<DonHangDetailDto> DanhSachDonHangChiTiet { get; set; }
     }
     public class DonHangDetailDto{

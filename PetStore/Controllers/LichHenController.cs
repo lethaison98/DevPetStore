@@ -61,6 +61,19 @@ namespace PetStore.Controllers
                 lichHen.TrangThaiLichHen = 1;
                 lichHen.LoaiThuCung = lichHenModel.LoaiThuCung;
                 lichHen.GiongThuCung = lichHenModel.GiongThuCung;
+                lichHen.CanNang = lichHenModel.CanNang;
+                lichHen.TongTien = 0;
+                foreach (var item in lichHenModel.DanhSachDichVuChamSoc)
+                {
+                    if (item.available)
+                    {
+                        var lichHenDetail = new LichHenDetail();
+                        lichHenDetail.ID_DichVuChamSoc = item.DichVuChamSoc.ID_DichVuChamSoc;
+                        lichHenDetail = repo.CapNhatChiPhi(lichHen.LoaiThuCung, lichHen.CanNang, lichHenDetail);
+                        lichHen.TongTien += lichHenDetail.GiaTien;
+                    }
+
+                }
                 var id = repo.Insert(lichHen);
 
                 foreach(var item in lichHenModel.DanhSachDichVuChamSoc)
@@ -71,6 +84,7 @@ namespace PetStore.Controllers
                         lichHenDetail.ID_LichHen = id;
                         lichHenDetail.ID_KhachHang = lichHenModel.ID_KhachHang;
                         lichHenDetail.ID_DichVuChamSoc = item.DichVuChamSoc.ID_DichVuChamSoc;
+                        lichHenDetail.GiaTien = repo.CapNhatChiPhi(lichHen.LoaiThuCung, lichHen.CanNang, lichHenDetail).GiaTien;
                         var idLichHenDetail = repo.InsertLichHenDetail(lichHenDetail);
                     }
 
@@ -87,10 +101,10 @@ namespace PetStore.Controllers
             }
             return View();
         }
-        public void SetViewBag(int? selectedID = null)
+        public void SetViewBag()
         {
-            var repo = new GiongPetRepository();     
-            ViewBag.ID_GiongPet = new SelectList(repo.ListAll(), "ID_GiongPet", "TenGiongPet", selectedID);
+            var repo = new DichVuChamSocRepository();     
+            ViewBag.DichVuChamSoc = repo.ListAll();
 
         }
     }

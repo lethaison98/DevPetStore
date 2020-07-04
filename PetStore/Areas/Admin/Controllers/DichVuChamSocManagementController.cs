@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PetStore.Areas.Admin.Controllers
 {
-    public class DichVuChamSocManagementController : Controller
+    public class DichVuChamSocManagementController : BaseController
     {
         // GET: Admin/DichVuChamSocManagement
         public ActionResult Index()

@@ -34,7 +34,7 @@ namespace PetStore.Models
         public string TinhTrangSucKhoe { get; set; }
         public bool DonTraTaiNha { get; set; }
         public string DiaChiDonTra { get; set; }
-        public int LoaiKyGuiId { get; set; }
+        public int ID_DichVuKyGui { get; set; }
         public string TenLoaiKyGui { get; set; }
         [StringLength(250)]
         public string GhiChu { get; set; }

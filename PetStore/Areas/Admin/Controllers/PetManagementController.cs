@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace PetStore.Areas.Admin.Controllers
 {
-    public class PetManagementController : Controller
+    public class PetManagementController : BaseController
     {
         // GET: Admin/PetManagement
         public ActionResult Index(String searchString, int page = 1, int pagesize = 10)
