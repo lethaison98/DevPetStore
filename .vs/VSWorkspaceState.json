@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Model",
     "\\PetStore",
     "\\PetStore\\Areas",
     "\\PetStore\\Areas\\Admin",

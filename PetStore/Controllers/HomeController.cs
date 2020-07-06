@@ -46,6 +46,7 @@ namespace PetStore.Controllers
         public void SetViewBag()
         {
             ViewBag.Slide = new SlideRepository().ListAll();
+            ViewBag.HotDeal = new HotDealRepository().ListAll();
         }
     }
 }

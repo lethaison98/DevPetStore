@@ -155,6 +155,7 @@
     <Compile Include="Areas\Admin\Controllers\DanhMucController.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVuChamSocManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVuKyGuiManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HotDealManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\KyGuiManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaiVietManagementController.cs" />
@@ -1322,6 +1323,9 @@
     <Content Include="Areas\Admin\Views\SlideManagement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SlideManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SlideManagement\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HotDealManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HotDealManagement\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HotDealManagement\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

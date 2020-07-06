@@ -80,8 +80,8 @@ namespace Model.Repository
             }
             else
             {
-                var dichVu = db.DichVuChamSocs.FirstOrDefault(x => x.ID_DichVuChamSoc == entity.ID_DichVuKyGui);
-                dichVu.TenDichVuChamSoc = entity.TenDichVuKyGui;
+                var dichVu = db.DichVuKyGuis.FirstOrDefault(x => x.ID_DichVuKyGui == entity.ID_DichVuKyGui);
+                dichVu.TenDichVuKyGui = entity.TenDichVuKyGui;
                 dichVu.GioiThieuDichVu = entity.GioiThieuDichVu;
                 dichVu.Meo_0_2 = entity.Meo_0_2;
                 dichVu.Meo_2_5 = entity.Meo_2_5;

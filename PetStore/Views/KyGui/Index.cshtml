@@ -291,7 +291,7 @@
             </div>
             <div class="mid-fields-agileits-w3layouts">
                 <div class="input-fields-w3ls2">
-                   @Html.DropDownList("ID_DichVuKyGui", null, htmlAttributes: new { @class = "form-control",placeholder = "Lựa chọn gói ký gửi", id = "country", required = "" })
+                   @Html.DropDownList("ID_DichVuKyGui", null, htmlAttributes: new { @class = "form-control", placeholder = "Lựa chọn gói ký gửi", id = "country", required = "" })
                     @Html.ValidationMessageFor(model => model.ID_DichVuKyGui, "", new { @class = "text-danger" })
                 </div>
                 <div class="input-fields-w3ls2">
@@ -375,6 +375,11 @@
                                     }
                                 </tbody>
                             </table>
+                            </br>
+                            @foreach (var item in BangGiaDichVu)
+                            {
+                                <span> @item.TenDichVuKyGui bao gồm </span>  @Html.Raw(item.GioiThieuDichVu);
+                            }
 
 
                         </div>

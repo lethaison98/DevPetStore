@@ -62,6 +62,7 @@
     <Compile Include="Attributes\TrangThaiAttribute.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Dto\DonHangDto.cs" />
+    <Compile Include="Dto\HotDealDto.cs" />
     <Compile Include="Dto\KyGuiDto.cs" />
     <Compile Include="Dto\LichHenDto.cs" />
     <Compile Include="EF\BaiViet.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Repository\DonHangRepository.cs" />
     <Compile Include="Repository\BaiVietRepository.cs" />
     <Compile Include="Repository\GiongPetRepository.cs" />
+    <Compile Include="Repository\HotDealRepository.cs" />
     <Compile Include="Repository\KhachHangRepository.cs" />
     <Compile Include="Repository\LichHenRepository.cs" />
     <Compile Include="Repository\KyGuiRepository.cs" />

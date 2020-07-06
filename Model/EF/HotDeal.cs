@@ -16,5 +16,6 @@ namespace Model.EF
         public int ID_Item { get; set; }
         [Display(Name = "Giá khuyến mãi")]
         public decimal GiaKhuyenMai { get; set; }
+        public virtual Pet Pet { get; set; }
     }
 }
