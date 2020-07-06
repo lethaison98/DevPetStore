@@ -163,6 +163,7 @@
     <Compile Include="Areas\Admin\Controllers\LichHenManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PetManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlideManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserManagementController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -1318,6 +1319,9 @@
     <Content Include="Areas\Admin\Views\DichVuKyGuiManagement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DichVuKyGuiManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DichVuKyGuiManagement\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SlideManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SlideManagement\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SlideManagement\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

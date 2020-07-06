@@ -39,8 +39,6 @@ E:\New folder\PetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\New folder\PetStore\Model\obj\Debug\Model.dll
 E:\New folder\PetStore\Model\obj\Debug\Model.pdb
 E:\New folder\PetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
-E:\PetStore\Model\obj\Debug\Model.Migrations.INIT.resources
-E:\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache
 E:\DevPetStore\Model\bin\Debug\Model.dll.config
 E:\DevPetStore\Model\bin\Debug\Model.dll
 E:\DevPetStore\Model\bin\Debug\Model.pdb
@@ -56,3 +54,5 @@ E:\DevPetStore\Model\obj\Debug\Model.csproj.CopyComplete
 E:\DevPetStore\Model\obj\Debug\Model.dll
 E:\DevPetStore\Model\obj\Debug\Model.pdb
 E:\DevPetStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\PetStore\Model\obj\Debug\Model.Migrations.init.resources
+E:\PetStore\Model\obj\Debug\Model.csproj.GenerateResource.cache

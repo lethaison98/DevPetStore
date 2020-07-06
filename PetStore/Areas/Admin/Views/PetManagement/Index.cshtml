@@ -36,28 +36,12 @@
                         <th>Màu Lông</th>
                         <th>Nguồn gốc</th>
                         <th>Giá tiền</th>
-                        <th>Giới tính (Đực)</th>
+                        <th>Giới tính</th>
                         <th>Status</th>
                         @*<th>Meta Title</th>*@
                         <th>#</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Tên Pet</th>
-                        <th>Giống Pet</th>
-                        @*<th>Mô tả</th>*@
-                        @*<th>Hình ảnh</th>*@
-                        @*<th>Chi tiết</th>*@
-                        <th>Màu Lông</th>
-                        <th>Nguồn gốc</th>
-                        <th>Giá tiền</th>
-                        <th>Giới tính (Đực)</th>
-                        <th>Status</th>
-                        @*<th>Meta Title</th>*@
-                        <th>#</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     @foreach (var item in Model)
                     {
@@ -70,7 +54,7 @@
                             <td>@item.MauLong</td>
                             <td>@item.NguonGoc</td>
                             <td>@item.GiaTien.ToString("N0")</td>
-                            <td>@item.GioiTinh</td>
+                            <td>@(@item.GioiTinh == true ? "Đực" : "Cái")</td>
                             <td>@item.Status</td>
                             @*<td>@item.MetaTitle</td>*@
                             <td>

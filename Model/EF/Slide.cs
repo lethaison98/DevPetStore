@@ -13,9 +13,13 @@ namespace Model.EF
     {
         [Key]
         public int ID_Slide { get; set; }
+        [Display(Name = "Đường dẫn ảnh")]
         public string Link_Image { get; set; }
+        [Display(Name = "Tiêu đề")]
         public string TieuDe { get; set; }
+        [Display(Name = "Chi tiết")]
         public string ChiTiet { get; set; }
+        [Display(Name = "Thứ tự")]
         public int ThuTu { get; set; }
 
     }

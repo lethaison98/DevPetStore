@@ -1,4 +1,5 @@
-﻿using PetStore.Models;
+﻿using Model.Repository;
+using PetStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PetStore.Controllers
     {
         public ActionResult Index()
         {
+            SetViewBag();
             return View();
         }
         public ActionResult PageNotFound()
@@ -40,6 +42,10 @@ namespace PetStore.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public void SetViewBag()
+        {
+            ViewBag.Slide = new SlideRepository().ListAll();
         }
     }
 }

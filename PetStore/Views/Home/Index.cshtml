@@ -1,54 +1,38 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var Slide = (List<Model.EF.Slide>)ViewBag.Slide;
 }
 <!-- banner -->
 @section slide{
     <div class="banner">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                @for (int i = 1; i < Slide.Count(); i++)
+                {
+                    <li data-target="#myCarousel" data-slide-to="@i"></li>
+                }
             </ol>
 
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="~/Upload/images/slide1.jpg" alt="dog" class="img-responsive">
+                    <img src="@Slide[0].Link_Image" alt="dog" class="img-responsive">
                     <div class="carousel-caption ch">
-                        <h3>Lorem ipsum dolor adipiscing elit. </h3>
-                        <p>Suspendisse ut ante eget ex maximus malesuada tincidunt eu ex.</p>
+                        <h3>@Slide[0].TieuDe</h3>
+                        <p>@Html.Raw(@Slide[0].ChiTiet)</p>
                     </div>
                 </div>
-                <div class="item">
-                    <img src="~/Upload/images/slide2.jpg" alt="cat" class="img-responsive">
-                    <div class="carousel-caption ch">
-                        <h3>Praesent sit amet consequat ante.</h3>
-                        <p>Suspendisse ut ante eget ex maximus malesuada tincidunt eu ex.</p>
+                @for (int i = 1; i < Slide.Count(); i++)
+                {
+                    <div class="item">
+                        <img src="@Slide[i].Link_Image" alt="dog" class="img-responsive">
+                        <div class="carousel-caption ch">
+                            <h3>@Slide[i].TieuDe</h3>
+                            <p>@Html.Raw(Slide[i].ChiTiet)</p>
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <img src="~/Upload/images/slide3.jpg" alt="wolfdog" class="img-responsive">
-                    <div class="carousel-caption ch">
-                        <h3>Sed at ligula sed nibh rutrum pretium </h3>
-                        <p>Suspendisse ut ante eget ex maximus malesuada tincidunt eu ex.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="~/Upload/images/slide4.jpg" alt="wolfdog" class="img-responsive">
-                    <div class="carousel-caption ch">
-                        <h3>Sed at ligula sed nibh rutrum pretium </h3>
-                        <p>Suspendisse ut ante eget ex maximus malesuada tincidunt eu ex.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="~/Upload/images/slide5.jpg" alt="wolfdog" class="img-responsive">
-                    <div class="carousel-caption ch">
-                        <h3>Sed at ligula sed nibh rutrum pretium </h3>
-                        <p>Suspendisse ut ante eget ex maximus malesuada tincidunt eu ex.</p>
-                    </div>
-                </div>
+                }
             </div>
 
             <a class="carousel-control left" href="#myCarousel" role="button" data-slide="prev">

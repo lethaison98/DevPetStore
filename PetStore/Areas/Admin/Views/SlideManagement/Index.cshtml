@@ -1,20 +1,20 @@
-﻿
-@model  PagedList.IPagedList<Model.EF.GiongPet>
+﻿@model  PagedList.IPagedList<Model.EF.Slide>
 @using PagedList.Mvc
 @{
-    ViewBag.Title = "Quản lý Giống Pet";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="card mb-4">
-    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Giống Pet</div>
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Quản lý Slide</div>
     <div class="card-body">
 
-        @using (Html.BeginForm("Index", "GiongPet", FormMethod.Get))
+        @using (Html.BeginForm("Index", "SlideManagement", FormMethod.Get))
         {
             <div class="row" style="padding-bottom: 5px ">
                 <div class="col-sm-8">
-                    <a type="button" class="btn btn-primary" href="/Admin/GiongPet/Create">Tạo mới</a>
+                    <a type="button" class="btn btn-primary" href="/Admin/SlideManagement/Create">Tạo mới</a>
                 </div>
                 <div class="col-sm-4">
                     <input type="text" name="searchString" />
@@ -28,10 +28,8 @@
             <table class="table table-bordered" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Tên Giống Pet</th>
-                        <th>Loại Pet</th>
-                        <th>Hình ảnh</th>
-                        <th>Meta Title</th>
+                        <th>Tiêu đề</th>
+                        <th>Thứ tự</th>
                         <th>#</th>
                     </tr>
                 </thead>
@@ -39,19 +37,18 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr id="row_@item.ID_GiongPet">
-                            <td>@item.TenGiongPet</td>
-                            <td>@item.ID_DanhMuc</td>
-                            <td>@item.MetaTitle</td>
+                        <tr id="row_@item.ID_Slide">
+                            <td>@item.TieuDe</td>
+                            <td>@item.ThuTu</td>
                             <td>
-                                <a href="/Admin/GiongPet/Edit/@item.ID_GiongPet">Sửa</a>
+                                <a href="/Admin/SlideManagement/Edit/@item.ID_Slide">Sửa</a>
                                 |
-                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID_GiongPet }, new AjaxOptions
-                            {
+                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ID_Slide }, new AjaxOptions
+                           {
                                Confirm = "Xác nhận xóa",
-                               OnComplete = "$('#row_" + @item.ID_GiongPet + "').remove()",
+                               OnComplete = "$('#row_" + @item.ID_Slide + "').remove()",
                                HttpMethod = "Delete"
-                            })
+                           })
                             </td>
                         </tr>
 
@@ -63,3 +60,4 @@
         </div>
     </div>
 </div>
+
